@@ -7,7 +7,7 @@ title: LLMariner
   Learn More <i class="fas fa-arrow-alt-circle-right ms-2"></i>
 </a>
 <a class="btn btn-lg btn-secondary me-3 mb-4" href="https://github.com/llmariner">
-  Download <i class="fab fa-github ms-2 "></i>
+  GitHub <i class="fab fa-github ms-2 "></i>
 </a>
 <p class="lead mt-5">Transform your GPU clusters into a powerhouse for generative AI workloads!</p>
 {{< blocks/link-down color="info" >}}
