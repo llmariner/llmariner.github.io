@@ -1,5 +1,5 @@
-baseURL: https://example.docsy.dev
-title: Goldydocs
+baseURL: https://llmariner.ai/
+title: LLMariner
 
 # cSpell:ignore goldmark github hugo readingtime docsy subdir lastmod pygments linenos catmullrom norsk gu
 
@@ -48,7 +48,7 @@ languages:
     languageName: English
     title: LLMariner
     params:
-      description: LLMariner site
+      description: Transform your GPU clusters into a powerhouse for generative AI workloads!
 
 markup:
   goldmark:
