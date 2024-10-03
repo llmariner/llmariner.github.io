@@ -20,12 +20,3 @@ GenAI ecosystem? If so, LLMariner is what you need. It instantly
 builds a software stack that provides an OpenAI-compatible API for
 inference, fine-tuning, and model management.
 {{% /blocks/lead %}}
-
-
-{{% blocks/section color="dark" type="row" %}}
-
-{{% blocks/feature icon="fab fa-github" title="Contributions welcome!" url="https://github.com/llmariner" %}}
-We do a Pull Request contributions workflow on **GitHub**. New users are always welcome!
-{{% /blocks/feature %}}
-
-{{% /blocks/section %}}
