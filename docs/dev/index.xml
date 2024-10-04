@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Development on LLMariner</title><link>https://llmariner.ai/docs/dev/</link><description>Recent content in Development on LLMariner</description><generator>Hugo</generator><language>en</language><atom:link href="https://llmariner.ai/docs/dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Roadmap</title><link>https://llmariner.ai/docs/dev/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/dev/roadmap/</guid><description>&lt;h2 id="milestone-0-completed">Milestone 0 (Completed)&lt;a class="td-heading-self-link" href="#milestone-0-completed" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> OpenAI compatible API&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Models: &lt;code>google-gemma-2b-it&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="milestone-1-completed">Milestone 1 (Completed)&lt;a class="td-heading-self-link" href="#milestone-1-completed" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> API authorization with Dex&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> API key management&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Quota management for fine-tuning jobs&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Inference autoscaling with GPU utilization&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Models: &lt;code>Mistral-7B-Instruct&lt;/code>, &lt;code>Meta-Llama-3-8B-Instruct&lt;/code>, and &lt;code>google-gemma-7b-it&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="milestone-2-completed">Milestone 2 (Completed)&lt;a class="td-heading-self-link" href="#milestone-2-completed" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Jupyter Notebook workspace creation&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Dynamic model loading &amp;amp; offloading in inference (initial version)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Organization &amp;amp; project management&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> MLflow integration&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Weights &amp;amp; Biases integration for fine-tuning jobs&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> VectorDB installation and RAG&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Multi k8s cluster deployment (initial version)&lt;/li>
+&lt;/ul>
+&lt;h2 id="milestone-3-completed">Milestone 3 (Completed)&lt;a class="td-heading-self-link" href="#milestone-3-completed" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Object store other than MinIO&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Multi-GPU general-purpose training jobs&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Inference optimization (e.g., vLLM)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Models: &lt;code>Meta-Llama-3-8B-Instruct&lt;/code>, &lt;code>Meta-Llama-3-70B-Instruct&lt;/code>, &lt;code>deepseek-coder-6.7b-base&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="milestone-4-in-progress">Milestone 4 (In-progress)&lt;a class="td-heading-self-link" href="#milestone-4-in-progress" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Embedding API&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> API usage visibility&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Fine-tuning support with vLLM&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> High availability&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Frontend&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> GPU showback&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Non-Nvidia GPU support&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Multi k8s cluster deployment (file and vector store management)&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Monitoring &amp;amp; alerting&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> More models&lt;/li>
+&lt;/ul>
+&lt;h2 id="milestone-5">Milestone 5&lt;a class="td-heading-self-link" href="#milestone-5" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> Multi-GPU LLM fine-tuning jobs&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Events and metrics for fine-tuning jobs&lt;/li>
+&lt;/ul></description></item></channel></rss>
