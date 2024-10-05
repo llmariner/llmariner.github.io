@@ -2,6 +2,7 @@
 title: Retrieval-Augmented Generation (RAG)
 description: >
   This page describes how to use RAG with LLMariner.
+weight: 3
 ---
 
 ## An Example Flow

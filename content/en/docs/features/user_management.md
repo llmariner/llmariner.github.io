@@ -2,6 +2,7 @@
 title: User Management
 description: >
   Describes the way to manage users
+weight: 8
 ---
 
 LLMariner installs [Dex](https://github.com/dexidp/dex) by default. Dex is an identity service that uses [OpenID Connect](https://openid.net/developers/how-connect-works/) for authentication.

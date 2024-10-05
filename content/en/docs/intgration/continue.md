@@ -1,6 +1,7 @@
 ---
 title: Continue
 description: Integrate with Continue and provide an open source AI code assistant.
+weight: 2
 ---
 
 [Continue](https://www.continue.dev/) provides an open source AI code assistant. You can use LLMariner as a backend endpoint for Continue.

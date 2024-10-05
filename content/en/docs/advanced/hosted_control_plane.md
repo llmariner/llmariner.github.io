@@ -1,6 +1,7 @@
 ---
 title: Hosted Control Plane
 description: CloudNatix provides a hosted control plane of LLMariner.
+weight: 3
 ---
 
 {{% alert title="Note" color="primary" %}}

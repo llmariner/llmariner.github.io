@@ -2,6 +2,7 @@
 title: Supported Open Models
 description: >
   The following shows the supported models.
+weight: 2
 ---
 
 Please note that some models work only with specific inference runtimes.
