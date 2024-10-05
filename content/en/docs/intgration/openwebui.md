@@ -1,6 +1,7 @@
 ---
 title: Open WebUI
 description: Integrate with Open WebUI and get the web UI for the AI assistant.
+weight: 1
 ---
 
 [Open WebUI](https://docs.openwebui.com/) provides a web UI that works with OpenAI-compatible APIs. You can run Openn WebUI locally or run in a Kubernetes cluster.

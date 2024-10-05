@@ -2,6 +2,7 @@
 title: Set up a Playground
 description: >
   You can easily set up a playground for LLMariner and learn it. In this page, we provision an EC2 instance, build a [Kind](https://kind.sigs.k8s.io/) cluster, and deploy LLMariner and other required components.
+weight: 1
 ---
 
 Once all the setup completes, you can interact with the LLM service by directly hitting the API endpoints or using [the OpenAI Python library](https://github.com/openai/openai-python).

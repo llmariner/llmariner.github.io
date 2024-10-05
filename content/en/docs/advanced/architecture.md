@@ -1,6 +1,7 @@
 ---
 title: Technical Architecture
 description: Understand LLMariner architecture
+weight: 1
 ---
 
 ## Components

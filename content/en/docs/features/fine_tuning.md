@@ -2,6 +2,7 @@
 title: Model Fine-tuning
 description: >
   This page describes how to fine-tune models with LLMariner.
+weight: 4
 ---
 
 ## Submitting a Fine-Tuning Job

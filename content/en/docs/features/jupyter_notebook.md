@@ -2,6 +2,7 @@
 title: Jupyter Notebook
 description: >
   LLMariner allows users to run a Jupyter Notebook in a Kubernetes cluster. This functionality is useful when users want to run ad-hoc Python scripts that require GPU.
+weight: 5
 ---
 
 ## Creating a Jupyter Notebook
