@@ -173,6 +173,12 @@ params:
         icon: fab fa-slack
         desc: Chat with other project developers
 
+  # Enable Google Analytics.
+  services:
+    googleAnalytics:
+      ID: G-JBN3K7Y529
+
+
 module:
   # Uncomment the next line to build and serve using local docsy clone declared in the named Hugo workspace:
   # workspace: docsy.work
