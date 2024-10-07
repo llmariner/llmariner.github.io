@@ -63,7 +63,7 @@ You can provision RDS and S3 in AWS, or you can deploy Postgres and [MinIO](http
        "Resource": [
          "arn:aws:s3:::<bucket name>",
          "arn:aws:s3:::<bucket name>/*"
-   ]
+       ]
      }
    ]
  }
@@ -356,7 +356,7 @@ cat << EOF | envsubst > policy.json
         "arn:aws:s3:::${S3_BUCKET_NAME}",
         "arn:aws:s3:::${MILVUS_S3_BUCKET_NAME}/*",
         "arn:aws:s3:::${MILVUS_S3_BUCKET_NAME}"
-  ]
+      ]
     }
   ]
 }
