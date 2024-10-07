@@ -173,10 +173,10 @@ params:
         icon: fab fa-slack
         desc: Chat with other project developers
 
-  # Enable Google Analytics.
-  services:
-    googleAnalytics:
-      ID: G-JBN3K7Y529
+# Enable Google Analytics.
+services:
+  googleAnalytics:
+    ID: G-JBN3K7Y529
 
 
 module:
