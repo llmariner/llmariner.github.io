@@ -32,6 +32,11 @@
  &lt;tbody>
  &lt;tr>
  &lt;td style="text-align: left">TinyLlama/TinyLlama-1.1B-Chat-v1.0&lt;/td>
+ &lt;td style="text-align: left">None&lt;/td>
+ &lt;td style="text-align: left">vLLM&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">TinyLlama/TinyLlama-1.1B-Chat-v1.0&lt;/td>
  &lt;td style="text-align: left">AWQ&lt;/td>
  &lt;td style="text-align: left">vLLM&lt;/td>
  &lt;/tr>
