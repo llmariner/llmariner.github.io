@@ -9,6 +9,7 @@ Please note that some models work only with specific inference runtimes.
 
 Model                                        | Quantizations              |Supporting runtimes
 ---------------------------------------------|----------------------------|---------------------
+TinyLlama/TinyLlama-1.1B-Chat-v1.0           | None                       |  vLLM
 TinyLlama/TinyLlama-1.1B-Chat-v1.0           | AWQ                        |  vLLM
 deepseek-ai/DeepSeek-Coder-V2-Lite-Base      | Q2_K, Q3_K_M, Q3_K_S, Q4_0 |  Ollama
 deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct  | Q2_K, Q3_K_M, Q3_K_S, Q4_0 |  Ollama
