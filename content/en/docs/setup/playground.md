@@ -27,7 +27,7 @@ We use the Terraform configuration and Ansible playbook in the [LLMariner reposi
 
 ``` bash
 git clone https://github.com/llmariner/llmariner.git
-cd llmariner/aws
+cd llmariner/provision/aws
 ```
 
 ## Step 3: Run Terraform
