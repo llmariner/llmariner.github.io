@@ -36,17 +36,23 @@ description: Future plans
 ## Milestone 4 (In-progress)
 
 -   [X] Embedding API
--   [ ] API usage visibility
--   [ ] Fine-tuning support with vLLM
--   [ ] High availability
+-   [X] API usage visibility
+-   [X] Fine-tuning support with vLLM
+-   [X] API key encryption
+-   [X] Nvidia Triton Inference Server (experimental)
+-   [ ] Release flow
+
+## Milestone 5
+
 -   [ ] Frontend
 -   [ ] GPU showback
 -   [ ] Non-Nvidia GPU support
 -   [ ] Multi k8s cluster deployment (file and vector store management)
+-   [ ] High availability
 -   [ ] Monitoring & alerting
 -   [ ] More models
 
-## Milestone 5
+## Milestone 6
 
 -   [ ] Multi-GPU LLM fine-tuning jobs
 -   [ ] Events and metrics for fine-tuning jobs
