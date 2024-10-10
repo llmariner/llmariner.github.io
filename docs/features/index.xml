@@ -97,6 +97,11 @@
  &lt;/tr>
  &lt;tr>
  &lt;td style="text-align: left">meta-llama/Meta-Llama-3.1-8B-Instruct&lt;/td>
+ &lt;td style="text-align: left">AWQ&lt;/td>
+ &lt;td style="text-align: left">vLLM, Ollama, Triton&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">meta-llama/Meta-Llama-3.1-8B-Instruct&lt;/td>
  &lt;td style="text-align: left">Q4_0&lt;/td>
  &lt;td style="text-align: left">vLLM, Ollama&lt;/td>
  &lt;/tr>
