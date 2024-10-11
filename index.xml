@@ -395,17 +395,23 @@
 &lt;h2 id="milestone-4-in-progress">Milestone 4 (In-progress)&lt;a class="td-heading-self-link" href="#milestone-4-in-progress" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;ul>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> Embedding API&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> API usage visibility&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> Fine-tuning support with vLLM&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> High availability&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> API usage visibility&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Fine-tuning support with vLLM&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> API key encryption&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Nvidia Triton Inference Server (experimental)&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Release flow&lt;/li>
+&lt;/ul>
+&lt;h2 id="milestone-5">Milestone 5&lt;a class="td-heading-self-link" href="#milestone-5" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;ul>
 &lt;li>&lt;input disabled="" type="checkbox"> Frontend&lt;/li>
 &lt;li>&lt;input disabled="" type="checkbox"> GPU showback&lt;/li>
 &lt;li>&lt;input disabled="" type="checkbox"> Non-Nvidia GPU support&lt;/li>
 &lt;li>&lt;input disabled="" type="checkbox"> Multi k8s cluster deployment (file and vector store management)&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> High availability&lt;/li>
 &lt;li>&lt;input disabled="" type="checkbox"> Monitoring &amp;amp; alerting&lt;/li>
 &lt;li>&lt;input disabled="" type="checkbox"> More models&lt;/li>
 &lt;/ul>
-&lt;h2 id="milestone-5">Milestone 5&lt;a class="td-heading-self-link" href="#milestone-5" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="milestone-6">Milestone 6&lt;a class="td-heading-self-link" href="#milestone-6" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;ul>
 &lt;li>&lt;input disabled="" type="checkbox"> Multi-GPU LLM fine-tuning jobs&lt;/li>
 &lt;li>&lt;input disabled="" type="checkbox"> Events and metrics for fine-tuning jobs&lt;/li>
