@@ -33,16 +33,16 @@ description: Future plans
 -   [X] Inference optimization (e.g., vLLM)
 -   [X] Models: `Meta-Llama-3-8B-Instruct`, `Meta-Llama-3-70B-Instruct`, `deepseek-coder-6.7b-base`
 
-## Milestone 4 (In-progress)
+## Milestone 4 (Completed)
 
 -   [X] Embedding API
 -   [X] API usage visibility
 -   [X] Fine-tuning support with vLLM
 -   [X] API key encryption
 -   [X] Nvidia Triton Inference Server (experimental)
--   [ ] Release flow
+-   [X] Release flow
 
-## Milestone 5
+## Milestone 5 (In-progress)
 
 -   [ ] Frontend
 -   [ ] GPU showback
