@@ -28,16 +28,16 @@
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> Inference optimization (e.g., vLLM)&lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> Models: &lt;code>Meta-Llama-3-8B-Instruct&lt;/code>, &lt;code>Meta-Llama-3-70B-Instruct&lt;/code>, &lt;code>deepseek-coder-6.7b-base&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;h2 id="milestone-4-in-progress">Milestone 4 (In-progress)&lt;a class="td-heading-self-link" href="#milestone-4-in-progress" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="milestone-4-completed">Milestone 4 (Completed)&lt;a class="td-heading-self-link" href="#milestone-4-completed" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;ul>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> Embedding API&lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> API usage visibility&lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> Fine-tuning support with vLLM&lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> API key encryption&lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> Nvidia Triton Inference Server (experimental)&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> Release flow&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Release flow&lt;/li>
 &lt;/ul>
-&lt;h2 id="milestone-5">Milestone 5&lt;a class="td-heading-self-link" href="#milestone-5" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="milestone-5-in-progress">Milestone 5 (In-progress)&lt;a class="td-heading-self-link" href="#milestone-5-in-progress" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;ul>
 &lt;li>&lt;input disabled="" type="checkbox"> Frontend&lt;/li>
 &lt;li>&lt;input disabled="" type="checkbox"> GPU showback&lt;/li>
