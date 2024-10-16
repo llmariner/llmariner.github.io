@@ -19,7 +19,6 @@ helm upgrade --install \
 Once installation completes, you can interact with the API endpoint using the [OpenAI Python library](https://github.com/openai/openai-python), running our CLI, or directly hitting the endpoint. To download the CLI, run:
 
 ``` bash
-export ARCH=<e.g., linux-amd64, darwin-arm64>
 curl --silent https://llmariner.ai/get-cli | bash
 chmod u+x ./llma
 ```
