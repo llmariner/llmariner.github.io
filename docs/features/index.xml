@@ -24,96 +24,96 @@
 &lt;table>
  &lt;thead>
  &lt;tr>
- &lt;th style="text-align: left">Model&lt;/th>
- &lt;th style="text-align: left">Quantizations&lt;/th>
- &lt;th style="text-align: left">Supporting runtimes&lt;/th>
+ &lt;th>Model&lt;/th>
+ &lt;th>Quantizations&lt;/th>
+ &lt;th>Supporting runtimes&lt;/th>
  &lt;/tr>
  &lt;/thead>
  &lt;tbody>
  &lt;tr>
- &lt;td style="text-align: left">TinyLlama/TinyLlama-1.1B-Chat-v1.0&lt;/td>
- &lt;td style="text-align: left">None&lt;/td>
- &lt;td style="text-align: left">vLLM&lt;/td>
+ &lt;td>TinyLlama/TinyLlama-1.1B-Chat-v1.0&lt;/td>
+ &lt;td>None&lt;/td>
+ &lt;td>vLLM&lt;/td>
  &lt;/tr>
  &lt;tr>
- &lt;td style="text-align: left">TinyLlama/TinyLlama-1.1B-Chat-v1.0&lt;/td>
- &lt;td style="text-align: left">AWQ&lt;/td>
- &lt;td style="text-align: left">vLLM&lt;/td>
+ &lt;td>TinyLlama/TinyLlama-1.1B-Chat-v1.0&lt;/td>
+ &lt;td>AWQ&lt;/td>
+ &lt;td>vLLM&lt;/td>
  &lt;/tr>
  &lt;tr>
- &lt;td style="text-align: left">deepseek-ai/DeepSeek-Coder-V2-Lite-Base&lt;/td>
- &lt;td style="text-align: left">Q2_K, Q3_K_M, Q3_K_S, Q4_0&lt;/td>
- &lt;td style="text-align: left">Ollama&lt;/td>
+ &lt;td>deepseek-ai/DeepSeek-Coder-V2-Lite-Base&lt;/td>
+ &lt;td>Q2_K, Q3_K_M, Q3_K_S, Q4_0&lt;/td>
+ &lt;td>Ollama&lt;/td>
  &lt;/tr>
  &lt;tr>
- &lt;td style="text-align: left">deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct&lt;/td>
- &lt;td style="text-align: left">Q2_K, Q3_K_M, Q3_K_S, Q4_0&lt;/td>
- &lt;td style="text-align: left">Ollama&lt;/td>
+ &lt;td>deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct&lt;/td>
+ &lt;td>Q2_K, Q3_K_M, Q3_K_S, Q4_0&lt;/td>
+ &lt;td>Ollama&lt;/td>
  &lt;/tr>
  &lt;tr>
- &lt;td style="text-align: left">deepseek-ai/deepseek-coder-6.7b-base&lt;/td>
- &lt;td style="text-align: left">None&lt;/td>
- &lt;td style="text-align: left">vLLM, Ollama&lt;/td>
+ &lt;td>deepseek-ai/deepseek-coder-6.7b-base&lt;/td>
+ &lt;td>None&lt;/td>
+ &lt;td>vLLM, Ollama&lt;/td>
  &lt;/tr>
  &lt;tr>
- &lt;td style="text-align: left">deepseek-ai/deepseek-coder-6.7b-base&lt;/td>
- &lt;td style="text-align: left">AWQ&lt;/td>
- &lt;td style="text-align: left">vLLM&lt;/td>
+ &lt;td>deepseek-ai/deepseek-coder-6.7b-base&lt;/td>
+ &lt;td>AWQ&lt;/td>
+ &lt;td>vLLM&lt;/td>
  &lt;/tr>
  &lt;tr>
- &lt;td style="text-align: left">deepseek-ai/deepseek-coder-6.7b-base&lt;/td>
- &lt;td style="text-align: left">Q4_0&lt;/td>
- &lt;td style="text-align: left">vLLM, Ollama&lt;/td>
+ &lt;td>deepseek-ai/deepseek-coder-6.7b-base&lt;/td>
+ &lt;td>Q4_0&lt;/td>
+ &lt;td>vLLM, Ollama&lt;/td>
  &lt;/tr>
  &lt;tr>
- &lt;td style="text-align: left">google/gemma-2b-it&lt;/td>
- &lt;td style="text-align: left">None&lt;/td>
- &lt;td style="text-align: left">Ollama&lt;/td>
+ &lt;td>google/gemma-2b-it&lt;/td>
+ &lt;td>None&lt;/td>
+ &lt;td>Ollama&lt;/td>
  &lt;/tr>
  &lt;tr>
- &lt;td style="text-align: left">google/gemma-2b-it&lt;/td>
- &lt;td style="text-align: left">Q4_0&lt;/td>
- &lt;td style="text-align: left">Ollama&lt;/td>
+ &lt;td>google/gemma-2b-it&lt;/td>
+ &lt;td>Q4_0&lt;/td>
+ &lt;td>Ollama&lt;/td>
  &lt;/tr>
  &lt;tr>
- &lt;td style="text-align: left">intfloat/e5-mistral-7b-instruct&lt;/td>
- &lt;td style="text-align: left">None&lt;/td>
- &lt;td style="text-align: left">vLLM&lt;/td>
+ &lt;td>intfloat/e5-mistral-7b-instruct&lt;/td>
+ &lt;td>None&lt;/td>
+ &lt;td>vLLM&lt;/td>
  &lt;/tr>
  &lt;tr>
- &lt;td style="text-align: left">meta-llama/Meta-Llama-3.1-70B-Instruct&lt;/td>
- &lt;td style="text-align: left">AWQ&lt;/td>
- &lt;td style="text-align: left">vLLM&lt;/td>
+ &lt;td>meta-llama/Meta-Llama-3.1-70B-Instruct&lt;/td>
+ &lt;td>AWQ&lt;/td>
+ &lt;td>vLLM&lt;/td>
  &lt;/tr>
  &lt;tr>
- &lt;td style="text-align: left">meta-llama/Meta-Llama-3.1-70B-Instruct&lt;/td>
- &lt;td style="text-align: left">Q2_K, Q3_K_M, Q3_K_S, Q4_0&lt;/td>
- &lt;td style="text-align: left">vLLM, Ollama&lt;/td>
+ &lt;td>meta-llama/Meta-Llama-3.1-70B-Instruct&lt;/td>
+ &lt;td>Q2_K, Q3_K_M, Q3_K_S, Q4_0&lt;/td>
+ &lt;td>vLLM, Ollama&lt;/td>
  &lt;/tr>
  &lt;tr>
- &lt;td style="text-align: left">meta-llama/Meta-Llama-3.1-8B-Instruct&lt;/td>
- &lt;td style="text-align: left">None&lt;/td>
- &lt;td style="text-align: left">vLLM&lt;/td>
+ &lt;td>meta-llama/Meta-Llama-3.1-8B-Instruct&lt;/td>
+ &lt;td>None&lt;/td>
+ &lt;td>vLLM&lt;/td>
  &lt;/tr>
  &lt;tr>
- &lt;td style="text-align: left">meta-llama/Meta-Llama-3.1-8B-Instruct&lt;/td>
- &lt;td style="text-align: left">AWQ&lt;/td>
- &lt;td style="text-align: left">vLLM, Triton&lt;/td>
+ &lt;td>meta-llama/Meta-Llama-3.1-8B-Instruct&lt;/td>
+ &lt;td>AWQ&lt;/td>
+ &lt;td>vLLM, Triton&lt;/td>
  &lt;/tr>
  &lt;tr>
- &lt;td style="text-align: left">meta-llama/Meta-Llama-3.1-8B-Instruct&lt;/td>
- &lt;td style="text-align: left">Q4_0&lt;/td>
- &lt;td style="text-align: left">vLLM, Ollama&lt;/td>
+ &lt;td>meta-llama/Meta-Llama-3.1-8B-Instruct&lt;/td>
+ &lt;td>Q4_0&lt;/td>
+ &lt;td>vLLM, Ollama&lt;/td>
  &lt;/tr>
  &lt;tr>
- &lt;td style="text-align: left">mistralai/Mistral-7B-Instruct-v0.2&lt;/td>
- &lt;td style="text-align: left">Q4_0&lt;/td>
- &lt;td style="text-align: left">Ollama&lt;/td>
+ &lt;td>mistralai/Mistral-7B-Instruct-v0.2&lt;/td>
+ &lt;td>Q4_0&lt;/td>
+ &lt;td>Ollama&lt;/td>
  &lt;/tr>
  &lt;tr>
- &lt;td style="text-align: left">sentence-transformers/all-MiniLM-L6-v2-f16&lt;/td>
- &lt;td style="text-align: left">None&lt;/td>
- &lt;td style="text-align: left">Ollama&lt;/td>
+ &lt;td>sentence-transformers/all-MiniLM-L6-v2-f16&lt;/td>
+ &lt;td>None&lt;/td>
+ &lt;td>Ollama&lt;/td>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table></description></item><item><title>Retrieval-Augmented Generation (RAG)</title><link>https://llmariner.ai/docs/features/rag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/features/rag/</guid><description>&lt;h2 id="an-example-flow">An Example Flow&lt;a class="td-heading-self-link" href="#an-example-flow" aria-label="Heading self-link">&lt;/a>&lt;/h2>
