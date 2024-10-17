@@ -87,16 +87,31 @@ ansible all \
 
 To access LLM service, you need an API key. You can download the LLMariner CLI and use that to login the system, and obtain the API key.
 
+{{< tabpane text=true >}}
+  {{% tab header="**Install From**:" disabled=true /%}}
+  {{% tab header="Script" %}}
 ``` bash
-# Download the binary.
 curl --silent https://llmariner.ai/get-cli | bash
 chmod u+x ./llma
+mv llma <your/PATH>
+```
+  {{% /tab %}}
+  {{% tab header="Homebrew" %}}
+```bash
+brew install llmariner/tap/llma
+```
+  {{% /tab %}}
+  {{% tab header="Binary" %}}
+Download the binary from [GitHub Release Page](https://github.com/llmariner/llmariner/releases/latest).
+  {{% /tab %}}
+{{< /tabpane >}}
 
+``` bash
 # Login. Please see below for the details.
-./llma auth login
+llma auth login
 
 # Create an API key.
-./llma auth api-keys create my-key
+llma auth api-keys create my-key
 ```
 
 `llma auth login` will ask for the endpoint URL and the issuer URL. Please use the default values for them (`http://localhost:8080/v1` and `http://kong-proxy.kong/v1/dex`).
@@ -119,9 +134,9 @@ There are mainly three ways to interact with the LLM service.
 The first option is to use the CLI. Here are example commands:
 
 ``` bash
-./llma models list
+llma models list
 
-./llma chat completions create --model google-gemma-2b-it-q4_0 --role user --completion "What is k8s?"
+llma chat completions create --model google-gemma-2b-it-q4_0 --role user --completion "What is k8s?"
 ```
 
 ``` bash
