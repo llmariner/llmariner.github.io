@@ -149,10 +149,59 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> llmariner oci://public.ecr.aws/cloudnatix/llmariner-charts/llmariner &lt;span class="se">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --values &amp;lt;values.yaml&amp;gt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once installation completes, you can interact with the API endpoint using the &lt;a href="https://github.com/openai/openai-python">OpenAI Python library&lt;/a>, running our CLI, or directly hitting the endpoint. To download the CLI, run:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">curl --silent https://llmariner.ai/get-cli &lt;span class="p">|&lt;/span> bash
+
+ 
+ 
+ 
+ 
+&lt;ul class="nav nav-tabs" id="tabs-0" role="tablist">
+ &lt;li class="nav-item">
+ &lt;button class="nav-link disabled"
+ id="tabs-00-00-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-00" role="tab"
+ aria-controls="tabs-00-00" aria-selected="false">
+ &lt;strong>Install From&lt;/strong>:
+ &lt;/button>
+ &lt;/li>&lt;li class="nav-item">
+ &lt;button class="nav-link active"
+ id="tabs-00-01-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-01" role="tab"
+ data-td-tp-persist="script" aria-controls="tabs-00-01" aria-selected="true">
+ Script
+ &lt;/button>
+ &lt;/li>&lt;li class="nav-item">
+ &lt;button class="nav-link"
+ id="tabs-00-02-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-02" role="tab"
+ data-td-tp-persist="homebrew" aria-controls="tabs-00-02" aria-selected="false">
+ Homebrew
+ &lt;/button>
+ &lt;/li>&lt;li class="nav-item">
+ &lt;button class="nav-link"
+ id="tabs-00-03-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-03" role="tab"
+ data-td-tp-persist="binary" aria-controls="tabs-00-03" aria-selected="false">
+ Binary
+ &lt;/button>
+ &lt;/li>
+&lt;/ul>
+
+&lt;div class="tab-content" id="tabs-0-content">
+ &lt;div class="tab-body tab-pane fade"
+ id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab" tabindex="0">
+ 
+ &lt;/div>
+ &lt;div class="tab-body tab-pane fade show active"
+ id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab" tabindex="0">
+ &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">curl --silent https://llmariner.ai/get-cli &lt;span class="p">|&lt;/span> bash
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chmod u+x ./llma
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="eks-installation">EKS Installation&lt;a class="td-heading-self-link" href="#eks-installation" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Let's go through the details of the installation. Here we use EKS as a target K8s cluster, but it can be AKS, GKE, or any other K8s cluster.&lt;/p></description></item><item><title>Multi-Cluster and Multi-Cloud Deployment</title><link>https://llmariner.ai/docs/advanced/multi_cluster_deployment/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/advanced/multi_cluster_deployment/</guid><description>&lt;p>LLMariner deploys Kubernetes deployments to provision the LLM stack. In a typical configuration, all the services are deployed into a single Kubernetes cluster, but you can also deploy these services on multiple Kubernetes clusters. For example, you can deploy a control plane component in a CPU K8s cluster and deploy the rest of the components in GPU compute clusters.&lt;/p>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mv llma &amp;lt;your/PATH&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/div>
+ &lt;div class="tab-body tab-pane fade"
+ id="tabs-00-02" role="tabpanel" aria-labelled-by="tabs-00-02-tab" tabindex="0">
+ &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">brew install llmariner/tap/llma
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/div>
+ &lt;div class="tab-body tab-pane fade"
+ id="tabs-00-03" role="tabpanel" aria-labelled-by="tabs-00-03-tab" tabindex="0">
+ &lt;p>Download the binary from &lt;a href="https://github.com/llmariner/llmariner/releases/latest">GitHub Release Page&lt;/a>.&lt;/p></description></item><item><title>Multi-Cluster and Multi-Cloud Deployment</title><link>https://llmariner.ai/docs/advanced/multi_cluster_deployment/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/advanced/multi_cluster_deployment/</guid><description>&lt;p>LLMariner deploys Kubernetes deployments to provision the LLM stack. In a typical configuration, all the services are deployed into a single Kubernetes cluster, but you can also deploy these services on multiple Kubernetes clusters. For example, you can deploy a control plane component in a CPU K8s cluster and deploy the rest of the components in GPU compute clusters.&lt;/p>
 &lt;p>LLMariner can be deployed into multiple GPU clusters, and the clusters can span across multiple cloud providers (including GPU specific clouds like CoreWeave) and on-prem.&lt;/p></description></item><item><title>Supported Open Models</title><link>https://llmariner.ai/docs/features/models/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/features/models/</guid><description>&lt;p>Please note that some models work only with specific inference runtimes.&lt;/p>
 &lt;table>
  &lt;thead>
