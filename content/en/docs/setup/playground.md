@@ -92,7 +92,6 @@ To access LLM service, you need an API key. You can download the LLMariner CLI a
   {{% tab header="Script" %}}
 ``` bash
 curl --silent https://llmariner.ai/get-cli | bash
-chmod u+x ./llma
 mv llma <your/PATH>
 ```
   {{% /tab %}}

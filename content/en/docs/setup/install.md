@@ -23,7 +23,6 @@ Once installation completes, you can interact with the API endpoint using the [O
   {{% tab header="Script" %}}
 ``` bash
 curl --silent https://llmariner.ai/get-cli | bash
-chmod u+x ./llma
 mv llma <your/PATH>
 ```
   {{% /tab %}}
