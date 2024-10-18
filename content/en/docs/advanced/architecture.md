@@ -17,6 +17,7 @@ LLMariner provisions the LLM stack consisting of the following micro services:
 -   Cluster Manager
 -   Session Manager
 -   RBAC Manager
+-   API Usage
 
 Each manager is responsible for the specific feature of LLM services as their names indicate. The following diagram shows the high-level architecture:
 
