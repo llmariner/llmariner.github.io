@@ -25,5 +25,5 @@ PLATFORM=$(detect_platform)
 VERSION=v1.1.0
 curl -LO "https://github.com/llmariner/llmariner/releases/download/${VERSION}/llmariner_${PLATFORM}.tar.gz"
 tar -xvf llmariner_${PLATFORM}.tar.gz
-chmod +x llma
-rm llmariner_${PLATFORM}.tar.gz
+chmod u+x ./llma
+rm LICENSE README.md llmariner_${PLATFORM}.tar.gz
