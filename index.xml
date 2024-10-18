@@ -99,11 +99,12 @@
 &lt;li>Cluster Manager&lt;/li>
 &lt;li>Session Manager&lt;/li>
 &lt;li>RBAC Manager&lt;/li>
+&lt;li>API Usage&lt;/li>
 &lt;/ul>
 &lt;p>Each manager is responsible for the specific feature of LLM services as their names indicate. The following diagram shows the high-level architecture:&lt;/p>
 
 
-&lt;p>&lt;img src="https://llmariner.ai/images/architecture_diagram.png" width="1949" height="815">&lt;/p>
+&lt;p>&lt;img src="https://llmariner.ai/images/architecture_diagram.png" width="2149" height="815">&lt;/p>
 
 
 &lt;p>LLMariner has dependency to the following components:&lt;/p>
