@@ -5,7 +5,7 @@ weight: 3
 ---
 
 {{% alert title="Note" color="primary" %}}
-Work-in-progress. This is subject to change, and we might limit the usage based on the number of API calls or the number of GPU nodes.
+Work-in-progress. This is not fully ready yet, and the terms and conditions are subject to change as we might limit the usage based on the number of API calls or the number of GPU nodes.
 {{% /alert %}}
 
 CloudNatix provides a hosted control plane of LLMariner. End users can use the full functionality of LLMariner just by registering their worker GPU clusters to this hosted control plane.
