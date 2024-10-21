@@ -30,7 +30,7 @@
 &lt;p>LLMariner can be deployed into multiple GPU clusters, and the clusters can span across multiple cloud providers (including GPU specific clouds like CoreWeave) and on-prem.&lt;/p></description></item><item><title>Hosted Control Plane</title><link>https://llmariner.ai/docs/advanced/hosted_control_plane/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/advanced/hosted_control_plane/</guid><description>&lt;div class="alert alert-primary" role="alert">
 &lt;h4 class="alert-heading">Note&lt;/h4>
 
- Work-in-progress. This is subject to change, and we might limit the usage based on the number of API calls or the number of GPU nodes.
+ Work-in-progress. This is not fully ready yet, and the terms and conditions are subject to change as we might limit the usage based on the number of API calls or the number of GPU nodes.
 
 &lt;/div>
 
