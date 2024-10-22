@@ -13,20 +13,13 @@
 &lt;li>API Usage&lt;/li>
 &lt;/ul>
 &lt;p>Each manager is responsible for the specific feature of LLM services as their names indicate. The following diagram shows the high-level architecture:&lt;/p>
+&lt;!-- original file is located at ./architecture.excalidraw -->
 
 
-&lt;p>&lt;img src="https://llmariner.ai/images/architecture_diagram.png" width="2149" height="815">&lt;/p>
+&lt;p>&lt;img src="https://llmariner.ai/images/architecture_diagram.png" width="3165" height="2288">&lt;/p>
 
 
-&lt;p>LLMariner has dependency to the following components:&lt;/p>
-&lt;ul>
-&lt;li>Ingress controller&lt;/li>
-&lt;li>SQL database&lt;/li>
-&lt;li>S3-compatible object store&lt;/li>
-&lt;li>&lt;a href="https://github.com/dexidp/dex">Dex&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://milvus.io/">Milvus&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>Ingress controller is required to route traffic to each service. SQL database and S3-compatible object store are used to persist metadata (e.g., fine-tuning jobs), fine-tuned models, and training/validation files. Dex is used to provide authentication.&lt;/p></description></item><item><title>Multi-Cluster and Multi-Cloud Deployment</title><link>https://llmariner.ai/docs/advanced/multi_cluster_deployment/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/advanced/multi_cluster_deployment/</guid><description>&lt;p>LLMariner deploys Kubernetes deployments to provision the LLM stack. In a typical configuration, all the services are deployed into a single Kubernetes cluster, but you can also deploy these services on multiple Kubernetes clusters. For example, you can deploy a control plane component in a CPU K8s cluster and deploy the rest of the components in GPU compute clusters.&lt;/p>
+&lt;p>LLMariner has dependency to the following components:&lt;/p></description></item><item><title>Multi-Cluster and Multi-Cloud Deployment</title><link>https://llmariner.ai/docs/advanced/multi_cluster_deployment/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/advanced/multi_cluster_deployment/</guid><description>&lt;p>LLMariner deploys Kubernetes deployments to provision the LLM stack. In a typical configuration, all the services are deployed into a single Kubernetes cluster, but you can also deploy these services on multiple Kubernetes clusters. For example, you can deploy a control plane component in a CPU K8s cluster and deploy the rest of the components in GPU compute clusters.&lt;/p>
 &lt;p>LLMariner can be deployed into multiple GPU clusters, and the clusters can span across multiple cloud providers (including GPU specific clouds like CoreWeave) and on-prem.&lt;/p></description></item><item><title>Hosted Control Plane</title><link>https://llmariner.ai/docs/advanced/hosted_control_plane/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/advanced/hosted_control_plane/</guid><description>&lt;div class="alert alert-primary" role="alert">
 &lt;h4 class="alert-heading">Note&lt;/h4>
 
