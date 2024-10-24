@@ -76,18 +76,7 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s"> targetPort: http
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s"> protocol: TCP
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">EOF&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can then access Open WebUI with port forwarding:&lt;/p></description></item><item><title>Set up a Playground</title><link>https://llmariner.ai/docs/setup/playground/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/playground/</guid><description>&lt;p>Once all the setup completes, you can interact with the LLM service by directly hitting the API endpoints or using &lt;a href="https://github.com/openai/openai-python">the OpenAI Python library&lt;/a>.&lt;/p>
-&lt;h2 id="step-1-install-terraform-and-ansible">Step 1: Install Terraform and Ansible&lt;a class="td-heading-self-link" href="#step-1-install-terraform-and-ansible" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>We use Terraform and Ansible. Follow the links to install if you haven't.&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://developer.hashicorp.com/terraform/install">Terraform&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html">Ansible&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://docs.ansible.com/ansible/latest/collections/kubernetes/core/k8s_module.html">kubernetes.core.k8s module for Ansible&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>To install &lt;code>kubernetes.core.k8s&lt;/code> module, run the following command:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ansible-galaxy collection install kubernetes.core
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="step-2-clone-the-llmariner-repository">Step 2: Clone the LLMariner Repository&lt;a class="td-heading-self-link" href="#step-2-clone-the-llmariner-repository" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>We use the Terraform configuration and Ansible playbook in the &lt;a href="https://github.com/llmariner/llmariner">LLMariner repository&lt;/a>. Run the following commands to clone the repo and move to the directory where the Terraform configuration file is stored.&lt;/p></description></item><item><title>Technical Architecture</title><link>https://llmariner.ai/docs/advanced/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/advanced/architecture/</guid><description>&lt;h2 id="components">Components&lt;a class="td-heading-self-link" href="#components" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can then access Open WebUI with port forwarding:&lt;/p></description></item><item><title>Technical Architecture</title><link>https://llmariner.ai/docs/advanced/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/advanced/architecture/</guid><description>&lt;h2 id="components">Components&lt;a class="td-heading-self-link" href="#components" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>LLMariner provisions the LLM stack consisting of the following micro services:&lt;/p>
 &lt;ul>
 &lt;li>Inference Manager&lt;/li>
@@ -105,7 +94,7 @@
 &lt;!-- original file is located at ./architecture.excalidraw -->
 
 
-&lt;p>&lt;img src="https://llmariner.ai/images/architecture_diagram.png" width="3165" height="2288">&lt;/p>
+&lt;p class="mt-4 mb-4 text-center">&lt;img src="https://llmariner.ai/images/architecture_diagram.png" width="3165" height="2288">&lt;/p>
 
 
 &lt;p>LLMariner has dependency to the following components:&lt;/p></description></item><item><title>Continue</title><link>https://llmariner.ai/docs/integration/continue/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/integration/continue/</guid><description>&lt;p>&lt;a href="https://www.continue.dev/">Continue&lt;/a> provides an open source AI code assistant. You can use LLMariner as a backend endpoint for Continue.&lt;/p>
@@ -134,68 +123,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;allowAnonymousTelemetry&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Install LLMariner</title><link>https://llmariner.ai/docs/setup/install/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Logout of helm registry to perform an unauthenticated pull against the public ECR&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">helm registry &lt;span class="nb">logout&lt;/span> public.ecr.aws
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">helm upgrade --install &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --namespace &amp;lt;namespace&amp;gt; &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --create-namespace &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> llmariner oci://public.ecr.aws/cloudnatix/llmariner-charts/llmariner &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --values &amp;lt;values.yaml&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once installation completes, you can interact with the API endpoint using the &lt;a href="https://github.com/openai/openai-python">OpenAI Python library&lt;/a>, running our CLI, or directly hitting the endpoint. To download the CLI, run:&lt;/p>
-
- 
- 
- 
- 
-&lt;ul class="nav nav-tabs" id="tabs-0" role="tablist">
- &lt;li class="nav-item">
- &lt;button class="nav-link disabled"
- id="tabs-00-00-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-00" role="tab"
- aria-controls="tabs-00-00" aria-selected="false">
- &lt;strong>Install From&lt;/strong>:
- &lt;/button>
- &lt;/li>&lt;li class="nav-item">
- &lt;button class="nav-link active"
- id="tabs-00-01-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-01" role="tab"
- data-td-tp-persist="script" aria-controls="tabs-00-01" aria-selected="true">
- Script
- &lt;/button>
- &lt;/li>&lt;li class="nav-item">
- &lt;button class="nav-link"
- id="tabs-00-02-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-02" role="tab"
- data-td-tp-persist="homebrew" aria-controls="tabs-00-02" aria-selected="false">
- Homebrew
- &lt;/button>
- &lt;/li>&lt;li class="nav-item">
- &lt;button class="nav-link"
- id="tabs-00-03-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-03" role="tab"
- data-td-tp-persist="binary" aria-controls="tabs-00-03" aria-selected="false">
- Binary
- &lt;/button>
- &lt;/li>
-&lt;/ul>
-
-&lt;div class="tab-content" id="tabs-0-content">
- &lt;div class="tab-body tab-pane fade"
- id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab" tabindex="0">
- 
- &lt;/div>
- &lt;div class="tab-body tab-pane fade show active"
- id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab" tabindex="0">
- &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">curl --silent https://llmariner.ai/get-cli &lt;span class="p">|&lt;/span> bash
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mv llma &amp;lt;your/PATH&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
- &lt;/div>
- &lt;div class="tab-body tab-pane fade"
- id="tabs-00-02" role="tabpanel" aria-labelled-by="tabs-00-02-tab" tabindex="0">
- &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">brew install llmariner/tap/llma
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
- &lt;/div>
- &lt;div class="tab-body tab-pane fade"
- id="tabs-00-03" role="tabpanel" aria-labelled-by="tabs-00-03-tab" tabindex="0">
- &lt;p>Download the binary from &lt;a href="https://github.com/llmariner/llmariner/releases/latest">GitHub Release Page&lt;/a>.&lt;/p></description></item><item><title>Multi-Cluster and Multi-Cloud Deployment</title><link>https://llmariner.ai/docs/advanced/multi_cluster_deployment/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/advanced/multi_cluster_deployment/</guid><description>&lt;p>LLMariner deploys Kubernetes deployments to provision the LLM stack. In a typical configuration, all the services are deployed into a single Kubernetes cluster, but you can also deploy these services on multiple Kubernetes clusters. For example, you can deploy a control plane component in a CPU K8s cluster and deploy the rest of the components in GPU compute clusters.&lt;/p>
-&lt;p>LLMariner can be deployed into multiple GPU clusters, and the clusters can span across multiple cloud providers (including GPU specific clouds like CoreWeave) and on-prem.&lt;/p></description></item><item><title>Supported Open Models</title><link>https://llmariner.ai/docs/features/models/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/features/models/</guid><description>&lt;p>Please note that some models work only with specific inference runtimes.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Supported Open Models</title><link>https://llmariner.ai/docs/features/models/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/features/models/</guid><description>&lt;p>Please note that some models work only with specific inference runtimes.&lt;/p>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -296,16 +224,7 @@
  &lt;td>Ollama&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item><item><title>Hosted Control Plane</title><link>https://llmariner.ai/docs/advanced/hosted_control_plane/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/advanced/hosted_control_plane/</guid><description>&lt;div class="alert alert-primary" role="alert">
-&lt;h4 class="alert-heading">Note&lt;/h4>
-
- Work-in-progress. This is not fully ready yet, and the terms and conditions are subject to change as we might limit the usage based on the number of API calls or the number of GPU nodes.
-
-&lt;/div>
-
-&lt;p>CloudNatix provides a hosted control plane of LLMariner. End users can use the full functionality of LLMariner just by registering their worker GPU clusters to this hosted control plane.&lt;/p>
-&lt;h2 id="step-1-create-a-cloudnatix-account">Step 1. Create a CloudNatix account&lt;a class="td-heading-self-link" href="#step-1-create-a-cloudnatix-account" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Create a CloudNatix account if you haven't. Please visit &lt;a href="https://app.cloudnatix.com">https://app.cloudnatix.com&lt;/a>. You can click one of the &amp;quot;Sign in or sing up&amp;quot; buttons for SSO login or you can click &amp;quot;Sign up&amp;quot; at the bottom for the email &amp;amp; password login.&lt;/p></description></item><item><title>MLflow</title><link>https://llmariner.ai/docs/integration/mlflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/integration/mlflow/</guid><description>&lt;p>&lt;a href="https://mlflow.org/">MLflow&lt;/a> is an open-source tool for managing the machine learning lifecycle. It has various features for LLMs (&lt;a href="https://mlflow.org/docs/latest/llms/index.html">link&lt;/a>) and integration with OpenAI. We can apply these MLflow features to the LLM endpoints provided by LLMariner.&lt;/p>
+&lt;/table></description></item><item><title>MLflow</title><link>https://llmariner.ai/docs/integration/mlflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/integration/mlflow/</guid><description>&lt;p>&lt;a href="https://mlflow.org/">MLflow&lt;/a> is an open-source tool for managing the machine learning lifecycle. It has various features for LLMs (&lt;a href="https://mlflow.org/docs/latest/llms/index.html">link&lt;/a>) and integration with OpenAI. We can apply these MLflow features to the LLM endpoints provided by LLMariner.&lt;/p>
 &lt;p>For example, you can deploy a &lt;a href="https://mlflow.org/docs/latest/llms/index.html#id1">MLflow Deployments Server for LLMs&lt;/a> and use &lt;a href="https://mlflow.org/docs/latest/llms/index.html#id3">Prompt Engineering UI&lt;/a>.&lt;/p>
 &lt;h2 id="deploying-mlflow-tracking-server">Deploying MLflow Tracking Server&lt;a class="td-heading-self-link" href="#deploying-mlflow-tracking-server" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>Bitmani provides a &lt;a href="https://github.com/bitnami/charts/tree/main/bitnami/mlflow">Helm chart&lt;/a> for MLflow.&lt;/p>
@@ -343,16 +262,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">file_id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="p">,&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Created vector store file. ID=&lt;/span>&lt;span class="si">%s&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="n">vfs&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once the files are added into vector store, you can run the completion request with the RAG model.&lt;/p></description></item><item><title>Tutorials</title><link>https://llmariner.ai/docs/setup/tutorials/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/tutorials/</guid><description>&lt;div class="alert alert-primary" role="alert">
-&lt;h4 class="alert-heading">Note&lt;/h4>
-
- Work-in-progress.
-
-&lt;/div>
-
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/llmariner/llmariner/blob/main/tutorials/getting_started.ipynb">https://github.com/llmariner/llmariner/blob/main/tutorials/getting_started.ipynb&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Model Fine-tuning</title><link>https://llmariner.ai/docs/features/fine_tuning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/features/fine_tuning/</guid><description>&lt;h2 id="submitting-a-fine-tuning-job">Submitting a Fine-Tuning Job&lt;a class="td-heading-self-link" href="#submitting-a-fine-tuning-job" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once the files are added into vector store, you can run the completion request with the RAG model.&lt;/p></description></item><item><title>Model Fine-tuning</title><link>https://llmariner.ai/docs/features/fine_tuning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/features/fine_tuning/</guid><description>&lt;h2 id="submitting-a-fine-tuning-job">Submitting a Fine-Tuning Job&lt;a class="td-heading-self-link" href="#submitting-a-fine-tuning-job" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>You can use the OpenAI Python library to submit a fine-tuning job. Here is an example snippet that uploads a training file and uses that to run a fine-tuning job.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">openai&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">OpenAI&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
@@ -408,7 +318,63 @@
 &lt;h3 id="basic-concepts">Basic Concepts&lt;a class="td-heading-self-link" href="#basic-concepts" aria-label="Heading self-link">&lt;/a>&lt;/h3>
 &lt;p>LLMariner provides access control with two concepts: &lt;code>Organizations&lt;/code> and &lt;code>Projects&lt;/code>. The basic concept follows &lt;a href="https://help.openai.com/en/articles/9186755-managing-your-work-in-the-api-platform-with-projects">OpenAI API&lt;/a>.&lt;/p>
 &lt;p>You can define one or more than one organization. In each organization, you can define one or more than one project. For example, you can create an organization for each team in your company, and each team can create individual projects based on their needs.&lt;/p>
-&lt;p>A project controls the visibility of resources such as models, fine-tuning jobs. For example, a model that is generated by a fine-tuned job in project &lt;code>P&lt;/code> is only visible from project members in &lt;code>P&lt;/code>.&lt;/p></description></item><item><title>Roadmap</title><link>https://llmariner.ai/docs/dev/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/dev/roadmap/</guid><description>&lt;h2 id="milestone-0-completed">Milestone 0 (Completed)&lt;a class="td-heading-self-link" href="#milestone-0-completed" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>A project controls the visibility of resources such as models, fine-tuning jobs. For example, a model that is generated by a fine-tuned job in project &lt;code>P&lt;/code> is only visible from project members in &lt;code>P&lt;/code>.&lt;/p></description></item><item><title>Set up a Playground</title><link>https://llmariner.ai/docs/setup/install/playground/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/playground/</guid><description>&lt;p>You can easily set up a playground for LLMariner and learn it. In this page, we provision an EC2 instance, build a &lt;a href="https://kind.sigs.k8s.io/">Kind&lt;/a> cluster, and deploy LLMariner and other required components.&lt;/p>
+
+
+&lt;div class="alert alert-secondary" role="alert">
+&lt;h4 class="alert-heading">Warn&lt;/h4>
+
+ Playground environments are for experimentation use only. For a production-ready installation, please refere to the other installation guide.
+
+&lt;/div>
+
+&lt;p>Once all the setup completes, you can interact with the LLM service by directly hitting the API endpoints or using &lt;a href="https://github.com/openai/openai-python">the OpenAI Python library&lt;/a>.&lt;/p></description></item><item><title>Set up a Playground (CPU-only)</title><link>https://llmariner.ai/docs/setup/install/cpu-only/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/cpu-only/</guid><description>&lt;p>Following this guide provides you with a simplified, local LLMariner installation by using the Kind and Helm. You can use this simple LLMariner deployment to try out features without GPUs.&lt;/p>
+
+
+&lt;div class="alert alert-secondary" role="alert">
+&lt;h4 class="alert-heading">Warn&lt;/h4>
+
+ Playground environments are for experimentation use only. For a production-ready installation, please refere to the other installation guide.
+
+&lt;/div>
+
+&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Before you can get started with the LLMariner deployment you must install:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://kind.sigs.k8s.io/docs/user/quick-start">kind (Kubernetes in Docker)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://helmfile.readthedocs.io/en/latest/#installation">Helmfile&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="step-1-clone-the-repository">Step 1: Clone the repository&lt;a class="td-heading-self-link" href="#step-1-clone-the-repository" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>To get started, clone the LLMariner repository.&lt;/p></description></item><item><title>Install in a Single Cluster</title><link>https://llmariner.ai/docs/setup/install/single_cluster_production/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/single_cluster_production/</guid><description>&lt;p>We provide a Helm chart for installing LLMariner. You can obtain the Helm chart from our repository and install.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Logout of helm registry to perform an unauthenticated pull against the public ECR&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">helm registry &lt;span class="nb">logout&lt;/span> public.ecr.aws
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">helm upgrade --install &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --namespace &amp;lt;namespace&amp;gt; &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --create-namespace &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> llmariner oci://public.ecr.aws/cloudnatix/llmariner-charts/llmariner &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --values &amp;lt;values.yaml&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once installation completes, you can interact with the API endpoint using the &lt;a href="https://github.com/openai/openai-python">OpenAI Python library&lt;/a>, running our CLI, or directly hitting the endpoint. To download the CLI, run:&lt;/p></description></item><item><title>Tutorials</title><link>https://llmariner.ai/docs/setup/tutorials/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/tutorials/</guid><description>&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+
+ Work-in-progress.
+
+&lt;/div>
+
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/llmariner/llmariner/blob/main/tutorials/getting_started.ipynb">https://github.com/llmariner/llmariner/blob/main/tutorials/getting_started.ipynb&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Install across Multiple Clusters</title><link>https://llmariner.ai/docs/setup/install/multi_cluster_production/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/multi_cluster_production/</guid><description>&lt;p>LLMariner deploys Kubernetes deployments to provision the LLM stack. In a typical configuration, all the services are deployed into a single Kubernetes cluster, but you can also deploy these services on multiple Kubernetes clusters. For example, you can deploy a control plane component in a CPU K8s cluster and deploy the rest of the components in GPU compute clusters.&lt;/p>
+&lt;p>LLMariner can be deployed into multiple GPU clusters, and the clusters can span across multiple cloud providers (including GPU specific clouds like CoreWeave) and on-prem.&lt;/p></description></item><item><title>Hosted Control Plane</title><link>https://llmariner.ai/docs/setup/install/hosted_control_plane/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/hosted_control_plane/</guid><description>&lt;p>CloudNatix provides a hosted control plane of LLMariner.&lt;/p>
+
+
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+
+ Work-in-progress. This is not fully ready yet, and the terms and conditions are subject to change as we might limit the usage based on the number of API calls or the number of GPU nodes.
+
+&lt;/div>
+
+&lt;p>CloudNatix provides a hosted control plane of LLMariner. End users can use the full functionality of LLMariner just by registering their worker GPU clusters to this hosted control plane.&lt;/p></description></item><item><title>Roadmap</title><link>https://llmariner.ai/docs/dev/roadmap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/dev/roadmap/</guid><description>&lt;h2 id="milestone-0-completed">Milestone 0 (Completed)&lt;a class="td-heading-self-link" href="#milestone-0-completed" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;ul>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> OpenAI compatible API&lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> Models: &lt;code>google-gemma-2b-it&lt;/code>&lt;/li>

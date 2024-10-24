@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Installation on LLMariner</title><link>https://llmariner.ai/docs/setup/install/</link><description>Recent content in Installation on LLMariner</description><generator>Hugo</generator><language>en</language><atom:link href="https://llmariner.ai/docs/setup/install/index.xml" rel="self" type="application/rss+xml"/><item><title>Set up a Playground</title><link>https://llmariner.ai/docs/setup/install/playground/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/playground/</guid><description>&lt;p>You can easily set up a playground for LLMariner and learn it. In this page, we provision an EC2 instance, build a &lt;a href="https://kind.sigs.k8s.io/">Kind&lt;/a> cluster, and deploy LLMariner and other required components.&lt;/p>
+
+
+&lt;div class="alert alert-secondary" role="alert">
+&lt;h4 class="alert-heading">Warn&lt;/h4>
+
+ Playground environments are for experimentation use only. For a production-ready installation, please refere to the other installation guide.
+
+&lt;/div>
+
+&lt;p>Once all the setup completes, you can interact with the LLM service by directly hitting the API endpoints or using &lt;a href="https://github.com/openai/openai-python">the OpenAI Python library&lt;/a>.&lt;/p></description></item><item><title>Set up a Playground (CPU-only)</title><link>https://llmariner.ai/docs/setup/install/cpu-only/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/cpu-only/</guid><description>&lt;p>Following this guide provides you with a simplified, local LLMariner installation by using the Kind and Helm. You can use this simple LLMariner deployment to try out features without GPUs.&lt;/p>
+
+
+&lt;div class="alert alert-secondary" role="alert">
+&lt;h4 class="alert-heading">Warn&lt;/h4>
+
+ Playground environments are for experimentation use only. For a production-ready installation, please refere to the other installation guide.
+
+&lt;/div>
+
+&lt;h2 id="before-you-begin">Before you begin&lt;a class="td-heading-self-link" href="#before-you-begin" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Before you can get started with the LLMariner deployment you must install:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://kind.sigs.k8s.io/docs/user/quick-start">kind (Kubernetes in Docker)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://helmfile.readthedocs.io/en/latest/#installation">Helmfile&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="step-1-clone-the-repository">Step 1: Clone the repository&lt;a class="td-heading-self-link" href="#step-1-clone-the-repository" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>To get started, clone the LLMariner repository.&lt;/p></description></item><item><title>Install in a Single Cluster</title><link>https://llmariner.ai/docs/setup/install/single_cluster_production/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/single_cluster_production/</guid><description>&lt;p>We provide a Helm chart for installing LLMariner. You can obtain the Helm chart from our repository and install.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Logout of helm registry to perform an unauthenticated pull against the public ECR&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">helm registry &lt;span class="nb">logout&lt;/span> public.ecr.aws
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">helm upgrade --install &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --namespace &amp;lt;namespace&amp;gt; &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --create-namespace &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> llmariner oci://public.ecr.aws/cloudnatix/llmariner-charts/llmariner &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --values &amp;lt;values.yaml&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once installation completes, you can interact with the API endpoint using the &lt;a href="https://github.com/openai/openai-python">OpenAI Python library&lt;/a>, running our CLI, or directly hitting the endpoint. To download the CLI, run:&lt;/p></description></item><item><title>Install across Multiple Clusters</title><link>https://llmariner.ai/docs/setup/install/multi_cluster_production/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/multi_cluster_production/</guid><description>&lt;p>LLMariner deploys Kubernetes deployments to provision the LLM stack. In a typical configuration, all the services are deployed into a single Kubernetes cluster, but you can also deploy these services on multiple Kubernetes clusters. For example, you can deploy a control plane component in a CPU K8s cluster and deploy the rest of the components in GPU compute clusters.&lt;/p>
+&lt;p>LLMariner can be deployed into multiple GPU clusters, and the clusters can span across multiple cloud providers (including GPU specific clouds like CoreWeave) and on-prem.&lt;/p></description></item><item><title>Hosted Control Plane</title><link>https://llmariner.ai/docs/setup/install/hosted_control_plane/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/hosted_control_plane/</guid><description>&lt;p>CloudNatix provides a hosted control plane of LLMariner.&lt;/p>
+
+
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+
+ Work-in-progress. This is not fully ready yet, and the terms and conditions are subject to change as we might limit the usage based on the number of API calls or the number of GPU nodes.
+
+&lt;/div>
+
+&lt;p>CloudNatix provides a hosted control plane of LLMariner. End users can use the full functionality of LLMariner just by registering their worker GPU clusters to this hosted control plane.&lt;/p></description></item></channel></rss>
