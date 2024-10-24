@@ -1,4 +1,4 @@
 {{ $src := .Get "src" }}
 {{ with resources.GetMatch $src }}
-<p><img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"></p>
+<p class="mt-4 mb-4 text-center"><img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"></p>
 {{ end }}

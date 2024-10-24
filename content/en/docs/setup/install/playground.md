@@ -1,9 +1,15 @@
 ---
 title: Set up a Playground
-description: >
-  You can easily set up a playground for LLMariner and learn it. In this page, we provision an EC2 instance, build a [Kind](https://kind.sigs.k8s.io/) cluster, and deploy LLMariner and other required components.
-weight: 1
+linkTitle: "Playground"
+description: Set up the playground environment on the Amazon EC2 instance with GPUs.
+weight: 10
 ---
+
+You can easily set up a playground for LLMariner and learn it. In this page, we provision an EC2 instance, build a [Kind](https://kind.sigs.k8s.io/) cluster, and deploy LLMariner and other required components.
+
+{{% alert title="Warn" color="secondary" %}}
+Playground environments are for experimentation use only. For a production-ready installation, please refere to the other installation guide.
+{{% /alert %}}
 
 Once all the setup completes, you can interact with the LLM service by directly hitting the API endpoints or using [the OpenAI Python library](https://github.com/openai/openai-python).
 

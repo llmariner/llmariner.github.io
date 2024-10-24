@@ -1,9 +1,11 @@
 ---
-title: Install LLMariner
-description: >
-  We provide a Helm chart for installing LLMariner. You can obtain the Helm chart from our repository and install.
-weight: 2
+title: Install in a Single Cluster
+linkTitle: "Standalone"
+description: Install LLMariner in a single Kubernetes cluster.
+weight: 20
 ---
+
+We provide a Helm chart for installing LLMariner. You can obtain the Helm chart from our repository and install.
 
 ``` bash
 # Logout of helm registry to perform an unauthenticated pull against the public ECR
