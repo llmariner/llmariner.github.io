@@ -1,1 +1,9 @@
 @import 'td/code-dark';
+
+.ul-1>.td-sidebar-nav__section-title a { font-weight: 600; }
+.ul-2 .td-sidebar-nav__section-title a { font-size: .92rem; font-weight: 300; color: var(--bs-body-color); }
+.td-sidebar-nav__section .td-sidebar-link__page { font-size: .92rem; }
+.td-sidebar-nav__section .ul-1 ul { padding-left: .8em; }
+.td-sidebar-nav .ul-1 ul a.active { font-weight: 500; color: var(--bs-primary); }
+.td-toc nav#TableOfContents a { font-size: .92rem; font-weight: 500; }
+.td-content pre > code { font-size: 92%; }
