@@ -1,8 +1,11 @@
 ---
 title: Hosted Control Plane
-description: CloudNatix provides a hosted control plane of LLMariner.
-weight: 3
+linkTitle: "Hosting Service"
+description: Install just the worker plane and use it with the hosted control plane.
+weight: 40
 ---
+
+CloudNatix provides a hosted control plane of LLMariner.
 
 {{% alert title="Note" color="primary" %}}
 Work-in-progress. This is not fully ready yet, and the terms and conditions are subject to change as we might limit the usage based on the number of API calls or the number of GPU nodes.

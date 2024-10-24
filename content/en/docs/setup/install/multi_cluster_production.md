@@ -1,7 +1,8 @@
 ---
-title: Multi-Cluster and Multi-Cloud Deployment
-description: LLMariner can be deployed into multiple GPU clusters.
-weight: 2
+title: Install across Multiple Clusters
+linkTitle: "Multicluster"
+description: Install LLMarinr across multiple Kubernetes clusters.
+weight: 30
 ---
 
 LLMariner deploys Kubernetes deployments to provision the LLM stack. In a typical configuration, all the services are deployed into a single Kubernetes cluster, but you can also deploy these services on multiple Kubernetes clusters. For example, you can deploy a control plane component in a CPU K8s cluster and deploy the rest of the components in GPU compute clusters.
