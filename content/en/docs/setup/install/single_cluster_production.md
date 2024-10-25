@@ -20,23 +20,7 @@ helm upgrade --install \
 
 Once installation completes, you can interact with the API endpoint using the [OpenAI Python library](https://github.com/openai/openai-python), running our CLI, or directly hitting the endpoint. To download the CLI, run:
 
-{{< tabpane text=true >}}
-  {{% tab header="**Install From**:" disabled=true /%}}
-  {{% tab header="Script" %}}
-``` bash
-curl --silent https://llmariner.ai/get-cli | bash
-mv llma <your/PATH>
-```
-  {{% /tab %}}
-  {{% tab header="Homebrew" %}}
-```bash
-brew install llmariner/tap/llma
-```
-  {{% /tab %}}
-  {{% tab header="Binary" %}}
-Download the binary from [GitHub Release Page](https://github.com/llmariner/llmariner/releases/latest).
-  {{% /tab %}}
-{{< /tabpane >}}
+{{< include "../../../includes/cli-install.md" >}}
 
 ## EKS Installation
 
