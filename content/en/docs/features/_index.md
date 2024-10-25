@@ -1,5 +1,5 @@
 ---
 title: Features
 description: LLMariner features
-weight: 2
+weight: 20
 ---
