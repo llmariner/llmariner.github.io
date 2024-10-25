@@ -1,6 +1,6 @@
 ---
-title: Technical Architecture
-description: Understand LLMariner architecture
+title: Technical Details
+description: Understand LLMariner technical details.
 weight: 1
 ---
 
@@ -21,7 +21,7 @@ LLMariner provisions the LLM stack consisting of the following micro services:
 
 Each manager is responsible for the specific feature of LLM services as their names indicate. The following diagram shows the high-level architecture:
 
-<!-- original file is located at ./architecture.excalidraw -->
+<!-- original file is located at diagrams/architecture.excalidraw -->
 {{< img src="images/architecture_diagram.png" >}}
 
 LLMariner has dependency to the following components:
