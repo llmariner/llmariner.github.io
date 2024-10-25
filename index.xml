@@ -94,7 +94,7 @@
 &lt;!-- original file is located at diagrams/architecture.excalidraw -->
 
 
-&lt;p class="mt-4 mb-4 text-center">&lt;img src="https://llmariner.ai/images/architecture_diagram.png" width="3165" height="2288">&lt;/p>
+&lt;p class="mt-4 mb-4 text-center">&lt;img src="https://llmariner.ai/images/architecture_diagram.png" width="3166" height="2188">&lt;/p>
 
 
 &lt;p>LLMariner has dependency to the following components:&lt;/p></description></item><item><title>Continue</title><link>https://llmariner.ai/docs/integration/continue/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/integration/continue/</guid><description>&lt;p>&lt;a href="https://www.continue.dev/">Continue&lt;/a> provides an open source AI code assistant. You can use LLMariner as a backend endpoint for Continue.&lt;/p>
