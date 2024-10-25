@@ -1,5 +1,6 @@
 ---
-title: Weights and Biases (W&B)
+title: Weights & Biases (W&B)
+linkTitle: Weights & Biases
 description: Integration with W&B and see the progress of your fine-tuning jobs.
 weight: 4
 ---

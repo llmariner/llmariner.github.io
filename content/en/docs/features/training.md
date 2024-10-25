@@ -1,8 +1,9 @@
 ---
 title: General-purpose Training
+linkTitle: Training
 description: >
   LLMariner allows users to run general-purpose training jobs in their Kubernetes clusters.
-weight: 6
+weight: 5
 ---
 
 ## Creating a Training Job

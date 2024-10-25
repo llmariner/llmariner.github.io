@@ -1,5 +1,6 @@
 ---
 title: Supported Open Models
+linkTitle: Supported Models
 description: >
   The following shows the supported models.
 weight: 2

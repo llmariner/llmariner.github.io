@@ -1,7 +1,7 @@
 ---
 title: API and GPU Usage Visibility
-description: >
-  We provide a Helm chart for installing LLMariner. You can obtain the Helm chart from our repository and install.
+linkTitle: API/GPU Visibility
+description:
 weight: 7
 ---
 
