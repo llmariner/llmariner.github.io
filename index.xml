@@ -76,7 +76,7 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s"> targetPort: http
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s"> protocol: TCP
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">EOF&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can then access Open WebUI with port forwarding:&lt;/p></description></item><item><title>Technical Architecture</title><link>https://llmariner.ai/docs/advanced/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/advanced/architecture/</guid><description>&lt;h2 id="components">Components&lt;a class="td-heading-self-link" href="#components" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can then access Open WebUI with port forwarding:&lt;/p></description></item><item><title>Technical Details</title><link>https://llmariner.ai/docs/dev/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/dev/architecture/</guid><description>&lt;h2 id="components">Components&lt;a class="td-heading-self-link" href="#components" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>LLMariner provisions the LLM stack consisting of the following micro services:&lt;/p>
 &lt;ul>
 &lt;li>Inference Manager&lt;/li>
@@ -91,7 +91,7 @@
 &lt;li>API Usage&lt;/li>
 &lt;/ul>
 &lt;p>Each manager is responsible for the specific feature of LLM services as their names indicate. The following diagram shows the high-level architecture:&lt;/p>
-&lt;!-- original file is located at ./architecture.excalidraw -->
+&lt;!-- original file is located at diagrams/architecture.excalidraw -->
 
 
 &lt;p class="mt-4 mb-4 text-center">&lt;img src="https://llmariner.ai/images/architecture_diagram.png" width="3165" height="2288">&lt;/p>
