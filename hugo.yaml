@@ -166,7 +166,7 @@ params:
     # Developer relevant links. These will show up on right side of footer and in the community page if you have one.
     developer:
       - name: GitHub
-        url: https://github.com/llmariner
+        url: https://github.com/llmariner/llmariner
         icon: fab fa-github
         desc: Development takes place here!
       - name: Slack
@@ -194,5 +194,5 @@ menu:
   main:
     - name: GitHub
       weight: 50
-      url: https://github.com/llmariner
+      url: https://github.com/llmariner/llmariner
       post: <sup><i class="ps-1 fa-solid fa-up-right-from-square fa-xs" aria-hidden="true"></i></sup>
