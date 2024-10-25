@@ -20,7 +20,7 @@ In the `values.yaml`, you need to set `tag.worker` to `false`, `global.workerSer
 Here is an example `values.yaml`.
 
 ``` yaml
-tag:
+tags:
   worker: false
 
 global:
@@ -104,10 +104,21 @@ The secret needs to be created in a namespace where LLMariner will be deployed.
 When installing the Helm chart for the worker components, you need to specify addition configurations in `values.yaml`. Here is an example.
 
 ``` yaml
-tag:
+tags:
   control-plane: false
 
 global:
+  objectStore:
+    s3:
+      endpointUrl: <S3 endpoint>
+      region: <S3 regiona>
+      bucket: <S3 bucket name>
+
+  awsSecret:
+    name: aws
+    accessKeyIdKey: accessKeyId
+    secretAccessKeyKey: secretAccessKey
+
   worker:
     controlPlaneAddr: api.llm.mydomain.com:443
     tls:
@@ -125,4 +136,8 @@ job-manager-dispatcher:
 
 session-manager-agent:
   sessionManagerServerWorkerServiceAddr: session.llm.mydomain.com:443
+
+model-manager-loader:
+  baseModels:
+  - <model name, e.g. google/gemma-2b-it-q4_0>
 ```
