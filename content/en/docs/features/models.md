@@ -26,5 +26,6 @@ meta-llama/Meta-Llama-3.1-8B-Instruct        | None                       |  vLL
 meta-llama/Meta-Llama-3.1-8B-Instruct        | AWQ                        |  vLLM, Triton
 meta-llama/Meta-Llama-3.1-8B-Instruct        | Q4_0                       |  vLLM, Ollama
 nvidia/Llama-3.1-Nemotron-70B-Instruct       | Q2_K, Q3_K_M, Q3_K_S, Q4_0 |  vLLM
+nvidia/Llama-3.1-Nemotron-70B-Instruct       | FP8-Dynamic                |  vLLM
 mistralai/Mistral-7B-Instruct-v0.2           | Q4_0                       |  Ollama
 sentence-transformers/all-MiniLM-L6-v2-f16   | None                       |  Ollama
