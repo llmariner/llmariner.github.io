@@ -94,6 +94,11 @@
 &lt;!-- original file is located at diagrams/architecture.excalidraw -->
 
 
+
+
+
+
+
 &lt;p class="mt-4 mb-4 text-center">&lt;img src="https://llmariner.ai/images/architecture_diagram.png" width="3166" height="2188">&lt;/p>
 
 
@@ -333,7 +338,19 @@
 
 &lt;/div>
 
-&lt;p>Once all the setup completes, you can interact with the LLM service by directly hitting the API endpoints or using &lt;a href="https://github.com/openai/openai-python">the OpenAI Python library&lt;/a>.&lt;/p></description></item><item><title>Set up a Playground (CPU-only)</title><link>https://llmariner.ai/docs/setup/install/cpu-only/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/cpu-only/</guid><description>&lt;p>Following this guide provides you with a simplified, local LLMariner installation by using the Kind and Helm. You can use this simple LLMariner deployment to try out features without GPUs.&lt;/p>
+&lt;p>Once all the setup completes, you can interact with the LLM service by directly hitting the API endpoints or using &lt;a href="https://github.com/openai/openai-python">the OpenAI Python library&lt;/a>.&lt;/p></description></item><item><title>Why LLMariner?</title><link>https://llmariner.ai/docs/overview/why-llmariner/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/overview/why-llmariner/</guid><description>&lt;p>&lt;strong>LLMariner&lt;/strong> (= LLM + Mariner) is a extensible open source platform to simplify the management of generative AI workloads. Built on Kubernetes, it enables you to efficiently handle both training and inference data within your own clusters. With &lt;a href="https://platform.openai.com/docs/api-reference/introduction">OpenAI-compatible APIs&lt;/a>, LLMariner leverages ecosystem of tools, facilitating seamless integration for a wide range of AI-driven applications.&lt;/p>
+
+
+
+
+
+
+
+&lt;p class="mt-4 mb-4 text-center">&lt;img src="https://llmariner.ai/images/concepts.png" width="85%" height="539">&lt;/p>
+
+
+&lt;h2 id="why-you-need-llmariner-and-what-it-can-do-for-you">Why You Need LLMariner, and What It Can Do for You&lt;a class="td-heading-self-link" href="#why-you-need-llmariner-and-what-it-can-do-for-you" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>As generative AI becomes more integral to business operations, a platform that can manage their lifecycle from data management to deployment is essential. LLMariner offers a unified solution that enables users to:&lt;/p></description></item><item><title>Set up a Playground (CPU-only)</title><link>https://llmariner.ai/docs/setup/install/cpu-only/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/cpu-only/</guid><description>&lt;p>Following this guide provides you with a simplified, local LLMariner installation by using the Kind and Helm. You can use this simple LLMariner deployment to try out features without GPUs.&lt;/p>
 
 
 &lt;div class="alert alert-secondary" role="alert">
@@ -350,7 +367,28 @@
 &lt;li>&lt;a href="https://helmfile.readthedocs.io/en/latest/#installation">Helmfile&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="step-1-clone-the-repository">Step 1: Clone the repository&lt;a class="td-heading-self-link" href="#step-1-clone-the-repository" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>To get started, clone the LLMariner repository.&lt;/p></description></item><item><title>Install in a Single Cluster</title><link>https://llmariner.ai/docs/setup/install/single_cluster_production/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/single_cluster_production/</guid><description>&lt;p>We provide a Helm chart for installing LLMariner. You can obtain the Helm chart from our repository and install.&lt;/p>
+&lt;p>To get started, clone the LLMariner repository.&lt;/p></description></item><item><title>High-Level Architecture</title><link>https://llmariner.ai/docs/overview/how-works/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/overview/how-works/</guid><description>&lt;p>This page provides a high-level overview of the essential components that make up a LLMariner:&lt;/p>
+&lt;!-- original file is located at diagram/llmariner.excalidraw -->
+
+
+
+
+
+
+
+&lt;p class="mt-4 mb-4 text-center">&lt;img src="https://llmariner.ai/images/highlevel_architecture.png" width="2376" height="1542">&lt;/p>
+
+
+&lt;h2 id="overall-design">Overall Design&lt;a class="td-heading-self-link" href="#overall-design" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>LLMariner consists of a control-plane and one or more worker-planes:&lt;/p>
+&lt;dl>
+&lt;dt>Control-Plane components&lt;/dt>
+&lt;dd>Expose the OpenAI-compatible APIs and manage the overall state of LLMariner and receive a request from the client.&lt;/dd>
+&lt;dt>Worker-Plane components&lt;/dt>
+&lt;dd>Run every worker clusters, process tasks using compute resources such as GPUs in response to requests from the control-plane.&lt;/dd>
+&lt;/dl>
+&lt;h2 id="core-components">Core Components&lt;a class="td-heading-self-link" href="#core-components" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Here&amp;rsquo;s a brief overview of the main components:&lt;/p></description></item><item><title>Install in a Single Cluster</title><link>https://llmariner.ai/docs/setup/install/single_cluster_production/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/single_cluster_production/</guid><description>&lt;p>We provide a Helm chart for installing LLMariner. You can obtain the Helm chart from our repository and install.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Logout of helm registry to perform an unauthenticated pull against the public ECR&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">helm registry &lt;span class="nb">logout&lt;/span> public.ecr.aws
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">

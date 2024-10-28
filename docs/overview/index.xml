@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Overview on LLMariner</title><link>https://llmariner.ai/docs/overview/</link><description>Recent content in Overview on LLMariner</description><generator>Hugo</generator><language>en</language><atom:link href="https://llmariner.ai/docs/overview/index.xml" rel="self" type="application/rss+xml"/><item><title>Why LLMariner?</title><link>https://llmariner.ai/docs/overview/why-llmariner/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/overview/why-llmariner/</guid><description>&lt;p>&lt;strong>LLMariner&lt;/strong> (= LLM + Mariner) is a extensible open source platform to simplify the management of generative AI workloads. Built on Kubernetes, it enables you to efficiently handle both training and inference data within your own clusters. With &lt;a href="https://platform.openai.com/docs/api-reference/introduction">OpenAI-compatible APIs&lt;/a>, LLMariner leverages ecosystem of tools, facilitating seamless integration for a wide range of AI-driven applications.&lt;/p>
+
+
+
+
+
+
+
+&lt;p class="mt-4 mb-4 text-center">&lt;img src="https://llmariner.ai/images/concepts.png" width="85%" height="539">&lt;/p>
+
+
+&lt;h2 id="why-you-need-llmariner-and-what-it-can-do-for-you">Why You Need LLMariner, and What It Can Do for You&lt;a class="td-heading-self-link" href="#why-you-need-llmariner-and-what-it-can-do-for-you" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>As generative AI becomes more integral to business operations, a platform that can manage their lifecycle from data management to deployment is essential. LLMariner offers a unified solution that enables users to:&lt;/p></description></item><item><title>High-Level Architecture</title><link>https://llmariner.ai/docs/overview/how-works/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/overview/how-works/</guid><description>&lt;p>This page provides a high-level overview of the essential components that make up a LLMariner:&lt;/p>
+&lt;!-- original file is located at diagram/llmariner.excalidraw -->
+
+
+
+
+
+
+
+&lt;p class="mt-4 mb-4 text-center">&lt;img src="https://llmariner.ai/images/highlevel_architecture.png" width="2376" height="1542">&lt;/p>
+
+
+&lt;h2 id="overall-design">Overall Design&lt;a class="td-heading-self-link" href="#overall-design" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>LLMariner consists of a control-plane and one or more worker-planes:&lt;/p>
+&lt;dl>
+&lt;dt>Control-Plane components&lt;/dt>
+&lt;dd>Expose the OpenAI-compatible APIs and manage the overall state of LLMariner and receive a request from the client.&lt;/dd>
+&lt;dt>Worker-Plane components&lt;/dt>
+&lt;dd>Run every worker clusters, process tasks using compute resources such as GPUs in response to requests from the control-plane.&lt;/dd>
+&lt;/dl>
+&lt;h2 id="core-components">Core Components&lt;a class="td-heading-self-link" href="#core-components" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Here&amp;rsquo;s a brief overview of the main components:&lt;/p></description></item></channel></rss>
