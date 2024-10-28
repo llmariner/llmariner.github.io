@@ -128,6 +128,8 @@ llma models list
 llma chat completions create --model google-gemma-2b-it-q4_0 --role user --completion "What is k8s?"
 ```
 
+The second option is to run the `curl` command and hit the API endpoint. Here is an example command for listing all available models and hitting the chat endpoint.
+
 ``` bash
 curl \
   --header "Authorization: Bearer ${LLMARINER_TOKEN}" \
@@ -141,8 +143,6 @@ curl \
   --data '{"model": "google-gemma-2b-it-q4_0", "messages": [{"role": "user", "content": "What is k8s?"}]}' \
   http://localhost:8080/v1/chat/completions
 ```
-
-The second option is to run the `curl` command and hit the API endpoint. Here is an example command for listing all available models and hitting the chat endpoint.
 
 The third option is to use Python. Here is an example Python code for hitting the chat endpoint.
 
