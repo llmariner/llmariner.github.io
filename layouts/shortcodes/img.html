@@ -1,4 +1,9 @@
 {{ $src := .Get "src" }}
+{{ $width := .Get "width" }}
+{{ $height := .Get "height" }}
+{{ $align := .Get "align" | default "center" }}
 {{ with resources.GetMatch $src }}
-<p class="mt-4 mb-4 text-center"><img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"></p>
+{{ $width := $width | default .Width }}
+{{ $height := $height | default .Height }}
+<p class="mt-4 mb-4 text-{{ $align }}"><img src="{{ .RelPermalink }}" width="{{ $width }}" height="{{ $height }}"></p>
 {{ end }}
