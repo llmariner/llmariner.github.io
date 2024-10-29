@@ -4,7 +4,7 @@ description: Why you need LLMariner and what it can do for you?
 weight: 10
 ---
 
-**LLMariner** (= LLM + Mariner) is a extensible open source platform to simplify the management of generative AI workloads. Built on Kubernetes, it enables you to efficiently handle both training and inference data within your own clusters. With [OpenAI-compatible APIs](https://platform.openai.com/docs/api-reference/introduction), LLMariner leverages ecosystem of tools, facilitating seamless integration for a wide range of AI-driven applications.
+**LLMariner** (= LLM + Mariner) is an extensible open source platform to simplify the management of generative AI workloads. Built on Kubernetes, it enables you to efficiently handle both training and inference data within your own clusters. With [OpenAI-compatible APIs](https://platform.openai.com/docs/api-reference/introduction), LLMariner leverages ecosystem of tools, facilitating seamless integration for a wide range of AI-driven applications.
 
 {{< img src="/images/concepts.png" width="85%" >}}
 
