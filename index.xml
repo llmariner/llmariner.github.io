@@ -338,7 +338,7 @@
 
 &lt;/div>
 
-&lt;p>Once all the setup completes, you can interact with the LLM service by directly hitting the API endpoints or using &lt;a href="https://github.com/openai/openai-python">the OpenAI Python library&lt;/a>.&lt;/p></description></item><item><title>Why LLMariner?</title><link>https://llmariner.ai/docs/overview/why-llmariner/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/overview/why-llmariner/</guid><description>&lt;p>&lt;strong>LLMariner&lt;/strong> (= LLM + Mariner) is a extensible open source platform to simplify the management of generative AI workloads. Built on Kubernetes, it enables you to efficiently handle both training and inference data within your own clusters. With &lt;a href="https://platform.openai.com/docs/api-reference/introduction">OpenAI-compatible APIs&lt;/a>, LLMariner leverages ecosystem of tools, facilitating seamless integration for a wide range of AI-driven applications.&lt;/p>
+&lt;p>Once all the setup completes, you can interact with the LLM service by directly hitting the API endpoints or using &lt;a href="https://github.com/openai/openai-python">the OpenAI Python library&lt;/a>.&lt;/p></description></item><item><title>Why LLMariner?</title><link>https://llmariner.ai/docs/overview/why-llmariner/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/overview/why-llmariner/</guid><description>&lt;p>&lt;strong>LLMariner&lt;/strong> (= LLM + Mariner) is an extensible open source platform to simplify the management of generative AI workloads. Built on Kubernetes, it enables you to efficiently handle both training and inference data within your own clusters. With &lt;a href="https://platform.openai.com/docs/api-reference/introduction">OpenAI-compatible APIs&lt;/a>, LLMariner leverages ecosystem of tools, facilitating seamless integration for a wide range of AI-driven applications.&lt;/p>
 
 
 
@@ -385,7 +385,7 @@
 &lt;dt>Control-Plane components&lt;/dt>
 &lt;dd>Expose the OpenAI-compatible APIs and manage the overall state of LLMariner and receive a request from the client.&lt;/dd>
 &lt;dt>Worker-Plane components&lt;/dt>
-&lt;dd>Run every worker clusters, process tasks using compute resources such as GPUs in response to requests from the control-plane.&lt;/dd>
+&lt;dd>Run every worker cluster, process tasks using compute resources such as GPUs in response to requests from the control-plane.&lt;/dd>
 &lt;/dl>
 &lt;h2 id="core-components">Core Components&lt;a class="td-heading-self-link" href="#core-components" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>Here&amp;rsquo;s a brief overview of the main components:&lt;/p></description></item><item><title>Install in a Single Cluster</title><link>https://llmariner.ai/docs/setup/install/single_cluster_production/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/single_cluster_production/</guid><description>&lt;p>We provide a Helm chart for installing LLMariner. You can obtain the Helm chart from our repository and install.&lt;/p>
