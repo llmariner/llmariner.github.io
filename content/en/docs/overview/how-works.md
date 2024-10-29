@@ -18,7 +18,7 @@ Control-Plane components
 : Expose the OpenAI-compatible APIs and manage the overall state of LLMariner and receive a request from the client.
 
 Worker-Plane components
-: Run every worker clusters, process tasks using compute resources such as GPUs in response to requests from the control-plane.
+: Run every worker cluster, process tasks using compute resources such as GPUs in response to requests from the control-plane.
 
 ## Core Components
 
