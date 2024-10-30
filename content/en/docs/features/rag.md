@@ -1,5 +1,6 @@
 ---
 title: Retrieval-Augmented Generation (RAG)
+linkTitle: RAG
 description: >
   This page describes how to use RAG with LLMariner.
 weight: 3

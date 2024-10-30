@@ -35,3 +35,7 @@ Here is an example configuration that you can put at `~/.continue/config.json`.
   "allowAnonymousTelemetry": false
 }
 ```
+
+The following is a demo video that shows the Continue integration that enables the coding assistant with Llama-3.1-Nemotron-70B-Instruct.
+
+{{< vimeo key="1024806457" >}}

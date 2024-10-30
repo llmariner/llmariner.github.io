@@ -1,7 +1,8 @@
 ---
-title: Multi-Cluster and Multi-Cloud Deployment
-description: LLMariner can be deployed into multiple GPU clusters.
-weight: 2
+title: Install across Multiple Clusters
+linkTitle: "Multicluster"
+description: Install LLMarinr across multiple Kubernetes clusters.
+weight: 30
 ---
 
 LLMariner deploys Kubernetes deployments to provision the LLM stack. In a typical configuration, all the services are deployed into a single Kubernetes cluster, but you can also deploy these services on multiple Kubernetes clusters. For example, you can deploy a control plane component in a CPU K8s cluster and deploy the rest of the components in GPU compute clusters.
@@ -19,7 +20,7 @@ In the `values.yaml`, you need to set `tag.worker` to `false`, `global.workerSer
 Here is an example `values.yaml`.
 
 ``` yaml
-tag:
+tags:
   worker: false
 
 global:
@@ -103,10 +104,21 @@ The secret needs to be created in a namespace where LLMariner will be deployed.
 When installing the Helm chart for the worker components, you need to specify addition configurations in `values.yaml`. Here is an example.
 
 ``` yaml
-tag:
+tags:
   control-plane: false
 
 global:
+  objectStore:
+    s3:
+      endpointUrl: <S3 endpoint>
+      region: <S3 regiona>
+      bucket: <S3 bucket name>
+
+  awsSecret:
+    name: aws
+    accessKeyIdKey: accessKeyId
+    secretAccessKeyKey: secretAccessKey
+
   worker:
     controlPlaneAddr: api.llm.mydomain.com:443
     tls:
@@ -124,4 +136,8 @@ job-manager-dispatcher:
 
 session-manager-agent:
   sessionManagerServerWorkerServiceAddr: session.llm.mydomain.com:443
+
+model-manager-loader:
+  baseModels:
+  - <model name, e.g. google/gemma-2b-it-q4_0>
 ```

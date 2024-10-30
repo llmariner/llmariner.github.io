@@ -2,32 +2,10 @@
 
 set -e
 
-detect_os () {
-  RAW_OS=$(uname -s)
-  OS="linux"
-  case "$RAW_OS" in
-    "Linux") OS="linux";;
-    "Darwin") OS="darwin";;
-    *) echo "Unsupported operating system \"${RAW_OS}\"" 1>&2; exit 1;;
-  esac
-  echo "${OS}"
-}
-
-detect_architecture () {
-  RAW_ARCH=$(uname -m)
-  ARCH="x86_64"
-  case "$RAW_ARCH" in
-    "x86_64") ARCH="amd64";;
-    "arm64") ARCH="arm64";;
-    *) echo "Unsupported architecture \"${RAW_ARCH}\"" 1>&2; exit 1;;
-  esac
-  echo "${ARCH}"
-}
-
 detect_platform () {
-  OS=$(detect_os)
-  ARCH=$(detect_architecture)
-  echo "${OS}-${ARCH}"
+  OS=$(uname -s)
+  ARCH=$(uname -m)
+  echo "${OS}_${ARCH}"
 }
 
 ensure_command () {
@@ -44,4 +22,8 @@ ensure_command "uname"
 
 PLATFORM=$(detect_platform)
 
-curl -LO http://llmariner-artifacts.s3.amazonaws.com/artifacts/cli/0.132.0/"${PLATFORM}"/llma
+VERSION=v1.1.0
+curl -LO "https://github.com/llmariner/llmariner/releases/download/${VERSION}/llmariner_${PLATFORM}.tar.gz"
+tar -xvf llmariner_${PLATFORM}.tar.gz
+chmod u+x ./llma
+rm LICENSE README.md llmariner_${PLATFORM}.tar.gz

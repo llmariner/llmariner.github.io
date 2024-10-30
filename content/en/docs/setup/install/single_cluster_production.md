@@ -1,9 +1,11 @@
 ---
-title: Install LLMariner
-description: >
-  We provide a Helm chart for installing LLMariner. You can obtain the Helm chart from our repository and install.
-weight: 2
+title: Install in a Single Cluster
+linkTitle: "Standalone"
+description: Install LLMariner in a single Kubernetes cluster.
+weight: 20
 ---
+
+We provide a Helm chart for installing LLMariner. You can obtain the Helm chart from our repository and install.
 
 ``` bash
 # Logout of helm registry to perform an unauthenticated pull against the public ECR
@@ -18,11 +20,7 @@ helm upgrade --install \
 
 Once installation completes, you can interact with the API endpoint using the [OpenAI Python library](https://github.com/openai/openai-python), running our CLI, or directly hitting the endpoint. To download the CLI, run:
 
-``` bash
-export ARCH=<e.g., linux-amd64, darwin-arm64>
-curl --silent https://llmariner.ai/get-cli | bash
-chmod u+x ./llma
-```
+{{< include "../../../includes/cli-install.md" >}}
 
 ## EKS Installation
 
@@ -648,7 +646,7 @@ helm upgrade --install --wait \
 
 ### Optional: Enable TLS
 
-First follow the [Cert Manager installation document](https://cert-manager.io/Doc/) and install Cert Manager to your K8s cluster if you don\'t have one. Then create a `ClusterIssuer` for your domain. Here is an example manifest that uses Let\'s Encrypt.
+First follow the [cert-manager installation document](https://cert-manager.io/docs/installation/) and install cert-manager to your K8s cluster if you don't have one. Then create a `ClusterIssuer` for your domain. Here is an example manifest that uses Let\'s Encrypt.
 
 ``` yaml
 apiVersion: cert-manager.io/v1

@@ -137,7 +137,8 @@ params:
     # Set to true if you don't want the top navbar to be translucent when over a `block/cover`, like on the homepage.
     navbar_translucent_over_cover_disable: false
     # Enable to show the side bar menu in its compact state.
-    sidebar_menu_compact: false
+    sidebar_menu_compact: true
+    ul_show: 2
     # Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
     sidebar_search_disable: false
 
@@ -165,7 +166,7 @@ params:
     # Developer relevant links. These will show up on right side of footer and in the community page if you have one.
     developer:
       - name: GitHub
-        url: https://github.com/llmariner
+        url: https://github.com/llmariner/llmariner
         icon: fab fa-github
         desc: Development takes place here!
       - name: Slack
@@ -193,5 +194,5 @@ menu:
   main:
     - name: GitHub
       weight: 50
-      url: https://github.com/llmariner
+      url: https://github.com/llmariner/llmariner
       post: <sup><i class="ps-1 fa-solid fa-up-right-from-square fa-xs" aria-hidden="true"></i></sup>

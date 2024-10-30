@@ -1,9 +1,15 @@
 ---
 title: Set up a Playground
-description: >
-  You can easily set up a playground for LLMariner and learn it. In this page, we provision an EC2 instance, build a [Kind](https://kind.sigs.k8s.io/) cluster, and deploy LLMariner and other required components.
-weight: 1
+linkTitle: "Playground"
+description: Set up the playground environment on the Amazon EC2 instance with GPUs.
+weight: 10
 ---
+
+You can easily set up a playground for LLMariner and learn it. In this page, we provision an EC2 instance, build a [Kind](https://kind.sigs.k8s.io/) cluster, and deploy LLMariner and other required components.
+
+{{% alert title="Warn" color="secondary" %}}
+Playground environments are for experimentation use only. For a production-ready installation, please refere to the other installation guide.
+{{% /alert %}}
 
 Once all the setup completes, you can interact with the LLM service by directly hitting the API endpoints or using [the OpenAI Python library](https://github.com/openai/openai-python).
 
@@ -87,17 +93,14 @@ ansible all \
 
 To access LLM service, you need an API key. You can download the LLMariner CLI and use that to login the system, and obtain the API key.
 
-``` bash
-# Download the binary.
-export ARCH=<e.g., linux-amd64, darwin-arm64>
-curl --silent https://llmariner.ai/get-cli | bash
-chmod u+x ./llma
+{{< include "../../../includes/cli-install.md" >}}
 
+``` bash
 # Login. Please see below for the details.
-./llma auth login
+llma auth login
 
 # Create an API key.
-./llma auth api-keys create my-key
+llma auth api-keys create my-key
 ```
 
 `llma auth login` will ask for the endpoint URL and the issuer URL. Please use the default values for them (`http://localhost:8080/v1` and `http://kong-proxy.kong/v1/dex`).
@@ -120,10 +123,12 @@ There are mainly three ways to interact with the LLM service.
 The first option is to use the CLI. Here are example commands:
 
 ``` bash
-./llma models list
+llma models list
 
-./llma chat completions create --model google-gemma-2b-it-q4_0 --role user --completion "What is k8s?"
+llma chat completions create --model google-gemma-2b-it-q4_0 --role user --completion "What is k8s?"
 ```
+
+The second option is to run the `curl` command and hit the API endpoint. Here is an example command for listing all available models and hitting the chat endpoint.
 
 ``` bash
 curl \
@@ -138,8 +143,6 @@ curl \
   --data '{"model": "google-gemma-2b-it-q4_0", "messages": [{"role": "user", "content": "What is k8s?"}]}' \
   http://localhost:8080/v1/chat/completions
 ```
-
-The second option is to run the `curl` command and hit the API endpoint. Here is an example command for listing all available models and hitting the chat endpoint.
 
 The third option is to use Python. Here is an example Python code for hitting the chat endpoint.
 

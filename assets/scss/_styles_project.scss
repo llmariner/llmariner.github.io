@@ -1,1 +1,16 @@
 @import 'td/code-dark';
+
+.ul-1>.td-sidebar-nav__section-title a { font-weight: 600; }
+.ul-2 .td-sidebar-nav__section-title a { font-size: .92rem; font-weight: 300; color: var(--bs-body-color); }
+.td-sidebar-nav__section .td-sidebar-link__page { font-size: .92rem; }
+.td-sidebar-nav__section .ul-1 ul { padding-left: .8em; }
+.td-sidebar-nav .ul-1 ul a.active { font-weight: 500; color: var(--bs-primary); }
+
+.td-toc li a { font-size: .92rem; font-weight: 400; }
+.td-toc li li { margin-left: 1rem; }
+
+.td-content dt:after { content: ":"; margin-left: .1rem; }
+.td-content dt { margin: 1.2rem 0 .2rem 0; }
+.td-content pre > code { font-size: 92%; }
+
+.section-index .entry p { margin-bottom: 0; }
