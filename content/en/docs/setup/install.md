@@ -75,7 +75,7 @@ The rest of the section go through concrete steps to create an EKS cluster, crea
 
 #### Step 1.1. Create a new cluster with Karpenter
 
-Follow the [Karpenter getting started guide](https://karpenter.sh/docs/getting-started/getting-started-with-karpenter/) and create an EKS cluster and add Karpenter. The following is the installation step copied from the page (with slight simplification).
+Either follow the [Karpenter getting started guide](https://karpenter.sh/docs/getting-started/getting-started-with-karpenter/) and create an EKS cluster with Karpenter, or run the following simplified installation steps.
 
 ``` bash
 export CLUSTER_NAME="llmariner-demo"
@@ -283,14 +283,14 @@ aws rds create-db-instance \
 You can run the following command to check the provisioning status.
 
 ``` bash
-aws rds describe-db-instances --db-instance-identifier "${DB_INSTANCE_ID}" | jq '.DBInstances.[].DBInstanceStatus'
+aws rds describe-db-instances --db-instance-identifier "${DB_INSTANCE_ID}" | jq '.DBInstances[].DBInstanceStatus'
 ```
 
 Once the RDS instance is fully provisioned and its status becomes `available`, obtain the endpoint information for later use.
 
 ``` bash
-export POSTGRES_ADDR=$(aws rds describe-db-instances --db-instance-identifier "${DB_INSTANCE_ID}" | jq '.DBInstances.[].Endpoint.Address' --raw-output)
-export POSTGRES_PORT=$(aws rds describe-db-instances --db-instance-identifier "${DB_INSTANCE_ID}" | jq '.DBInstances.[].Endpoint.Port' --raw-output)
+export POSTGRES_ADDR=$(aws rds describe-db-instances --db-instance-identifier "${DB_INSTANCE_ID}" | jq '.DBInstances[].Endpoint.Address' --raw-output)
+export POSTGRES_PORT=$(aws rds describe-db-instances --db-instance-identifier "${DB_INSTANCE_ID}" | jq '.DBInstances[].Endpoint.Port' --raw-output)
 ```
 
 You can verify if the DB instance is reachable from the EKS cluster by running the `psql` command:
