@@ -646,7 +646,7 @@ helm upgrade --install --wait \
 
 ### Optional: Enable TLS
 
-First follow the [Cert Manager installation document](https://cert-manager.io/Doc/) and install Cert Manager to your K8s cluster if you don\'t have one. Then create a `ClusterIssuer` for your domain. Here is an example manifest that uses Let\'s Encrypt.
+First follow the [cert-manager installation document](https://cert-manager.io/docs/installation/) and install cert-manager to your K8s cluster if you don't have one. Then create a `ClusterIssuer` for your domain. Here is an example manifest that uses Let\'s Encrypt.
 
 ``` yaml
 apiVersion: cert-manager.io/v1
