@@ -11,7 +11,7 @@ This page goes through the concrete steps to create an EKS cluster, create neces
 
 ### Step 1.1. Create a new cluster with Karpenter
 
-Follow the [Karpenter getting started guide](https://karpenter.sh/docs/getting-started/getting-started-with-karpenter/) and create an EKS cluster and add Karpenter. The following is the installation step copied from the page (with slight simplification).
+Either follow the [Karpenter getting started guide](https://karpenter.sh/docs/getting-started/getting-started-with-karpenter/) and create an EKS cluster with Karpenter, or run the following simplified installation steps.
 
 ``` bash
 export CLUSTER_NAME="llmariner-demo"
@@ -160,7 +160,7 @@ EOF
 
 ## Step 2. Create an RDS instance
 
-We will create an RDS in the same VPC as the EKS cluster so that it can be reachable from the LLMariner components. Here is an example command for creating a DB subnet group and an RDS instance.
+We will create an RDS in the same VPC as the EKS cluster so that it can be reachable from the LLMariner components. Here are example commands for creating a DB subnet group: 
 
 ``` bash
 export DB_SUBNET_GROUP_NAME="llmariner-demo-db-subnet"
@@ -172,7 +172,10 @@ aws rds create-db-subnet-group \
   --db-subnet-group-name "${DB_SUBNET_GROUP_NAME}" \
   --db-subnet-group-description "LLMariner Demo" \
   --subnet-ids "${EKS_SUBNET_ID0}" "${EKS_SUBNET_ID1}"
+```
+and an RDS instance:
 
+``` bash
 export DB_INSTANCE_ID="llmariner-demo"
 export POSTGRES_USER="admin_user"
 export POSTGRES_PASSWORD="secret_password"
@@ -193,14 +196,14 @@ aws rds create-db-instance \
 You can run the following command to check the provisioning status.
 
 ``` bash
-aws rds describe-db-instances --db-instance-identifier "${DB_INSTANCE_ID}" | jq '.DBInstances.[].DBInstanceStatus'
+aws rds describe-db-instances --db-instance-identifier "${DB_INSTANCE_ID}" | jq '.DBInstances[].DBInstanceStatus'
 ```
 
 Once the RDS instance is fully provisioned and its status becomes `available`, obtain the endpoint information for later use.
 
 ``` bash
-export POSTGRES_ADDR=$(aws rds describe-db-instances --db-instance-identifier "${DB_INSTANCE_ID}" | jq '.DBInstances.[].Endpoint.Address' --raw-output)
-export POSTGRES_PORT=$(aws rds describe-db-instances --db-instance-identifier "${DB_INSTANCE_ID}" | jq '.DBInstances.[].Endpoint.Port' --raw-output)
+export POSTGRES_ADDR=$(aws rds describe-db-instances --db-instance-identifier "${DB_INSTANCE_ID}" | jq '.DBInstances[].Endpoint.Address' --raw-output)
+export POSTGRES_PORT=$(aws rds describe-db-instances --db-instance-identifier "${DB_INSTANCE_ID}" | jq '.DBInstances[].Endpoint.Port' --raw-output)
 ```
 
 You can verify if the DB instance is reachable from the EKS cluster by running the `psql` command:
@@ -249,6 +252,10 @@ aws s3api create-bucket --bucket "${MILVUS_S3_BUCKET_NAME}" --region "${S3_REGIO
 Pods running in the EKS cluster need to be able to access the S3 bucket. We will create an [IAM role for service account](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) for that.
 
 ``` bash
+export LLMARINER_POLICY="LLMarinerPolicy"
+export LLMARINER_SERVICE_ACCOUNT_NAME="llmariner"
+export LLMARINER_ROLE="LLMarinerRole"
+
 cat << EOF | envsubst > policy.json
 {
   "Version": "2012-10-17",
@@ -272,15 +279,13 @@ cat << EOF | envsubst > policy.json
 }
 EOF
 
-export LLMARINER_POLICY="LLMarinerPolicy"
 aws iam create-policy --policy-name "${LLMARINER_POLICY}" --policy-document file://policy.json
 
-export LLMARINER_SERVICR_ACCOUNT_NAME="llmariner"
 eksctl create iamserviceaccount \
-  --name "${LLMARINER_SERVICR_ACCOUNT_NAME}" \
+  --name "${LLMARINER_SERVICE_ACCOUNT_NAME}" \
   --namespace "${LLMARINER_NAMESPACE}" \
   --cluster "${CLUSTER_NAME}" \
-  --role-name "LLMarinerRole" \
+  --role-name "${LLMARINER_ROLE}" \
   --attach-policy-arn "arn:aws:iam::${AWS_ACCOUNT_ID}:policy/${LLMARINER_POLICY}" --approve
 ```
 
@@ -291,11 +296,13 @@ Install [Milvus](https://milvus.io/) as it is used a backend vector database for
 Milvus creates Persistent Volumes. Follow <https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html> and install EBS CSI driver.
 
 ``` bash
+export EBS_CSI_DRIVER_ROLE="AmazonEKS_EBS_CSI_DriverRole"
+
 eksctl create iamserviceaccount \
   --name ebs-csi-controller-sa \
   --namespace kube-system \
   --cluster "${CLUSTER_NAME}" \
-  --role-name AmazonEKS_EBS_CSI_DriverRole \
+  --role-name "${EBS_CSI_DRIVER_ROLE}" \
   --role-only \
   --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
   --approve
@@ -304,7 +311,7 @@ eksctl create addon \
   --cluster "${CLUSTER_NAME}" \
   --name aws-ebs-csi-driver \
   --version latest \
-  --service-account-role-arn "arn:aws:iam::${AWS_ACCOUNT_ID}:role/AmazonEKS_EBS_CSI_DriverRole" \
+  --service-account-role-arn "arn:aws:iam::${AWS_ACCOUNT_ID}:role/${EBS_CSI_DRIVER_ROLE}" \
   --force
 ```
 
@@ -334,7 +341,7 @@ standalone:
 
 serviceAccount:
   create: false
-  name: "${LLMARINER_SERVICR_ACCOUNT_NAME}"
+  name: "${LLMARINER_SERVICE_ACCOUNT_NAME}"
 
 externalS3:
   enabled: true

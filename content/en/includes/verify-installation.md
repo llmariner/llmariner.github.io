@@ -4,6 +4,8 @@ draft: true
 
 You can verify the installation by sending sample chat completion requests.
 
+Note, if you have used LLMariner in other cases before you may need to delete the previous config by running `rm -rf ~/.config/llmariner`
+
 ``` bash
 echo "This is your endpoint URL: ${INGRESS_CONTROLLER_URL}/v1"
 
