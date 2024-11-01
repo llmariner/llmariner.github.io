@@ -152,37 +152,11 @@ EOF
 
 ### Step 1.3. Install Nvidia GPU Operator
 
-Nvidia GPU Operator is required to install the device plugin and make GPU resources visible in the K8s cluster. Run:
-
-``` bash
-helm repo add nvidia https://helm.ngc.nvidia.com/nvidia
-helm repo update
-helm upgrade --install --wait \
-  --namespace nvidia \
-  --create-namespace \
-  gpu-operator nvidia/gpu-operator \
-  --set cdi.enabled=true \
-  --set driver.enabled=false \
-  --set toolkit.enabled=false
-```
+{{< include "../../../includes/install-nvidia-operator.md" >}}
 
 ### Step 1.4. Install an ingress controller
 
-An ingress controller is required to route HTTP/HTTPS requests to the LLMariner components. Any ingress controller works, and you can skip this step if your EKS cluster already has an ingress controller.
-
-Here is an example that installs [Kong](https://konghq.com/) and make the ingress controller reachable via AWS loadbalancer:
-
-``` bash
-helm repo add kong https://charts.konghq.com
-helm repo update
-helm upgrade --install --wait \
-  --namespace kong \
-  --create-namespace \
-  kong-proxy kong/kong \
-  --set proxy.annotations.service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout=300 \
-  --set ingressController.installCRDs=false \
-  --set fullnameOverride=false
-```
+{{< include "../../../includes/install-kong.md" >}}
 
 ## Step 2. Create an RDS instance
 
@@ -507,135 +481,12 @@ If you would like to install only the control-plane components or the worker-pla
 
 ## Step 6. Verify the installation
 
-You can verify the installation by sending sample chat completion requests.
-
-``` bash
-echo "This is your endpoint URL: ${INGRESS_CONTROLLER_URL}/v1"
-
-llma auth login
-# Type the above endpoint URL.
-
-llma models list
-
-llma chat completions create --model google-gemma-2b-it-q4_0 --role user --completion "what is k8s?"
-
-llma chat completions create --model meta-llama-Meta-Llama-3.1-8B-Instruct-q4_0 --role user --completion "hello"
-```
+{{< include "../../../includes/verify-installation.md" >}}
 
 ## Optional: Monitor GPU utilization
 
-If you would like to install Prometheus and Grafana to see GPU utilization, run:
-
-``` bash
-# Add Prometheus
-cat <<EOF > prom-scrape-configs.yaml
-- job_name: nvidia-dcgm
-  scrape_interval: 5s
-  static_configs:
-  - targets: ['nvidia-dcgm-exporter.nvidia.svc:9400']
-- job_name: inference-manager-engine-metrics
-  scrape_interval: 5s
-  static_configs:
-  - targets: ['inference-manager-server-http.llmariner.svc:8083']
-EOF
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm repo update
-
-helm upgrade --install --wait \
-  --namespace monitoring \
-  --create-namespace \
-  --set-file extraScrapeConfigs=prom-scrape-configs.yaml \
-  prometheus prometheus-community/prometheus
-
-# Add Grafana with DCGM dashboard
-cat <<EOF > grafana-values.yaml
-datasources:
- datasources.yaml:
-   apiVersion: 1
-   datasources:
-   - name: Prometheus
-     type: prometheus
-     url: http://prometheus-server
-     isDefault: true
-dashboardProviders:
-  dashboardproviders.yaml:
-    apiVersion: 1
-    providers:
-    - name: 'default'
-      orgId: 1
-      folder: 'default'
-      type: file
-      disableDeletion: true
-      editable: true
-      options:
-        path: /var/lib/grafana/dashboards/standard
-dashboards:
-  default:
-    nvidia-dcgm-exporter:
-      gnetId: 12239
-      datasource: Prometheus
-EOF
-helm repo add grafana https://grafana.github.io/helm-charts
-helm repo update
-helm upgrade --install --wait \
-  --namespace monitoring \
-  --create-namespace \
-  -f grafana-values.yaml \
-  grafana grafana/grafana
-```
+{{< include "../../../includes/optional-setup-monitoring.md" >}}
 
 ## Optional: Enable TLS
 
-First follow the [cert-manager installation document](https://cert-manager.io/docs/installation/) and install cert-manager to your K8s cluster if you don't have one. Then create a `ClusterIssuer` for your domain. Here is an example manifest that uses Let\'s Encrypt.
-
-``` yaml
-apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
-metadata:
-  name: letsencrypt
-spec:
-  acme:
-    server: https://acme-v02.api.letsencrypt.org/directory
-    email: user@mydomain.com
-    privateKeySecretRef:
-      name: letsencrypt
-    solvers:
-    - http01:
-       ingress:
-          ingressClassName: kong
-    - selector:
-        dnsZones:
-        - llm.mydomain.com
-      dns01:
-        ...
-```
-
-Then you can add the following to `values.yaml` of LLMariner to enable TLS.
-
-``` yaml
-global:
-  ingress:
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt
-    tls:
-      hosts:
-      - api.llm.mydomain.com
-      secretName: api-tls
-```
-
-The ingresses created from the Helm chart will have the following annotation and spec:
-
-``` yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
-...
-spec:
-  tls:
-  - hosts:
-    - api.llm.mydomain.com
-    secretName: api-tls
-  ...
-```
+{{< include "../../../includes/optional-setup-tls.md" >}}
