@@ -337,6 +337,9 @@ aws s3api create-bucket --bucket "${MILVUS_S3_BUCKET_NAME}" --region "${S3_REGIO
 Pods running in the EKS cluster need to be able to access the S3 bucket. We will create an [IAM role for service account](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) for that.
 
 ``` bash
+export LLMARINER_POLICY="LLMarinerPolicy"
+export LLMARINER_SERVICE_ACCOUNT_NAME="llmariner"
+export LLMARINER_ROLE="LLMarinerRole"
 cat << EOF | envsubst > policy.json
 {
   "Version": "2012-10-17",
@@ -360,15 +363,13 @@ cat << EOF | envsubst > policy.json
 }
 EOF
 
-export LLMARINER_POLICY="LLMarinerPolicy"
 aws iam create-policy --policy-name "${LLMARINER_POLICY}" --policy-document file://policy.json
 
-export LLMARINER_SERVICR_ACCOUNT_NAME="llmariner"
 eksctl create iamserviceaccount \
-  --name "${LLMARINER_SERVICR_ACCOUNT_NAME}" \
+  --name "${LLMARINER_SERVICE_ACCOUNT_NAME}" \
   --namespace "${LLMARINER_NAMESPACE}" \
   --cluster "${CLUSTER_NAME}" \
-  --role-name "LLMarinerRole" \
+  --role-name $LLMARINER_ROLE \
   --attach-policy-arn "arn:aws:iam::${AWS_ACCOUNT_ID}:policy/${LLMARINER_POLICY}" --approve
 ```
 
@@ -379,11 +380,13 @@ Install [Milvus](https://milvus.io/) as it is used a backend vector database for
 Milvus creates Persistent Volumes. Follow <https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html> and install EBS CSI driver.
 
 ``` bash
+export EBS_CSI_DRIVER_ROLE="AmazonEKS_EBS_CSI_DriverRole"
+
 eksctl create iamserviceaccount \
   --name ebs-csi-controller-sa \
   --namespace kube-system \
   --cluster "${CLUSTER_NAME}" \
-  --role-name AmazonEKS_EBS_CSI_DriverRole \
+  --role-name $EBS_CSI_DRIVER_ROLE \
   --role-only \
   --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
   --approve
@@ -392,7 +395,7 @@ eksctl create addon \
   --cluster "${CLUSTER_NAME}" \
   --name aws-ebs-csi-driver \
   --version latest \
-  --service-account-role-arn "arn:aws:iam::${AWS_ACCOUNT_ID}:role/AmazonEKS_EBS_CSI_DriverRole" \
+  --service-account-role-arn "arn:aws:iam::${AWS_ACCOUNT_ID}:role/${EBS_CSI_DRIVER_ROLE}" \
   --force
 ```
 
@@ -422,7 +425,7 @@ standalone:
 
 serviceAccount:
   create: false
-  name: "${LLMARINER_SERVICR_ACCOUNT_NAME}"
+  name: "${LLMARINER_SERVICE_ACCOUNT_NAME}"
 
 externalS3:
   enabled: true
@@ -527,7 +530,7 @@ job-manager-dispatcher:
     # Used to set the base URL of the API endpoint. This can be same as global.ingress.controllerUrl
     # if the URL is reachable from the inside cluster. Otherwise you can change this to the
     # to the URL of the ingress controller that is reachable inside the K8s cluster.
-    llmarinerBaseUrl: "${INGRESS_CONTROLLER_URL}"/v1
+    llmarinerBaseUrl: "${INGRESS_CONTROLLER_URL}/v1"
 
 model-manager-loader:
   serviceAccount:
@@ -567,7 +570,7 @@ If you would like to install only the control-plane components or the worker-pla
 
 ### Step 6. Verify the installation
 
-You can verify the installation by sending sample chat completion requests.
+You can verify the installation by sending sample chat completion requests. Note, if you have used LLMariner in other cases before you may need to delete the previous config by running `rm -rf ~/.config/llmariner`
 
 ``` bash
 echo "This is your endpoint URL: ${INGRESS_CONTROLLER_URL}/v1"
