@@ -1,7 +1,7 @@
 ---
-title: Set up a Playground (CPU-only)
-linkTitle: "Playground (CPU)"
-description: Set up the playground environment on the local kind cluster (CPU-only).
+title: Set up a Playground on a CPU-only Kind Cluster
+linkTitle: "Playground (Local)"
+description: Set up the playground environment on a local kind cluster (CPU-only).
 weight: 15
 ---
 

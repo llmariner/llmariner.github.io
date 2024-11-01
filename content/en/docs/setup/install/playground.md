@@ -1,7 +1,7 @@
 ---
-title: Set up a Playground
-linkTitle: "Playground"
-description: Set up the playground environment on the Amazon EC2 instance with GPUs.
+title: Set up a Playground on a GPU EC2 Instance
+linkTitle: "Playground (EC2)"
+description: Set up the playground environment on an Amazon EC2 instance with GPUs.
 weight: 10
 ---
 
