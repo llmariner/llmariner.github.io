@@ -1,6 +1,6 @@
 ---
 title: Install across Multiple Clusters
-linkTitle: "Multicluster"
+linkTitle: "Multi-cluster"
 description: Install LLMarinr across multiple Kubernetes clusters.
 weight: 30
 ---
