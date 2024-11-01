@@ -409,7 +409,21 @@
 
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/llmariner/llmariner/blob/main/tutorials/getting_started.ipynb">https://github.com/llmariner/llmariner/blob/main/tutorials/getting_started.ipynb&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Install across Multiple Clusters</title><link>https://llmariner.ai/docs/setup/install/multi_cluster_production/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/multi_cluster_production/</guid><description>&lt;p>LLMariner deploys Kubernetes deployments to provision the LLM stack. In a typical configuration, all the services are deployed into a single Kubernetes cluster, but you can also deploy these services on multiple Kubernetes clusters. For example, you can deploy a control plane component in a CPU K8s cluster and deploy the rest of the components in GPU compute clusters.&lt;/p>
+&lt;/ul></description></item><item><title>Install in a Single On-premise Cluster</title><link>https://llmariner.ai/docs/setup/install/single_cluster_onpremise/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/single_cluster_onpremise/</guid><description>&lt;p>This page goes through the concrete steps to install LLMariener on a on-premise K8s cluster (or a local K8s cluster).
+You can skip some of the steps if you have already made necessary installation/setup.&lt;/p>
+
+
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+
+ Installation of Postgres, MinIO, SeawoodFS, and Milvus are just example purposes, and
+they are not intended for the production usage.
+Please configure based on your requirements if you want to use LLMariner for your production environment.
+
+&lt;/div>
+
+&lt;h2 id="step-1-install-nvidia-gpu-operator">Step 1. Install Nvidia GPU Operator&lt;a class="td-heading-self-link" href="#step-1-install-nvidia-gpu-operator" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Nvidia GPU Operator is required to install the device plugin and make GPU resources visible in the K8s cluster. Run:&lt;/p></description></item><item><title>Install across Multiple Clusters</title><link>https://llmariner.ai/docs/setup/install/multi_cluster_production/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/multi_cluster_production/</guid><description>&lt;p>LLMariner deploys Kubernetes deployments to provision the LLM stack. In a typical configuration, all the services are deployed into a single Kubernetes cluster, but you can also deploy these services on multiple Kubernetes clusters. For example, you can deploy a control plane component in a CPU K8s cluster and deploy the rest of the components in GPU compute clusters.&lt;/p>
 &lt;p>LLMariner can be deployed into multiple GPU clusters, and the clusters can span across multiple cloud providers (including GPU specific clouds like CoreWeave) and on-prem.&lt;/p></description></item><item><title>Hosted Control Plane</title><link>https://llmariner.ai/docs/setup/install/hosted_control_plane/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/hosted_control_plane/</guid><description>&lt;p>CloudNatix provides a hosted control plane of LLMariner.&lt;/p>
 
 
