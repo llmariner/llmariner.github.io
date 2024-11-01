@@ -1,77 +1,15 @@
 ---
-title: Install in a Single Cluster
-linkTitle: "Standalone"
-description: Install LLMariner in a single Kubernetes cluster.
+title: Install in a Single EKS Cluster
+linkTitle: "Standalone (EKS)"
+description: Install LLMariner in an EKS cluster with the standalone mode.
 weight: 20
 ---
 
-We provide a Helm chart for installing LLMariner. You can obtain the Helm chart from our repository and install.
+This page goes through the concrete steps to create an EKS cluster, create necessary resources, and install LLMariner. You can skip some of the steps if you have already made necessary installation/setup.
 
-``` bash
-# Logout of helm registry to perform an unauthenticated pull against the public ECR
-helm registry logout public.ecr.aws
+## Step 1. Provision an EKS cluster
 
-helm upgrade --install \
-  --namespace <namespace> \
-  --create-namespace \
-  llmariner oci://public.ecr.aws/cloudnatix/llmariner-charts/llmariner \
-  --values <values.yaml>
-```
-
-Once installation completes, you can interact with the API endpoint using the [OpenAI Python library](https://github.com/openai/openai-python), running our CLI, or directly hitting the endpoint. To download the CLI, run:
-
-{{< include "../../../includes/cli-install.md" >}}
-
-## EKS Installation
-
-Let\'s go through the details of the installation. Here we use EKS as a target K8s cluster, but it can be AKS, GKE, or any other K8s cluster.
-
-### Prerequisites
-
-LLMariner requires the following resources:
-
--   [Nvidia GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html)
--   Ingress controller (to route API requests)
--   SQL database (to store jobs/models/files metadata)
--   S3-compatible object store (to store training files and models)
--   [Milvus](https://milvus.io/) (for RAG, optional)
-
-LLMariner can process inference requests on CPU nodes, but it can be best used with GPU nodes. Nvidia GPU Operator is required to install the device plugin and make GPUs visible in the K8s cluster.
-
-Preferably the ingress controller should have a DNS name or an IP that is reachable from the outside of the EKS cluster. If not, you can rely on port-forwarding to reach the API endpoints.
-
-{{% alert title="Note" color="primary" %}}
-When port-forwarding is used, the same port needs to be used consistently as the port number will be included the OIDC issuer URL. We will explain details later.
-{{% /alert %}}
-
-You can provision RDS and S3 in AWS, or you can deploy Postgres and [MinIO](https://min.io/) inside your EKS cluster. The following permissions are required for S3:
-
-``` json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-       "Action": [
-         "s3:PutObject",
-         "s3:GetObject",
-         "s3:DeleteObject",
-         "s3:ListBucket"
-       ],
-       "Resource": [
-         "arn:aws:s3:::<bucket name>",
-         "arn:aws:s3:::<bucket name>/*"
-       ]
-     }
-   ]
- }
-```
-
-The rest of the section go through concrete steps to create an EKS cluster, create necessary resources, and install LLMariner. You can skip some of the steps if you have already made necessary installation/setup.
-
-### Step 1. Provision an EKS cluster
-
-#### Step 1.1. Create a new cluster with Karpenter
+### Step 1.1. Create a new cluster with Karpenter
 
 Follow the [Karpenter getting started guide](https://karpenter.sh/docs/getting-started/getting-started-with-karpenter/) and create an EKS cluster and add Karpenter. The following is the installation step copied from the page (with slight simplification).
 
@@ -150,7 +88,7 @@ helm upgrade --install --wait \
   --set controller.resources.limits.memory=1Gi
 ```
 
-#### Step 1.2. Provision GPU nodes
+### Step 1.2. Provision GPU nodes
 
 Once Karpenter is installed, we need to create an `EC2NodeClass` and a `NodePool` so that GPU nodes are provisioned. We configure `blockDeviceMappings` in the `EC2NodeClass` definition so that nodes have sufficient local storage to store model files.
 
@@ -212,7 +150,7 @@ spec:
 EOF
 ```
 
-#### Step 1.3. Install Nvidia GPU Operator
+### Step 1.3. Install Nvidia GPU Operator
 
 Nvidia GPU Operator is required to install the device plugin and make GPU resources visible in the K8s cluster. Run:
 
@@ -228,7 +166,7 @@ helm upgrade --install --wait \
   --set toolkit.enabled=false
 ```
 
-#### Step 1.4. Install an ingress controller
+### Step 1.4. Install an ingress controller
 
 An ingress controller is required to route HTTP/HTTPS requests to the LLMariner components. Any ingress controller works, and you can skip this step if your EKS cluster already has an ingress controller.
 
@@ -246,7 +184,7 @@ helm upgrade --install --wait \
   --set fullnameOverride=false
 ```
 
-### Step 2. Create an RDS instance
+## Step 2. Create an RDS instance
 
 We will create an RDS in the same VPC as the EKS cluster so that it can be reachable from the LLMariner components. Here is an example command for creating a DB subnet group and an RDS instance.
 
@@ -313,7 +251,7 @@ kubectl create secret generic -n "${LLMARINER_NAMESPACE}" "${POSTGRES_SECRET_NAM
 LLMariner will create additional databases on the fly for each API service (e.g., `job_manager`, `model_manager`). You can see all created databases by running `SELECT count(datname) FROM pg_database;`.
 {{% /alert %}}
 
-### Step 3. Create an S3 bucket
+## Step 3. Create an S3 bucket
 
 We will create an S3 bucket where model files are stored. Here is an example
 
@@ -372,7 +310,7 @@ eksctl create iamserviceaccount \
   --attach-policy-arn "arn:aws:iam::${AWS_ACCOUNT_ID}:policy/${LLMARINER_POLICY}" --approve
 ```
 
-### Step 4. Install Milvus
+## Step 4. Install Milvus
 
 Install [Milvus](https://milvus.io/) as it is used a backend vector database for RAG.
 
@@ -446,7 +384,9 @@ helm upgrade --install --wait \
 
 Please see the [Milvus installation document](https://milvus.io/docs/install-overview.md) and the [Helm chart](https://artifacthub.io/packages/helm/milvus/milvus) for other installation options.
 
-### Step 5. Install LLMariner
+## Step 5. Install LLMariner
+
+Run the following command to set up a `values.yaml` and install LLMariner with Helm.
 
 ``` bash
 # Set the endpoint URL of LLMariner. Please change if you are using a different ingress controller.
@@ -565,7 +505,7 @@ If you are getting a 403 forbidden error, please try `docker logout public.ecr.a
 
 If you would like to install only the control-plane components or the worker-plane components, please see `multi_cluster_deployment`{.interpreted-text role="doc"}.
 
-### Step 6. Verify the installation
+## Step 6. Verify the installation
 
 You can verify the installation by sending sample chat completion requests.
 
@@ -582,7 +522,7 @@ llma chat completions create --model google-gemma-2b-it-q4_0 --role user --compl
 llma chat completions create --model meta-llama-Meta-Llama-3.1-8B-Instruct-q4_0 --role user --completion "hello"
 ```
 
-### Optional: Monitor GPU utilization
+## Optional: Monitor GPU utilization
 
 If you would like to install Prometheus and Grafana to see GPU utilization, run:
 
@@ -644,7 +584,7 @@ helm upgrade --install --wait \
   grafana grafana/grafana
 ```
 
-### Optional: Enable TLS
+## Optional: Enable TLS
 
 First follow the [cert-manager installation document](https://cert-manager.io/docs/installation/) and install cert-manager to your K8s cluster if you don't have one. Then create a `ClusterIssuer` for your domain. Here is an example manifest that uses Let\'s Encrypt.
 
