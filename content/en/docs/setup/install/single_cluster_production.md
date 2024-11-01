@@ -527,7 +527,7 @@ job-manager-dispatcher:
     # Used to set the base URL of the API endpoint. This can be same as global.ingress.controllerUrl
     # if the URL is reachable from the inside cluster. Otherwise you can change this to the
     # to the URL of the ingress controller that is reachable inside the K8s cluster.
-    llmarinerBaseUrl: "${INGRESS_CONTROLLER_URL}"/v1
+    llmarinerBaseUrl: "${INGRESS_CONTROLLER_URL}/v1"
 
 model-manager-loader:
   serviceAccount:
