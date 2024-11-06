@@ -21,7 +21,45 @@ Please configure based on your requirements if you want to use LLMariner for you
 
 ## Step 2. Install an ingress controller
 
-{{< include "../../../includes/install-kong.md" >}}
+An ingress controller is required to route HTTP/HTTPS requests to the LLMariner components. Any ingress controller works, and you can skip this step if your EKS cluster already has an ingress controller.
+
+Here is an example that installs [Kong](https://konghq.com/) and make the ingress controller:
+
+``` bash
+helm repo add kong https://charts.konghq.com
+helm repo update
+
+cat <<EOF > kong-values.yaml
+proxy:
+ type: NodePort
+ http:
+   hostPort: 80
+ tls:
+   hostPort: 443
+ annotations:
+   service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "300"
+
+nodeSelector:
+  ingress-ready: "true"
+
+tolerations:
+- key: node-role.kubernetes.io/control-plane
+  operator: Equal
+  effect: NoSchedule
+- key: node-role.kubernetes.io/master
+  operator: Equal
+  effect: NoSchedule
+
+fullnameOverride: kong
+EOF
+
+helm upgrade --install --wait \
+  --namespace kong \
+  --create-namespace \
+  kong-proxy kong/kong \
+  -f kong-values.yaml
+```
+
 
 ## Step 3. Install a Postgres database
 
@@ -31,94 +69,14 @@ Run the following to deploy an Postgres deployment:
 export POSTGRES_USER="admin_user"
 export POSTGRES_PASSWORD="secret_password"
 
-kubectl create namespace postgres
-
-cat << EOF | envsubst | kubectl apply -n postgres -f -
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: postgres-secret
-  labels:
-    app: postgres
-data:
-  POSTGRES_DB: ps_db
-  POSTGRES_USER: ${POSTGRES_USER}
-  POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: postgres-volume
-  labels:
-    type: local
-    app: postgres
-spec:
-  storageClassName: manual
-  capacity:
-    storage: 100Mi
-  accessModes:
-  - ReadWriteMany
-  hostPath:
-    path: /data/postgresql
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: postgres-volume-claim
-  labels:
-    app: postgres
-spec:
-  storageClassName: manual
-  accessModes:
-  - ReadWriteMany
-  resources:
-    requests:
-      storage: 100Mi
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: postgres
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: postgres
-  template:
-    metadata:
-      labels:
-        app: postgres
-    spec:
-      containers:
-      - name: postgres
-        image: 'postgres:14'
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 5432
-        envFrom:
-        - configMapRef:
-            name: postgres-secret
-        volumeMounts:
-        - mountPath: /var/lib/postgresql/data
-          name: postgresdata
-      volumes:
-      - name: postgresdata
-        persistentVolumeClaim:
-          claimName: postgres-volume-claim
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: postgres
-  labels:
-    app: postgres
-spec:
-  type: NodePort
-  ports:
-  - port: 5432
-  selector:
-    app: postgres
-EOF
+helm upgrade --install --wait \
+  --namespace postgres \
+  --create-namespace \
+  postgres oci://registry-1.docker.io/bitnamicharts/postgresql \
+  --set nameOverride=postgres \
+  --set auth.database=ps_db \
+  --set auth.username="${POSTGRES_USER}" \
+  --set auth.password="${POSTGRES_PASSWORD}"
 ```
 
 Set the environmental variables so that LLMariner can later access the Postgres database.
@@ -161,127 +119,51 @@ Then install an object store. Here are the example installation commands for Min
   {{% tab header="**Install**:" disabled=true /%}}
   {{% tab header="MinIO" %}}
 ```bash
-kubectl create namespace minio
+helm upgrade --install --wait \
+  --namespace minio \
+  --create-namespace \
+  minio oci://registry-1.docker.io/bitnamicharts/minio \
+  --set auth.rootUser=minioadmin \
+  --set auth.rootPassword=minioadmin \
+  --set defaultBuckets="${S3_BUCKET_NAME}"
 
-cat << EOF | kubectl apply -n minio -f -
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: minio-volume
-  labels:
-    type: local
-    app: minio
-spec:
-  storageClassName: manual
-  capacity:
-    storage: 500Mi
-  accessModes:
-  - ReadWriteMany
-  hostPath:
-    path: /data/minio
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: minio-volume-claim
-  labels:
-    app: minio
-spec:
-  storageClassName: manual
-  accessModes:
-  - ReadWriteMany
-  resources:
-    requests:
-      storage: 500Mi
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: minio
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: minio
-  template:
-    metadata:
-      labels:
-        app: minio
-    spec:
-      containers:
-      - name: minio
-        image: quay.io/minio/minio:latest
-        imagePullPolicy: IfNotPresent
-        command:
-        - /bin/bash
-        - -c
-        args:
-        - minio server /data --console-address :9090
-        ports:
-        - name: api
-          containerPort: 9000
-          protocol: TCP
-        - name: admin
-          containerPort: 9090
-          protocol: TCP
-        volumeMounts:
-        - mountPath: /data
-          name: miniodata
-      volumes:
-      - name: miniodata
-        persistentVolumeClaim:
-          claimName: minio-volume-claim
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: minio
-  labels:
-    app: minio
-spec:
-  type: NodePort
-  ports:
-  - port: 9000
-    targetPort: api
-    protocol: TCP
-    name: api
-    nodePort: 31236
-  - port: 9090
-    targetPort: admin
-    protocol: TCP
-    name: admin
-    nodePort: 31237
-  selector:
-    app: minio
-EOF
-
-kubectl wait --timeout=60s --for=condition=ready pod -n minio -l app=minio
-
-kubectl port-forward -n minio service/minio 9000 9090 &
+kubectl port-forward -n minio service/minio 9001 &
 
 # Wait until the port-forwarding connection is established.
 sleep 5
 
 # Obtain the cookie and store in cookies.txt.
 curl \
-  http://localhost:9090/api/v1/login \
+  http://localhost:9001/api/v1/login \
   --cookie-jar cookies.txt \
   --request POST \
   --header 'Content-Type: application/json' \
-  --data '{"accessKey": "minioadmin", "secretKey": "minioadmin"}'
+  --data @- << EOF
+{
+  "accessKey": "minioadmin",
+  "secretKey": "minioadmin"
+}
+EOF
 
 # Create a new API key.
 curl \
-  http://localhost:9090/api/v1/service-account-credentials \
+  http://localhost:9001/api/v1/service-account-credentials \
   --cookie cookies.txt \
   --request POST \
   --header "Content-Type: application/json" \
-  --data "{\"policy\": \"\", \"accessKey\": \"${AWS_ACCESS_KEY_ID}\", \"secretKey\": \"${AWS_SECRET_ACCESS_KEY}\", \"description\": \"\", \"comment\": \"\", \"name\": \"LLMariner\", \"expiry\": null}"
+  --data @- << EOF >/dev/null
+{
+  "name": "LLMariner",
+  "accessKey": "$AWS_ACCESS_KEY_ID",
+  "secretKey": "$AWS_SECRET_ACCESS_KEY",
+  "description": "",
+  "comment": "",
+  "policy": "",
+  "expiry": null
+}
+EOF
 
 rm cookies.txt
-
-# Create the bucket.
-aws --endpoint-url http://localhost:9000 s3 mb s3://${S3_BUCKET_NAME}
 
 kill %1
 ```
@@ -502,7 +384,7 @@ Run the following command to set up a `values.yaml` and install LLMariner with H
 
 ``` bash
 # Set the endpoint URL of LLMariner. Please change if you are using a different ingress controller.
-export INGRESS_CONTROLLER_URL=http://$(kubectl get services -n kong kong-proxy-kong-proxy  -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+export INGRESS_CONTROLLER_URL=http://localhost:8080
 
 cat << EOF | envsubst > llmariner-values.yaml
 global:
@@ -538,6 +420,14 @@ global:
     name: "${S3_ACCESS_SECRET_NAME}"
     accessKeyIdKey: accessKeyId
     secretAccessKeyKey: secretAccessKey
+
+dex-server:
+  staticPasswords:
+  - email: admin@example.com
+    # bcrypt hash of the string: $(echo password | htpasswd -BinC 10 admin | cut -d: -f2)
+    hash: "\$2a\$10\$2b2cU8CPhOTaGrs1HRQuAueS7JTT5ZHsHSzYiFPm1leZck7Mc8T4W"
+    username: admin-user
+    userID: admin-id
 
 inference-manager-engine:
   model:
