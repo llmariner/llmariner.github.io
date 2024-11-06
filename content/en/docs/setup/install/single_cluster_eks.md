@@ -160,7 +160,7 @@ EOF
 
 ## Step 2. Create an RDS instance
 
-We will create an RDS in the same VPC as the EKS cluster so that it can be reachable from the LLMariner components. Here are example commands for creating a DB subnet group: 
+We will create an RDS in the same VPC as the EKS cluster so that it can be reachable from the LLMariner components. Here are example commands for creating a DB subnet group:
 
 ``` bash
 export DB_SUBNET_GROUP_NAME="llmariner-demo-db-subnet"
@@ -401,6 +401,14 @@ global:
     s3:
       bucket: "${S3_BUCKET_NAME}"
       region: "${S3_REGION}"
+
+dex-server:
+  staticPasswords:
+  - email: admin@example.com
+    # bcrypt hash of the string: $(echo password | htpasswd -BinC 10 admin | cut -d: -f2)
+    hash: "\$2a\$10\$2b2cU8CPhOTaGrs1HRQuAueS7JTT5ZHsHSzYiFPm1leZck7Mc8T4W"
+    username: admin-user
+    userID: admin-id
 
 file-manager-server:
   serviceAccount:
