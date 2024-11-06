@@ -86,17 +86,6 @@ export POSTGRES_ADDR=postgres.postgres
 export POSTGRES_PORT=5432
 ```
 
-
-Create a K8s secret in the `llmariner` namespace so that later LLMariner can retrieve the database password from the secret.
-
-```bash
-export LLMARINER_NAMESPACE=llmariner
-export POSTGRES_SECRET_NAME=postgres
-
-kubectl create namespace "${LLMARINER_NAMESPACE}"
-kubectl create secret generic -n "${LLMARINER_NAMESPACE}" "${POSTGRES_SECRET_NAME}" --from-literal=password="${POSTGRES_PASSWORD}"
-```
-
 ## Step 4. Install an S3-compatible object store
 
 LLMariner requires an S3-compatible object store such as [MinIO](https://min.io/) or [SeaweedfS](https://seaweedfs.com).
@@ -330,18 +319,6 @@ export S3_ENDPOINT_URL=http://seaweedfs.seaweedfs:8333
   {{% /tab %}}
 {{< /tabpane >}}
 
-
-Finally create a secret for LLMariner to access the bucket.
-
-```bash
-export S3_ACCESS_SECRET_NAME=aws
-
-kubectl create secret generic -n "${LLMARINER_NAMESPACE}" "${S3_ACCESS_SECRET_NAME}" \
-  --from-literal=accessKeyId="${AWS_ACCESS_KEY_ID}" \
-  --from-literal=secretAccessKey="${AWS_SECRET_ACCESS_KEY}"
-```
-
-
 ## Step 5. Install Milvus
 
 Install [Milvus](https://milvus.io/) as it is used a backend vector database for RAG.
@@ -372,9 +349,16 @@ EOF
 helm repo add zilliztech https://zilliztech.github.io/milvus-helm/
 helm repo update
 helm upgrade --install --wait \
-  --namespace "${LLMARINER_NAMESPACE}" \
+  --namespace milvus \
+  --create-namespace \
   milvus zilliztech/milvus \
   -f milvus-values.yaml
+```
+
+Set the environmental variables so that LLMariner can later access the Postgres database.
+
+``` bash
+export MILVUS_ADDR=milvus.milvus
 ```
 
 
@@ -407,7 +391,7 @@ global:
     createDatabase: true
 
   databaseSecret:
-    name: "${POSTGRES_SECRET_NAME}"
+    name: postgres
     key: password
 
   objectStore:
@@ -417,9 +401,20 @@ global:
       region: "${S3_REGION}"
 
   awsSecret:
-    name: "${S3_ACCESS_SECRET_NAME}"
+    name: aws
     accessKeyIdKey: accessKeyId
     secretAccessKeyKey: secretAccessKey
+
+prepare:
+  database:
+    createSecret: true
+    secret:
+      password: "${POSTGRES_PASSWORD}"
+  objectStore:
+    createSecret: true
+    secret:
+      accessKeyId: "${AWS_ACCESS_KEY_ID}"
+      secretAccessKey: "${AWS_SECRET_ACCESS_KEY}"
 
 dex-server:
   staticPasswords:
@@ -478,7 +473,7 @@ model-manager-loader:
 # Required when RAG is used.
 vector-store-manager-server:
   vectorDatabase:
-    host: milvus
+    host: "${MILVUS_ADDR}"
   llmEngineAddr: ollama-sentence-transformers-all-minilm-l6-v2-f16:11434
 EOF
 
