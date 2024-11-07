@@ -214,16 +214,6 @@ kubectl logs psql
 kubectl delete pods psql
 ```
 
-If `psql` can successfully connect to the RDS instance, create a K8s secret in the `llmariner` namespace so that later LLMariner can retrieve the database password from the secret.
-
-``` bash
-export LLMARINER_NAMESPACE=llmariner
-export POSTGRES_SECRET_NAME=postgres
-
-kubectl create namespace "${LLMARINER_NAMESPACE}"
-kubectl create secret generic -n "${LLMARINER_NAMESPACE}" "${POSTGRES_SECRET_NAME}" --from-literal=password="${POSTGRES_PASSWORD}"
-```
-
 {{% alert title="Note" color="primary" %}}
 LLMariner will create additional databases on the fly for each API service (e.g., `job_manager`, `model_manager`). You can see all created databases by running `SELECT count(datname) FROM pg_database;`.
 {{% /alert %}}
@@ -252,6 +242,7 @@ aws s3api create-bucket --bucket "${MILVUS_S3_BUCKET_NAME}" --region "${S3_REGIO
 Pods running in the EKS cluster need to be able to access the S3 bucket. We will create an [IAM role for service account](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) for that.
 
 ``` bash
+export LLMARINER_NAMESPACE=llmariner
 export LLMARINER_POLICY="LLMarinerPolicy"
 export LLMARINER_SERVICE_ACCOUNT_NAME="llmariner"
 export LLMARINER_ROLE="LLMarinerRole"
@@ -358,12 +349,20 @@ EOF
 helm repo add zilliztech https://zilliztech.github.io/milvus-helm/
 helm repo update
 helm upgrade --install --wait \
-  --namespace "${LLMARINER_NAMESPACE}" \
+  --namespace milvus \
+  --create-namespace \
   milvus zilliztech/milvus \
   -f milvus-values.yaml
 ```
 
 Please see the [Milvus installation document](https://milvus.io/docs/install-overview.md) and the [Helm chart](https://artifacthub.io/packages/helm/milvus/milvus) for other installation options.
+
+Set the environmental variables so that LLMariner can later access the Postgres database.
+
+``` bash
+export MILVUS_ADDR=milvus.milvus
+```
+
 
 ## Step 5. Install LLMariner
 
@@ -401,6 +400,12 @@ global:
     s3:
       bucket: "${S3_BUCKET_NAME}"
       region: "${S3_REGION}"
+
+prepare:
+  database:
+    createSecret: true
+    secret:
+      password: "${POSTGRES_PASSWORD}"
 
 dex-server:
   staticPasswords:
@@ -473,7 +478,7 @@ vector-store-manager-server:
     create: false
     name: "${LLMARINER_SERVICE_ACCOUNT_NAME}"
   vectorDatabase:
-    host: milvus
+    host: "${MILVUS_ADDR}"
   llmEngineAddr: ollama-sentence-transformers-all-minilm-l6-v2-f16:11434
 EOF
 
