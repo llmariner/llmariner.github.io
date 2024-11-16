@@ -108,4 +108,13 @@ and put them in environmental variables.&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">LANGFUSE_PUBLIC_KEY&lt;/span>&lt;span class="o">=&lt;/span>...
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">LANGFUSE_HOST&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://localhost:3000&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can then use &lt;code>langfuse.openai&lt;/code> instead of &lt;code>openai&lt;/code> in your Python scripts
-to record traces in Langfuse.&lt;/p></description></item></channel></rss>
+to record traces in Langfuse.&lt;/p></description></item><item><title>Slackbot</title><link>https://llmariner.ai/docs/integration/slackbot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/integration/slackbot/</guid><description>&lt;p>You can build a Slackbot that is integrated with LLMariner. The bot can provide a chat UI with Slack
+and answer questions from end users.&lt;/p>
+&lt;p>An example implementation can be found in &lt;a href="https://github.com/llmariner/slackbot">https://github.com/llmariner/slackbot&lt;/a>. You can deploy it in your
+Kubernetes clusters and build a Slack app with the following configuration:&lt;/p>
+&lt;ul>
+&lt;li>Create an app-level token whose scope is &lt;code>connections:write&lt;/code>.&lt;/li>
+&lt;li>Enable the socket mode. Enable event subscription with the &lt;code>app_mentions:read&lt;/code> scope.&lt;/li>
+&lt;li>Add the following scopes in &amp;ldquo;OAuth &amp;amp; Permissions&amp;rdquo;: &lt;code>app_mentions:read&lt;/code>, &lt;code>chat:write&lt;/code>, &lt;code>chat:write.customize&lt;/code>, and &lt;code>links:write&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>You can install the Slack application to your workspace and interact.&lt;/p></description></item></channel></rss>

@@ -323,7 +323,16 @@ to record traces in Langfuse.&lt;/p></description></item><item><title>General-pu
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">llma workspace notebooks create my-notebook
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>By default, there is no GPU allocated to the Jupyter Notebook. If you want to allocate a GPU to the Jupyter Notebook, run:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">llma workspace notebooks create my-gpu-notebook --gpu &lt;span class="m">1&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>There are other options that you can specify when creating a Jupyter Notebook, such as environment. You can see the list of options by using the &lt;code>--help&lt;/code> flag.&lt;/p></description></item><item><title>API and GPU Usage Visibility</title><link>https://llmariner.ai/docs/features/visibility/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/features/visibility/</guid><description>&lt;div class="alert alert-primary" role="alert">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>There are other options that you can specify when creating a Jupyter Notebook, such as environment. You can see the list of options by using the &lt;code>--help&lt;/code> flag.&lt;/p></description></item><item><title>Slackbot</title><link>https://llmariner.ai/docs/integration/slackbot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/integration/slackbot/</guid><description>&lt;p>You can build a Slackbot that is integrated with LLMariner. The bot can provide a chat UI with Slack
+and answer questions from end users.&lt;/p>
+&lt;p>An example implementation can be found in &lt;a href="https://github.com/llmariner/slackbot">https://github.com/llmariner/slackbot&lt;/a>. You can deploy it in your
+Kubernetes clusters and build a Slack app with the following configuration:&lt;/p>
+&lt;ul>
+&lt;li>Create an app-level token whose scope is &lt;code>connections:write&lt;/code>.&lt;/li>
+&lt;li>Enable the socket mode. Enable event subscription with the &lt;code>app_mentions:read&lt;/code> scope.&lt;/li>
+&lt;li>Add the following scopes in &amp;ldquo;OAuth &amp;amp; Permissions&amp;rdquo;: &lt;code>app_mentions:read&lt;/code>, &lt;code>chat:write&lt;/code>, &lt;code>chat:write.customize&lt;/code>, and &lt;code>links:write&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>You can install the Slack application to your workspace and interact.&lt;/p></description></item><item><title>API and GPU Usage Visibility</title><link>https://llmariner.ai/docs/features/visibility/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/features/visibility/</guid><description>&lt;div class="alert alert-primary" role="alert">
 &lt;h4 class="alert-heading">Note&lt;/h4>
 
  Work-in-progress.
