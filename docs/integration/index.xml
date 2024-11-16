@@ -108,7 +108,17 @@ and put them in environmental variables.&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">LANGFUSE_PUBLIC_KEY&lt;/span>&lt;span class="o">=&lt;/span>...
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">LANGFUSE_HOST&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://localhost:3000&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can then use &lt;code>langfuse.openai&lt;/code> instead of &lt;code>openai&lt;/code> in your Python scripts
-to record traces in Langfuse.&lt;/p></description></item><item><title>Slackbot</title><link>https://llmariner.ai/docs/integration/slackbot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/integration/slackbot/</guid><description>&lt;p>You can build a Slackbot that is integrated with LLMariner. The bot can provide a chat UI with Slack
+to record traces in Langfuse.&lt;/p></description></item><item><title>k8sgpt</title><link>https://llmariner.ai/docs/integration/k8sgpt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/integration/k8sgpt/</guid><description>&lt;p>&lt;a href="https://github.com/k8sgpt-ai/k8sgpt">k8sgpt&lt;/a> is a tool for scanning your
+Kubernetes clusters, diagnosing, and triaging issues in simple English.&lt;/p>
+&lt;p>You can use LLMariner as a backend of k8sgpt by running the following command:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">k8sgpt auth add &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --backend openai &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --baseurl &amp;lt;LLMariner base URL &lt;span class="o">(&lt;/span>e.g., http://localhost:8080/v1/&lt;span class="o">)&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --password &amp;lt;LLMariner API Key&amp;gt; &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --model &amp;lt;Model ID&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then you can a command like &lt;code>k8sgpt analyze&lt;/code> to inspect your Kubernetes cluster.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">k8sgpt analyze --explain
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Slackbot</title><link>https://llmariner.ai/docs/integration/slackbot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/integration/slackbot/</guid><description>&lt;p>You can build a Slackbot that is integrated with LLMariner. The bot can provide a chat UI with Slack
 and answer questions from end users.&lt;/p>
 &lt;p>An example implementation can be found in &lt;a href="https://github.com/llmariner/slackbot">https://github.com/llmariner/slackbot&lt;/a>. You can deploy it in your
 Kubernetes clusters and build a Slack app with the following configuration:&lt;/p>
