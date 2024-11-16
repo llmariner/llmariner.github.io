@@ -1,6 +1,6 @@
 ---
 title: Langfuse
-description: Integrate with Langfuse
+description: Integrate with Langfuse for LLM engineering.
 weight: 5
 ---
 
