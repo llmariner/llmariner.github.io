@@ -17,6 +17,7 @@ deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct  | Q2_K, Q3_K_M, Q3_K_S, Q4_0 |  Oll
 deepseek-ai/deepseek-coder-6.7b-base         | None                       |  vLLM, Ollama
 deepseek-ai/deepseek-coder-6.7b-base         | AWQ                        |  vLLM
 deepseek-ai/deepseek-coder-6.7b-base         | Q4_0                       |  vLLM, Ollama
+fixie-ai/ultravox-v0_3                       | None                       |  vLLM
 google/gemma-2b-it                           | None                       |  Ollama
 google/gemma-2b-it                           | Q4_0                       |  Ollama
 intfloat/e5-mistral-7b-instruct              | None                       |  vLLM
