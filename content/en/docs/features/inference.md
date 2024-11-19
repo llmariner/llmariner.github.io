@@ -6,6 +6,8 @@ description: >
 weight: 1
 ---
 
+## Chat Completion
+
 Here is an example chat completion command with the `llma` CLI.
 
 ``` bash
@@ -54,3 +56,10 @@ curl \
 ```
 
 Please see [the fine-tuning page](./fine_tuning.html) if you want to generate a fine-tuning model and use that for chat completion.
+
+
+## Audio-to-Text
+
+{{% alert title="Note" color="primary" %}}
+Work-in-progress.
+{{% /alert %}}
