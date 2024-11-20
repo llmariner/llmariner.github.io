@@ -8,7 +8,7 @@ weight: 6
 
 ```bash
 npm install -g @builder.io/ai-shell
-ai config set OPENAI_API_ENDPOINT=<Base URL (e.g., http://localhost:8080/v1)>"
+ai config set OPENAI_API_ENDPOINT=<Base URL (e.g., http://localhost:8080/v1)>
 ai config set OPENAI_KEY=<API key>
 ai config set MODEL=<model name>
 ```
