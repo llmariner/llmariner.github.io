@@ -1,6 +1,6 @@
 ---
 title: API and GPU Usage Optimization
-linkTitle: API/GPU Visibility and Optimization
+linkTitle: API/GPU Usage Optimization
 description:
 weight: 7
 ---
