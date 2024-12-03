@@ -1,7 +1,7 @@
 ---
 title: Slackbot
 description: Build a Slackbot that integrates with LLMariner
-weight: 7
+weight: 5
 ---
 
 You can build a Slackbot that is integrated with LLMariner. The bot can provide a chat UI with Slack

@@ -1,7 +1,7 @@
 ---
 title: AI Shell
 description: Integrate with AI Shell to power your shell with the AI assistant.
-weight: 6
+weight: 3
 ---
 
 [AI Shell](https://github.com/BuilderIO/ai-shell) is an open source tool that converts natural language to shell commands.
