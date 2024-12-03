@@ -1,7 +1,7 @@
 ---
 title: MLflow
 description: Integrate with MLflow.
-weight: 3
+weight: 6
 ---
 
 [MLflow](https://mlflow.org/) is an open-source tool for managing the machine learning lifecycle. It has various features for LLMs ([link](https://mlflow.org/docs/latest/llms/index.html)) and integration with OpenAI. We can apply these MLflow features to the LLM endpoints provided by LLMariner.
