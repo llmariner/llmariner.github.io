@@ -1,7 +1,7 @@
 ---
 title: k8sgpt
 description: Integrate with k8sgpt to diagnose and triage issues in your Kubernetes clusters.
-weight: 4
+weight: 5
 ---
 
 [k8sgpt](https://github.com/k8sgpt-ai/k8sgpt) is a tool for scanning your
