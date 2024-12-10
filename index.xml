@@ -195,6 +195,11 @@
  &lt;td>vLLM&lt;/td>
  &lt;/tr>
  &lt;tr>
+ &lt;td>meta-llama/Meta-Llama-3.3-70B-Instruct&lt;/td>
+ &lt;td>AWQ&lt;/td>
+ &lt;td>vLLM&lt;/td>
+ &lt;/tr>
+ &lt;tr>
  &lt;td>meta-llama/Meta-Llama-3.1-70B-Instruct&lt;/td>
  &lt;td>AWQ&lt;/td>
  &lt;td>vLLM&lt;/td>
