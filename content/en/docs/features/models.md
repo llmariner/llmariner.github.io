@@ -21,6 +21,7 @@ fixie-ai/ultravox-v0_3                       | None                       |  vLL
 google/gemma-2b-it                           | None                       |  Ollama
 google/gemma-2b-it                           | Q4_0                       |  Ollama
 intfloat/e5-mistral-7b-instruct              | None                       |  vLLM
+meta-llama/Meta-Llama-3.3-70B-Instruct       | AWQ                        |  vLLM
 meta-llama/Meta-Llama-3.1-70B-Instruct       | AWQ                        |  vLLM
 meta-llama/Meta-Llama-3.1-70B-Instruct       | Q2_K, Q3_K_M, Q3_K_S, Q4_0 |  vLLM, Ollama
 meta-llama/Meta-Llama-3.1-8B-Instruct        | None                       |  vLLM
