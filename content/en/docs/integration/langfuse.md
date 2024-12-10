@@ -1,7 +1,7 @@
 ---
 title: Langfuse
 description: Integrate with Langfuse for LLM engineering.
-weight: 8
+weight: 9
 ---
 
 [Langfuse](https://github.com/langfuse/langfuse) is an open source LLM engineering platform. You can integrate Langfuse
