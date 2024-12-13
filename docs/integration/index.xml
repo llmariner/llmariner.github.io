@@ -106,7 +106,7 @@ Kubernetes clusters, diagnosing, and triaging issues in simple English.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --model &amp;lt;Model ID&amp;gt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then you can a command like &lt;code>k8sgpt analyze&lt;/code> to inspect your Kubernetes cluster.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">k8sgpt analyze --explain
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>dify</title><link>https://llmariner.ai/docs/integration/dify/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/integration/dify/</guid><description>&lt;p>&lt;a href="https://dify.ai/">Dify&lt;/a> is is an open-source LLM app development platform.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Dify</title><link>https://llmariner.ai/docs/integration/dify/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/integration/dify/</guid><description>&lt;p>&lt;a href="https://dify.ai/">Dify&lt;/a> is is an open-source LLM app development platform.
 It can orchestrate LLM apps from agents to complex AI workflows, with an RAG engine.&lt;/p>
 &lt;p>You can add LLMariner as one of Dify&amp;rsquo;s model providers with the following steps:&lt;/p>
 &lt;ol>
