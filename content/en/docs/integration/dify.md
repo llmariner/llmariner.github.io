@@ -1,5 +1,5 @@
 ---
-title: dify
+title: Dify
 description: Integrate with Dify for LLM application development.
 weight: 6
 ---
