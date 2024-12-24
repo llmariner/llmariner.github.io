@@ -495,14 +495,14 @@ to record traces in Langfuse.&lt;/p></description></item><item><title>Install wi
 
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/llmariner/llmariner/blob/main/tutorials/getting_started.ipynb">https://github.com/llmariner/llmariner/blob/main/tutorials/getting_started.ipynb&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Install in a Single On-premise Cluster</title><link>https://llmariner.ai/docs/setup/install/single_cluster_onpremise/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/single_cluster_onpremise/</guid><description>&lt;p>This page goes through the concrete steps to install LLMariener on a on-premise K8s cluster (or a local K8s cluster).
+&lt;/ul></description></item><item><title>Install in a Single On-premise Cluster</title><link>https://llmariner.ai/docs/setup/install/single_cluster_onpremise/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/install/single_cluster_onpremise/</guid><description>&lt;p>This page goes through the concrete steps to install LLMariner on a on-premise K8s cluster (or a local K8s cluster).
 You can skip some of the steps if you have already made necessary installation/setup.&lt;/p>
 
 
 &lt;div class="alert alert-primary" role="alert">
 &lt;h4 class="alert-heading">Note&lt;/h4>
 
- Installation of Postgres, MinIO, SeawoodFS, and Milvus are just example purposes, and
+ Installation of Postgres, MinIO, SeaweedFS, and Milvus are just example purposes, and
 they are not intended for the production usage.
 Please configure based on your requirements if you want to use LLMariner for your production environment.
 
