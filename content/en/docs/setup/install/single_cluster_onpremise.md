@@ -5,11 +5,11 @@ description: Install LLMariner in an on-premise Kubernetes cluster with the stan
 weight: 21
 ---
 
-This page goes through the concrete steps to install LLMariener on a on-premise K8s cluster (or a local K8s cluster).
+This page goes through the concrete steps to install LLMariner on a on-premise K8s cluster (or a local K8s cluster).
 You can skip some of the steps if you have already made necessary installation/setup.
 
 {{% alert title="Note" color="primary" %}}
-Installation of Postgres, MinIO, SeawoodFS, and Milvus are just example purposes, and
+Installation of Postgres, MinIO, SeaweedFS, and Milvus are just example purposes, and
 they are not intended for the production usage.
 Please configure based on your requirements if you want to use LLMariner for your production environment.
 {{% /alert %}}
@@ -88,7 +88,7 @@ export POSTGRES_PORT=5432
 
 ## Step 4. Install an S3-compatible object store
 
-LLMariner requires an S3-compatible object store such as [MinIO](https://min.io/) or [SeaweedfS](https://seaweedfs.com).
+LLMariner requires an S3-compatible object store such as [MinIO](https://min.io/) or [SeaweedFS](https://seaweedfs.com).
 
 First set environmental variables to specify installation configuration:
 

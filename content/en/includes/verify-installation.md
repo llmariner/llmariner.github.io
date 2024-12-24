@@ -8,7 +8,7 @@ Note, if you have used LLMariner in other cases before you may need to delete th
 
 The default login user name is `admin@example.com` and the password is
 `password`. You can change this by updating the Dex configuration
-([link](/docs/features/user_management/).
+([link](/docs/features/user_management/)).
 
 ``` bash
 echo "This is your endpoint URL: ${INGRESS_CONTROLLER_URL}/v1"
