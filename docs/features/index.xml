@@ -21,7 +21,8 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="n">response&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">completion&lt;/span>&lt;span class="p">:&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">choices&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">delta&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">content&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">end&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can also just call ``client = OpenAI()&lt;code>if you set environment variables&lt;/code>OPENAI_BASE_URL&lt;code>and&lt;/code>OPENAI_API_KEY`.&lt;/p></description></item><item><title>Supported Open Models</title><link>https://llmariner.ai/docs/features/models/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/features/models/</guid><description>&lt;p>Please note that some models work only with specific inference runtimes.&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can also just call ``client = OpenAI()&lt;code>if you set environment variables&lt;/code>OPENAI_BASE_URL&lt;code>and&lt;/code>OPENAI_API_KEY`.&lt;/p></description></item><item><title>Supported Open Models</title><link>https://llmariner.ai/docs/features/models/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/features/models/</guid><description>&lt;h2 id="models-that-are-officially-supported">Models that are Officially Supported&lt;a class="td-heading-self-link" href="#models-that-are-officially-supported" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>The following is a list of supported models where we have validated.&lt;/p>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -137,7 +138,8 @@
  &lt;td>Ollama&lt;/td>
  &lt;/tr>
  &lt;/tbody>
-&lt;/table></description></item><item><title>Retrieval-Augmented Generation (RAG)</title><link>https://llmariner.ai/docs/features/rag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/features/rag/</guid><description>&lt;h2 id="an-example-flow">An Example Flow&lt;a class="td-heading-self-link" href="#an-example-flow" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;/table>
+&lt;p>Please note that some models work only with specific inference runtimes.&lt;/p></description></item><item><title>Retrieval-Augmented Generation (RAG)</title><link>https://llmariner.ai/docs/features/rag/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/features/rag/</guid><description>&lt;h2 id="an-example-flow">An Example Flow&lt;a class="td-heading-self-link" href="#an-example-flow" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>The first step is to create a vector store and create files in the vector store. Here is an example script with the OpenAI Python library:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">openai&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">OpenAI&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
