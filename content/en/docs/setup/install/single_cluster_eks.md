@@ -371,6 +371,7 @@ Run the following command to set up a `values.yaml` and install LLMariner with H
 ``` bash
 # Set the endpoint URL of LLMariner. Please change if you are using a different ingress controller.
 export INGRESS_CONTROLLER_URL=http://$(kubectl get services -n kong kong-proxy-kong-proxy  -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+export POSTGRES_SECRET_NAME="db-secret"
 
 cat << EOF | envsubst > llmariner-values.yaml
 global:
