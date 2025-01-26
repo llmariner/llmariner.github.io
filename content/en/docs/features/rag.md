@@ -120,7 +120,7 @@ curl \
   --header "Content-Type: application/json" \
   --data '{
    "model": "sentence-transformers-all-MiniLM-L6-v2-f16",
-   "input": ""sample text,
+   "input": "sample text"
  }' \
  http://localhost:8080/v1/embeddings
 ```
