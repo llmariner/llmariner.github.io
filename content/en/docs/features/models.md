@@ -68,3 +68,23 @@ model-manager-loader:
 
 Then the model should be loaded by `model-manager-loader`. Once the loading completes, the model name
 should show up in the output of `llma models list`.
+
+When you use a GGUF model with vLLM, please specify `--tokenizer=<original model>` in `vllmExtraFlags`. Here is an example
+configuration for Phi 4.
+
+```yaml
+inference-manager-engine:
+  ...
+  model:
+    default:
+      runtimeName: vllm
+    overrides:
+      lmstudio-community/phi-4-GGUF/phi-4-Q6_K.gguf:
+        preloaded: true
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+        vllmExtraFlags:
+        - --tokenizer
+        - microsoft/phi-4
+```
