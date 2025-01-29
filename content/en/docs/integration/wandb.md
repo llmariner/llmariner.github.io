@@ -2,7 +2,7 @@
 title: Weights & Biases (W&B)
 linkTitle: Weights & Biases
 description: Integration with W&B and see the progress of your fine-tuning jobs.
-weight: 10
+weight: 11
 ---
 
 [Weights and Biases (W&B)](https://wandb.ai/) is an AI developer platform. LLMariner provides the integration with W&B so that metrics for fine-tuning jobs are reported to W&B. With the integration, you can easily see the progress of your fine-tuning jobs, such as training epoch, loss, etc.
