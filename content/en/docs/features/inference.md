@@ -57,6 +57,28 @@ curl \
 
 Please see [the fine-tuning page](./fine_tuning.html) if you want to generate a fine-tuning model and use that for chat completion.
 
+## Tool Calling
+
+vLLM requires additional flags ([link](https://docs.vllm.ai/en/latest/features/tool_calling.html) to use tool calling.
+You can specify the flags with `vllmExtraFlags`. Here is an example configuration:
+
+```yaml
+inference-manager-engine:
+  ...
+  model:
+    overrides:
+      meta-llama-Meta-Llama-3.3-70B-Instruct-fp8-dynamic:
+        runtimeName: vllm
+        resources:
+          limits:
+            nvidia.com/gpu: 4
+        vllmExtraFlags:
+        - --chat-template
+        - examples/tool_chat_template_llama3.1_json.jinja
+        - --enable-auto-tool-choice
+        - --tool-call-parser
+        - llama3_json
+```
 
 ## Audio-to-Text
 

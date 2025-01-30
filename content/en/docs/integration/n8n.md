@@ -55,3 +55,6 @@ kubectl port-forward -n n8n service/n8n 5678
 ```
 
 You can create an "OpenAI Model" node and configure its base URL and credential to hit LLMariner.
+
+If you are using vLLM as a inference runtime, you will need to enable tool calling. Please see [Tool calling](inference/#tool-calling)
+for details.
