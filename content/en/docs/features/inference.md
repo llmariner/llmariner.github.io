@@ -78,6 +78,69 @@ inference-manager-engine:
         - --enable-auto-tool-choice
         - --tool-call-parser
         - llama3_json
+        - --max-model-len
+        - "8192"
+```
+
+Here is an example `curl` command:
+
+```bash
+curl \
+  --request POST \
+  --header "Authorization: Bearer ${LLMARINER_TOKEN}" \
+  --header "Content-Type: application/json" \
+  --data '{
+  "model": "meta-llama-Meta-Llama-3.3-70B-Instruct-fp8-dynamic",
+  "messages": [{"role": "user", "content": "What is the weather like in San Francisco?"}],
+  "tools": [{
+    "type": "function",
+    "function": {
+      "name": "get_weather",
+      "description": "Get current temperature for a given location.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+          "location": {
+            "type": "string",
+            "description": "City and country"
+          }
+        }
+      },
+      "strict": true
+    }
+  }]
+}' http://localhost:8080/v1/chat/completions
+```
+
+The output will have the `tool_calls` in its `message`.
+
+```json
+{
+  ...
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "chatcmpl-tool-e698e3e36f354d089302b79486e4a702",
+            "type": "function",
+            "function": {
+              "name": "get_weather",
+              "arguments": "{\"location\": \"San Francisco, USA\"}"
+            }
+          }
+        ]
+      },
+      "logprobs": null,
+      "finish_reason": "tool_calls",
+      "stop_reason": 128008
+    }
+  ],
+  ...
+}
 ```
 
 ## Audio-to-Text
