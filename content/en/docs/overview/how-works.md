@@ -1,7 +1,7 @@
 ---
 title: High-Level Architecture
 linkTitle: How LLMariner works
-description: An overview of the key components that make up a LLMarinr.
+description: An overview of the key components that make up a LLMariner.
 weight: 20
 ---
 
