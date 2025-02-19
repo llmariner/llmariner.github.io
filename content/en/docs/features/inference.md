@@ -42,7 +42,7 @@ for response in completion:
 print("\n")
 ```
 
-You can also just call ``client = OpenAI()` if you set environment variables `OPENAI_BASE_URL` and `OPENAI_API_KEY`.
+You can also just call `client = OpenAI()` if you set environment variables `OPENAI_BASE_URL` and `OPENAI_API_KEY`.
 
 If you want to hit the API endpoint directly, you can use `curl`. Here is an example.
 
