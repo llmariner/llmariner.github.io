@@ -28,7 +28,7 @@ spec:
         image: docker.n8n.io/n8nio/n8n
         ports:
         - name: http
-          containerPort: 8080
+          containerPort: 5678
           protocol: TCP
 ---
 apiVersion: v1
