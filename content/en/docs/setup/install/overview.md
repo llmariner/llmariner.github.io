@@ -40,6 +40,8 @@ helm upgrade --install \
   --values <values.yaml>
 ```
 
+## Install CLI
+
 Once installation completes, you can interact with the API endpoint using the [OpenAI Python library](https://github.com/openai/openai-python), running our CLI, or directly hitting the endpoint. To download the CLI, run:
 
 {{< include "../../../includes/cli-install.md" >}}
