@@ -349,7 +349,7 @@ EOF
 helm repo add zilliztech https://zilliztech.github.io/milvus-helm/
 helm repo update
 helm upgrade --install --wait \
-  --namespace milvus \
+  --namespace "${LLMARINER_NAMESPACE}" \
   --create-namespace \
   milvus zilliztech/milvus \
   -f milvus-values.yaml
@@ -360,7 +360,7 @@ Please see the [Milvus installation document](https://milvus.io/docs/install-ove
 Set the environmental variables so that LLMariner can later access the Postgres database.
 
 ``` bash
-export MILVUS_ADDR=milvus.milvus
+export MILVUS_ADDR=milvus.llmariner.svc.cluster.local
 ```
 
 
