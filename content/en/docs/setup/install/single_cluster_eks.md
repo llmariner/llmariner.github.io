@@ -318,7 +318,7 @@ etcd:
   persistence:
     storageClass: gp2 # Use gp3 if available
 
-pulsar:
+pulsarv3:
   enabled: false
 
 minio:
@@ -340,6 +340,7 @@ externalS3:
   port: 443
   useSSL: true
   bucketName: "${MILVUS_S3_BUCKET_NAME}"
+  region: us-east-1
   useIAM: true
   cloudProvider: aws
   iamEndpoint: ""
