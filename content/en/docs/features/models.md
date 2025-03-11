@@ -98,14 +98,14 @@ you can specify the downloader config as follows:
 ```yaml
 model-manager-loader:
   downloader:
-	kind: s3
-	s3:
-	  # The s3 endpoint URL.
-	  endpointUrl: https://s3.us-west-2.amazonaws.com
-	  # The region name where the models are stored.
-	  region: us-west-2
-	  # The bucket name where the models are stored.
-	  bucket: my-models
-	  # The path prefix of the model.
-	  pathPrefix: v1/base-models
+    kind: s3
+    s3:
+      # The s3 endpoint URL.
+      endpointUrl: https://s3.us-west-2.amazonaws.com
+      # The region name where the models are stored.
+      region: us-west-2
+      # The bucket name where the models are stored.
+      bucket: my-models
+      # The path prefix of the model.
+      pathPrefix: v1/base-models
 ```
