@@ -25,4 +25,81 @@ The API endpoint of the hosted control plane is <https://api.llm.cloudnatix.com/
 
 Run `llma auth login` and use the above for the endpoint URL. Then follow [multi_cluster_deployment](./multi_cluster_production/) to obtain a cluster registration key and deploy LLMariner.
 
-TODO: Add an example `values.yaml`.
+Here is an example values.yaml:
+
+```yaml
+tags:
+  control-plane: false
+
+global:
+  worker:
+    controlPlaneAddr: api.llm.cloudnatix.com:443
+    tls:
+      enable: true
+    registrationKeySecret:
+      name: cluster-registration-key
+      key: regKey
+
+  objectStore:
+    s3:
+      bucket: cloudnatix-installation-demo
+      endpointUrl: ""
+      region: us-west-2
+
+  awsSecret:
+    name: aws
+    accessKeyIdKey: accessKeyId
+    secretAccessKeyKey: secretAccessKey
+
+inference-manager-engine:
+  inferenceManagerServerWorkerServiceAddr: inference.llm.cloudnatix.com:443
+  replicaCount: 2
+  runtime:
+    runtimeImages:
+      ollama: mirror.gcr.io/ollama/ollama:0.3.6
+      # To use the upstream vLLM. Update once a new release that
+      # fixes https://github.com/vllm-project/vllm/issues/11970 is made.
+      vllm: public.ecr.aws/cloudnatix/llm-operator/vllm-openai:20250115
+      triton: nvcr.io/nvidia/tritonserver:24.09-trtllm-python-py3
+  model:
+    default:
+      runtimeName: vllm
+    overrides:
+      NikolayKozloff/DeepSeek-R1-Distill-Qwen-14B-Q4_K_M-GGUF:
+        preloaded: true
+        runtimeName: vllm
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+        vllmExtraFlags:
+        - --tokenizer
+        - deepseek-ai/DeepSeek-R1-Distill-Qwen-14B
+      lmstudio-community/phi-4-GGUF/phi-4-Q4_K_M.gguf:
+        preloaded: true
+        runtimeName: vllm
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+        vllmExtraFlags:
+        - --tokenizer
+        - microsoft/phi-4
+
+model-manager-loader:
+  baseModels:
+  - lmstudio-community/phi-4-GGUF/phi-4-Q4_K_M.gguf
+  - NikolayKozloff/DeepSeek-R1-Distill-Qwen-14B-Q4_K_M-GGUF
+  downloader:
+    kind: huggingFace
+    huggingFace:
+      cacheDir: /tmp/.cache/huggingface/hub
+  huggingFaceSecret:
+    name: huggingface-key
+    apiKeyKey: apiKey
+
+job-manager-dispatcher:
+    notebook:
+      llmarinerBaseUrl: https://api.llm.cloudnatix.com/v1
+
+session-manager-agent:
+  sessionManagerServerWorkerServiceAddr: session.llm.cloudnatix.com:443
+```
