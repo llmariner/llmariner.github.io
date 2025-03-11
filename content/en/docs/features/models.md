@@ -88,3 +88,24 @@ inference-manager-engine:
         - --tokenizer
         - microsoft/phi-4
 ```
+
+## Downloading model from your own S3 bucket
+
+If you want to download models from your S3 bucket, you can specify the bucket configuration under
+`model-manager-loader.downloader.s3`. For example, if you store model files under `s3://my-models/v1/base-models/<model-name>`,
+you can specify the downloader config as follows:
+
+```yaml
+model-manager-loader:
+  downloader:
+	kind: s3
+	s3:
+	  # The s3 endpoint URL.
+	  endpointUrl: https://s3.us-west-2.amazonaws.com
+	  # The region name where the models are stored.
+	  region: us-west-2
+	  # The bucket name where the models are stored.
+	  bucket: my-models
+	  # The path prefix of the model.
+	  pathPrefix: v1/base-models
+```
