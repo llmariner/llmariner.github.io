@@ -6,8 +6,18 @@ description: >
 weight: 2
 ---
 
-## Models that are Officially Supported
+## Overview
 
+LLMariner hosts LLMs in a Kubernetes cluster by downloading models from source repos and uploading to an S3-compatible object store. The supported source model repositories are following:
+
+- LLMariner offical model repo
+- HuggingFace repos
+- Ollama repos
+- S3 bucket
+
+## Officially Offical Model Repo
+
+This is the default configuration.
 The following is a list of supported models where we have validated.
 
 Model                                        | Quantizations              |Supporting runtimes
@@ -36,7 +46,7 @@ sentence-transformers/all-MiniLM-L6-v2-f16   | None                       |  Oll
 
 Please note that some models work only with specific inference runtimes.
 
-## Using Other Models in HuggingFace
+## HuggingFace Repos
 
 First, create a k8s secret that contains the HuggingFace API key.
 
@@ -89,7 +99,20 @@ inference-manager-engine:
         - microsoft/phi-4
 ```
 
-## Downloading model from your own S3 bucket
+## Ollama Repos
+
+You can configure Ollama as model source repos by setting `model-manager-loader.downloader.kind` to `ollama`. The following is an example `values.yaml` that downloads `deepseek-r1:1.5b` from Ollama.
+
+```yaml
+model-manager-loader:
+  downloader:
+    kind: ollama
+  baseModels:
+  - deepseek-r1:1.5b
+```
+
+
+## S3 Bucket
 
 If you want to download models from your S3 bucket, you can specify the bucket configuration under
 `model-manager-loader.downloader.s3`. For example, if you store model files under `s3://my-models/v1/base-models/<model-name>`,
