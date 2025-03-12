@@ -74,8 +74,10 @@ located in the bucket specified in the `global.objectStore.s3.bucke` field of He
 
 This option is useful when the S3 bucket is not accessible from the LLMariner control-plane component.
 
+{{% alert title="Note" color="primary" %}}
 Please note that specified file objects will be accessible from fine-tuning jobs. You should not
 create a file of an S3 object if the object should not be visible to users who can submit fine-tuning jobs.
+{{% /alert %}}
 
 ## Debugging a Fine-Tuning Job
 
