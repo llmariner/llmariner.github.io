@@ -15,17 +15,17 @@ CloudNatix provides a hosted control plane of LLMariner. End users can use the f
 
 ## Step 1. Create a CloudNatix account
 
-Create a CloudNatix account if you haven\'t. Please visit <https://app.cloudnatix.com>. You can click one of the \"Sign in or sing up\" buttons for SSO login or you can click \"Sign up\" at the bottom for the email & password login.
+Create a CloudNatix account if you haven\'t. Please visit <https://app.cloudnatix.com>. You can click one of the \"Sign in or sign up\" buttons for SSO login or you can click \"Sign up\" at the bottom for the email & password login.
 
 ## Step 2. Deploy the worker plane components
 
-Deploy the worker plane components LLMariner into your GPU cluster.
+Deploy the worker plane components of LLMariner into your GPU cluster.
 
 The API endpoint of the hosted control plane is <https://api.llm.cloudnatix.com/v1>.
 
 Run `llma auth login` and use the above for the endpoint URL. Then follow [multi_cluster_deployment](./multi_cluster_production/) to obtain a cluster registration key and deploy LLMariner.
 
-Here is an example values.yaml:
+Here is an example `values.yaml`:
 
 ```yaml
 tags:
