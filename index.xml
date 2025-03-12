@@ -205,6 +205,11 @@ The following is a list of supported models where we have validated.&lt;/p>
  &lt;td>vLLM&lt;/td>
  &lt;/tr>
  &lt;tr>
+ &lt;td>meta-llama/Llama-3.2-1B-Instruct&lt;/td>
+ &lt;td>None&lt;/td>
+ &lt;td>vLLM&lt;/td>
+ &lt;/tr>
+ &lt;tr>
  &lt;td>meta-llama/Meta-Llama-3.3-70B-Instruct&lt;/td>
  &lt;td>AWQ, FP8-Dynamic&lt;/td>
  &lt;td>vLLM&lt;/td>
