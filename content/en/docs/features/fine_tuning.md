@@ -59,6 +59,24 @@ completion = client.chat.completions.create(
   ...
 ```
 
+## Create File Objects without Uploading
+
+You can also create file objects without uploading. The following command
+creates a file for a specified S3 object.
+
+```bash
+llma storage files create-link --object-path models/my-model --purpose fine-tune
+```
+
+`--object-path` is set to an S3 object path without a bucket name. For example, if an S3 object
+is located at `s3://my-bucket/models/my-model`, `--object-path` is set to `models/my-model`. S3 objects must be
+located in the bucket specified in the `global.objectStore.s3.bucke` field of Helm `values.yaml`.
+
+This option is useful when the S3 bucket is not accessible from the LLMariner control-plane component.
+
+Please note that specified file objects will be accessible from fine-tuning jobs. You should not
+create a file of an S3 object if the object should not be visible to users who can submit fine-tuning jobs.
+
 ## Debugging a Fine-Tuning Job
 
 You can use the `llma` CLI to check the logs and exec into the pod.
