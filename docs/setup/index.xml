@@ -1,10 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Getting Started on LLMariner</title><link>https://llmariner.ai/docs/setup/</link><description>Recent content in Getting Started on LLMariner</description><generator>Hugo</generator><language>en</language><atom:link href="https://llmariner.ai/docs/setup/index.xml" rel="self" type="application/rss+xml"/><item><title>Tutorials</title><link>https://llmariner.ai/docs/setup/tutorials/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/tutorials/</guid><description>&lt;div class="alert alert-primary" role="alert">
-&lt;h4 class="alert-heading">Note&lt;/h4>
-
- Work-in-progress.
-
-&lt;/div>
-
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Getting Started on LLMariner</title><link>https://llmariner.ai/docs/setup/</link><description>Recent content in Getting Started on LLMariner</description><generator>Hugo</generator><language>en</language><atom:link href="https://llmariner.ai/docs/setup/index.xml" rel="self" type="application/rss+xml"/><item><title>Tutorials</title><link>https://llmariner.ai/docs/setup/tutorials/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/setup/tutorials/</guid><description>&lt;h2 id="use-openai-python-library">Use OpenAI Python Library&lt;a class="td-heading-self-link" href="#use-openai-python-library" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>You can download the following Jupyter Notebook and exercise the tutorial:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/llmariner/llmariner/blob/main/tutorials/getting_started.ipynb">https://github.com/llmariner/llmariner/blob/main/tutorials/getting_started.ipynb&lt;/a>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul>
+&lt;h2 id="fine-tune-models">Fine-tune Models&lt;a class="td-heading-self-link" href="#fine-tune-models" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section goes through model fine-tuning using Llama3.2-1B-Instruct. We follow the following
+page and create a model that answers questions in a sarcastic fashion.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://medium.com/@alexandros_chariton/how-to-fine-tune-llama-3-2-instruct-on-your-own-data-a-detailed-guide-e5f522f397d7">https://medium.com/@alexandros_chariton/how-to-fine-tune-llama-3-2-instruct-on-your-own-data-a-detailed-guide-e5f522f397d7&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>You can also check &lt;a href="https://vimeo.com/1065288371">this video&lt;/a> to see the overall flow.&lt;/p>
+&lt;h3 id="step-1-download-a-base-model">Step 1. Download a base model&lt;a class="td-heading-self-link" href="#step-1-download-a-base-model" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;p>Change the &lt;code>model-manager-loader&lt;/code> config so that Llama3.2-1B-Instruct is downloaded to your S3 bucket.&lt;/p></description></item></channel></rss>
