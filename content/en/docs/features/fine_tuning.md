@@ -68,10 +68,6 @@ creates a file for a specified S3 object.
 llma storage files create-link --object-path models/my-model --purpose fine-tune
 ```
 
-`--object-path` is set to an S3 object path without a bucket name. For example, if an S3 object
-is located at `s3://my-bucket/models/my-model`, `--object-path` is set to `models/my-model`. S3 objects must be
-located in the bucket specified in the `global.objectStore.s3.bucke` field of Helm `values.yaml`.
-
 This option is useful when the S3 bucket is not accessible from the LLMariner control-plane component.
 
 {{% alert title="Note" color="primary" %}}

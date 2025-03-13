@@ -98,12 +98,9 @@ the following command creates a new file object that points to `s3://<my-bucket>
 ```bash
 aws s3 cp training.jsonl s3://<my-bucket>/training-data/training.jsonl
 llma storage files create-link \
-  --object-path training-data/training.jsonl \
+  --object-path s3://<my-bucket>/training-data/training.jsonl \
   --purpose fine-tune
 ```
-
-The bucket (`<my-bucket>` in the above snippet) must be the same bucket
-specified in the `global.objectStore.s3.bucke` field of Helm `values.yaml`.
 
 ### Step 4. Submit a fine-tuning job
 
