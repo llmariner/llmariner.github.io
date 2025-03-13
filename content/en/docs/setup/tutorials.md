@@ -102,7 +102,7 @@ llma storage files create-link \
   --purpose fine-tune
 ```
 
-The bucket (`my-bucket` in the above snippet) must be the same bucket
+The bucket (`<my-bucket>` in the above snippet) must be the same bucket
 specified in the `global.objectStore.s3.bucke` field of Helm `values.yaml`.
 
 ### Step 4. Submit a fine-tuning job
