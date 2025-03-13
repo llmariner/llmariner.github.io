@@ -98,7 +98,7 @@ the following command creates a new file object that points to `s3://<my-bucket>
 ```bash
 aws s3 cp training.jsonl s3://<my-bucket>/training-data/training.jsonl
 llma storage files create-link \
-  --object-path s3://<my-bucket/training-data/training.jsonl \
+  --object-path s3://<my-bucket>/training-data/training.jsonl \
   --purpose fine-tune
 ```
 
