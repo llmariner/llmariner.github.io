@@ -129,15 +129,15 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;allowAnonymousTelemetry&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The following is a demo video that shows the Continue integration that enables the coding assistant with Llama-3.1-Nemotron-70B-Instruct.&lt;/p></description></item><item><title>Supported Open Models</title><link>https://llmariner.ai/docs/features/models/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/features/models/</guid><description>&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The following is a demo video that shows the Continue integration that enables the coding assistant with Llama-3.1-Nemotron-70B-Instruct.&lt;/p></description></item><item><title>Model Loading</title><link>https://llmariner.ai/docs/features/models/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/features/models/</guid><description>&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>LLMariner hosts LLMs in a Kubernetes cluster by downloading models from source repos and uploading to an S3-compatible object store. The supported source model repositories are following:&lt;/p>
 &lt;ul>
-&lt;li>LLMariner offical model repo&lt;/li>
-&lt;li>HuggingFace repos&lt;/li>
-&lt;li>Ollama repos&lt;/li>
+&lt;li>LLMariner offical model repository&lt;/li>
+&lt;li>HuggingFace repositories&lt;/li>
+&lt;li>Ollama repositories&lt;/li>
 &lt;li>S3 bucket&lt;/li>
 &lt;/ul>
-&lt;h2 id="officially-offical-model-repo">Officially Offical Model Repo&lt;a class="td-heading-self-link" href="#officially-offical-model-repo" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="official-model-repository">Official Model Repository&lt;a class="td-heading-self-link" href="#official-model-repository" aria-label="Heading self-link">&lt;/a>&lt;/h2>
 &lt;p>This is the default configuration.
 The following is a list of supported models where we have validated.&lt;/p>
 &lt;table>
