@@ -1,8 +1,8 @@
 ---
-title: Supported Open Models
-linkTitle: Supported Models
+title: Model Loading
+linkTitle: Model Loading
 description: >
-  The following shows the supported models.
+  The following shows how to load models in LLMariner.
 weight: 2
 ---
 
@@ -10,12 +10,12 @@ weight: 2
 
 LLMariner hosts LLMs in a Kubernetes cluster by downloading models from source repos and uploading to an S3-compatible object store. The supported source model repositories are following:
 
-- LLMariner offical model repo
-- HuggingFace repos
-- Ollama repos
+- LLMariner offical model repository
+- HuggingFace repositories
+- Ollama repositories
 - S3 bucket
 
-## Officially Offical Model Repo
+## Official Model Repository
 
 This is the default configuration.
 The following is a list of supported models where we have validated.
@@ -47,9 +47,9 @@ sentence-transformers/all-MiniLM-L6-v2-f16   | None                       |  Oll
 
 Please note that some models work only with specific inference runtimes.
 
-## HuggingFace Repos
+## Hugging Face Repositories
 
-First, create a k8s secret that contains the HuggingFace API key.
+First, create a k8s secret that contains the Hugging Face API key.
 
 ```bash
 kubectl create secret generic \
@@ -100,7 +100,7 @@ inference-manager-engine:
         - microsoft/phi-4
 ```
 
-## Ollama Repos
+## Ollama Repositories
 
 You can configure Ollama as model source repos by setting `model-manager-loader.downloader.kind` to `ollama`. The following is an example `values.yaml` that downloads `deepseek-r1:1.5b` from Ollama.
 
