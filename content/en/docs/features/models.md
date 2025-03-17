@@ -10,8 +10,8 @@ weight: 2
 
 LLMariner hosts LLMs in a Kubernetes cluster by downloading models from source repos and uploading to an S3-compatible object store. The supported source model repositories are following:
 
-- LLMariner offical model repository
-- HuggingFace repositories
+- LLMariner official model repository
+- Hugging Face repositories
 - Ollama repositories
 - S3 bucket
 
