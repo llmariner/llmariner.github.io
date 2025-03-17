@@ -1,6 +1,6 @@
 ---
 title: Hosted Control Plane
-linkTitle: "Hosting Service"
+linkTitle: "Hosted Control Plane"
 description: Install just the worker plane and use it with the hosted control plane.
 weight: 40
 ---
@@ -23,7 +23,7 @@ Deploy the worker plane components of LLMariner into your GPU cluster.
 
 The API endpoint of the hosted control plane is <https://api.llm.cloudnatix.com/v1>.
 
-Run `llma auth login` and use the above for the endpoint URL. Then follow [multi_cluster_deployment](./multi_cluster_production/) to obtain a cluster registration key and deploy LLMariner.
+Run `llma auth login` and use the above for the endpoint URL. Then follow [multi_cluster_deployment](./multi_cluster_production/#deploying-control-plane-components) to obtain a cluster registration key, create a k8s secret for the registration key, and deploy LLMariner.
 
 Here is an example `values.yaml`:
 
