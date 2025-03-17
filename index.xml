@@ -421,12 +421,15 @@ n8n to your Kubernetes clusters. Here is an example command:&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s"> targetPort: http
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s"> protocol: TCP
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">EOF&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can then access n8n with port forwarding:&lt;/p></description></item><item><title>GPU Federation</title><link>https://llmariner.ai/docs/features/gpu_federation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/features/gpu_federation/</guid><description>&lt;div class="alert alert-primary" role="alert">
-&lt;h4 class="alert-heading">Note&lt;/h4>
-
- Work-in-progress.
-
-&lt;/div></description></item><item><title>Slackbot</title><link>https://llmariner.ai/docs/integration/slackbot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/integration/slackbot/</guid><description>&lt;p>You can build a Slackbot that is integrated with LLMariner. The bot can provide a chat UI with Slack
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can then access n8n with port forwarding:&lt;/p></description></item><item><title>GPU Federation</title><link>https://llmariner.ai/docs/features/gpu_federation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/features/gpu_federation/</guid><description>&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>LLMariner GPU federation creates a global pool of GPUs across multiple
+clusters so that end users can submit training jobs without knowing
+GPU availability of individual K8s clusters.&lt;/p>
+&lt;p>End users can continue to use their existing tools to interact with
+the global GPU pool. For example, a user can create a new job with
+&lt;code>kubectl create&lt;/code>. LLMariner schedules it one of the worker clusters
+where a sufficient number of GPUs are available, and pods will start
+running there.&lt;/p></description></item><item><title>Slackbot</title><link>https://llmariner.ai/docs/integration/slackbot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://llmariner.ai/docs/integration/slackbot/</guid><description>&lt;p>You can build a Slackbot that is integrated with LLMariner. The bot can provide a chat UI with Slack
 and answer questions from end users.&lt;/p>
 &lt;p>An example implementation can be found in &lt;a href="https://github.com/llmariner/slackbot">https://github.com/llmariner/slackbot&lt;/a>. You can deploy it in your
 Kubernetes clusters and build a Slack app with the following configuration:&lt;/p>
