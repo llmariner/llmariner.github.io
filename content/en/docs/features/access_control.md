@@ -3,7 +3,7 @@ title: Access Control with Organizations and Projects
 linkTitle: Access Control
 description: >
   The way to configure access control using organizations and projects
-weight: 9
+weight: 10
 ---
 
 ## Overview
