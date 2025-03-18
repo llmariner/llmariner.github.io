@@ -66,8 +66,6 @@ Then deploy LLMariner with the following `values.yaml`.
 model-manager-loader:
   downloader:
     kind: huggingFace
-    huggingFace:
-      cacheDir: /tmp/.cache/huggingface/hub
   huggingFaceSecret:
     name: huggingface-key
     apiKeyKey: apiKey
@@ -134,5 +132,5 @@ model-manager-loader:
       pathPrefix: v1/base-models
       # Set to true if the bucket is public and we don't want to
       # use the credential attached to the pod.
-	  isPublic: false
+      isPublic: false
 ```
