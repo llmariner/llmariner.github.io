@@ -132,4 +132,7 @@ model-manager-loader:
       bucket: my-models
       # The path prefix of the model.
       pathPrefix: v1/base-models
+      # Set to true if the bucket is public and we don't want to
+      # use the credential attached to the pod.
+	  isPublic: false
 ```
