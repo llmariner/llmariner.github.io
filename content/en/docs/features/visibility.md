@@ -18,3 +18,19 @@ Work-in-progress.
 ### Auto-scaling of Inference Runtimes
 
 ### Scheduled Scale Up and Down of Inference Runtimes
+
+If you want to scale up/down model runtimes based on certain schedules, you can enable the scheduled shutdown feature.
+
+Here is an example `values.yaml`.
+
+```yaml
+  inference-manager-engine:
+    runtime:
+      scheduledShutdown:
+        enable: true
+        schedule:
+         # Pods are up between 9AM to 5PM.
+         scaleUp:   "0 9 * * *"
+         scaleDown: "0 17 * * *"
+         timeZone: "Asia/Tokyo"
+```
