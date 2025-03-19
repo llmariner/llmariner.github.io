@@ -84,6 +84,19 @@ llma fine-tuning jobs logs <job-id>
 llma fine-tuning jobs exec <job-id>
 ```
 
+## Changing the Number of GPUs allocated to Jobs
+
+By default one GPU is allocated to each fine-tuning job. If you want to change the number
+of GPUs allocated to jobs, please change the value of `job-manager-dispatcher.job.numGpus` in Helm values.
+
+For example, the following will allocate 4 GPUs to each fine-tuning job.
+
+```yaml
+job-manager-dispatcher:
+  job:
+    numGpus: 4
+```
+
 ## Managing Quota
 
 LLMariner allows users to manage GPU quotas with integration with [Kueue](https://kueue.sigs.k8s.io/).
