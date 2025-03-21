@@ -15,6 +15,38 @@ LLMariner hosts LLMs in a Kubernetes cluster by downloading models from source r
 - Ollama repositories
 - S3 bucket
 
+If you already know models that you would like to download, you can specify them
+in `values.yaml`. Here is an example configuration where two models are downloaded from
+the LLMariner official model repository.
+
+```yaml
+model-manager-loader:
+  baseModels:
+  - google/gemma-2b-it-q4_0
+  - sentence-transformers/all-MiniLM-L6-v2-f16
+```
+
+You can always update `values.yaml` and upgrade the Helm chart to download additional models.
+
+You can also run `llma models create` to download additional models. For example, the following command
+will download `deepseek-r1:1.5b` from the Ollama repository.
+
+```bash
+llma models create deepseek-r1:1.5b --source-repository ollama
+```
+
+You can check the status of the download with:
+
+```bash
+llma models list
+```
+
+
+{{% alert title="Note" color="primary" %}}
+To download models from Hugging Face, you need additional configuration to embed the Hugging Face API key
+to `model-manager-loader`. Please see the page below for details.
+{{% /alert %}}
+
 ## Official Model Repository
 
 This is the default configuration.
