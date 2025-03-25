@@ -79,7 +79,7 @@ create a file of an S3 object if the object should not be visible to users who c
 
 You can use the `llma` CLI to check the logs and exec into the pod.
 
-``` bash
+```bash
 llma fine-tuning jobs logs <job-id>
 llma fine-tuning jobs exec <job-id>
 ```
