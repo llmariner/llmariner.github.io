@@ -148,3 +148,42 @@ The output will have the `tool_calls` in its `message`.
 {{% alert title="Note" color="primary" %}}
 Work-in-progress.
 {{% /alert %}}
+
+## Model Runtime Configuration
+
+We currently support vLLM, Ollama, and Nvidia Triton Inference Server
+as an inference runtime. You can change a runtime for each model. For
+example, in the following configuration, the default runtime is set to
+vLLM, and Ollama is used for `deepseek-r1:1.5b`.
+
+
+```yaml
+inference-manager-engine:
+  ...
+  model:
+    default:
+      runtimeName: vllm  # Default runtime
+      resources:
+        limits:
+          nvidia.com/gpu: 1
+    overrides:
+      lmstudio-community/phi-4-GGUF/phi-4-Q6_K.gguf:
+        preloaded: true
+        vllmExtraFlags:
+        - --tokenizer
+        - microsoft/phi-4
+      deepseek-r1:1.5b:
+        runtimeName: ollama # Override the default runtime
+        preloaded: true
+        resources:
+          limits:
+            nvidia.com/gpu: 0
+```
+
+By default, one Pod serves only one pod. If you want to make one Ollama pod serve multiple models, you can set `dynamicModelLoading` to `true`.
+
+```yaml
+inference-manager-engine:
+  ollama:
+    dynamicModelLoading: true
+```
