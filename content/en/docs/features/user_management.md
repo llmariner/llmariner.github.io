@@ -46,6 +46,6 @@ dex-server:
     enable: false
 ```
 
-Please refer to the [Dec documentations](https://dexidp.io/docs/connectors/) for more details.
+Please refer to the [Dex documentations](https://dexidp.io/docs/connectors/) for more details.
 
 The Helm chart for Dex creates an ingress so that HTTP requests to `v1/dex` are routed to Dex. This endpoint URL works as the OIDC issuer URL that CLI and backend servers use.
