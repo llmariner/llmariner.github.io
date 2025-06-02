@@ -41,6 +41,9 @@ You can check the status of the download with:
 llma models list
 ```
 
+Once the download has been completed, you can activate the model. The activated model becomes ready
+for inference once `inference-manager-engine` loads the model.
+
 
 {{% alert title="Note" color="primary" %}}
 To download models from Hugging Face, you need additional configuration to embed the Hugging Face API key
@@ -101,6 +104,8 @@ model-manager-loader:
   huggingFaceSecret:
     name: huggingface-key
     apiKeyKey: apiKey
+    huggingFace:
+      cacheDir: /tmp/.cache
 
   baseModels:
   - Qwen/Qwen2-7B
