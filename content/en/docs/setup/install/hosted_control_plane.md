@@ -57,9 +57,7 @@ inference-manager-engine:
   runtime:
     runtimeImages:
       ollama: mirror.gcr.io/ollama/ollama:0.3.6
-      # To use the upstream vLLM. Update once a new release that
-      # fixes https://github.com/vllm-project/vllm/issues/11970 is made.
-      vllm: public.ecr.aws/cloudnatix/llm-operator/vllm-openai:20250115
+      vllm: public.ecr.aws/cloudnatix/llm-operator/vllm-openai:v0.8.5.post1
       triton: nvcr.io/nvidia/tritonserver:24.09-trtllm-python-py3
   model:
     default:
