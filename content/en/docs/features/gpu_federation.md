@@ -51,7 +51,7 @@ kubectl create namesapce llmariner
 kubectl create secret -n llmariner generic syncer-api-key --from-literal=key=<API key secret>
 ```
 
-### Step 3. Install `job-manager-syncer` in the proxy cluster.
+### Step 3. Install `job-manager-syncer` in the proxy cluster
 
 Run:
 
@@ -84,3 +84,8 @@ job-manager-syncer:
       name: syncer-api-key
       key: key
 ```
+
+### Step 4. Submit a test job to the proxy cluster
+
+Use `kubectl` or other command and submit a test job requesting GPU to the proxy cluster. The submitted job will be redirected to
+one of the worker clusters that have been registered.
