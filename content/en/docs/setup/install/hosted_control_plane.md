@@ -95,8 +95,8 @@ model-manager-loader:
     apiKeyKey: apiKey
 
 job-manager-dispatcher:
-    notebook:
-      llmarinerBaseUrl: https://api.llm.cloudnatix.com/v1
+  notebook:
+    llmarinerBaseUrl: https://api.llm.cloudnatix.com/v1
 
 session-manager-agent:
   sessionManagerServerWorkerServiceAddr: session.llm.cloudnatix.com:443
