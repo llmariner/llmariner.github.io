@@ -23,7 +23,64 @@ Deploy the worker plane components of LLMariner into your GPU cluster.
 
 The API endpoint of the hosted control plane is <https://api.llm.cloudnatix.com/v1>.
 
-Run `llma auth login` and use the above for the endpoint URL. Then follow [multi_cluster_deployment](./multi_cluster_production/#deploying-control-plane-components) to obtain a cluster registration key, create a k8s secret for the registration key, and deploy LLMariner.
+### Step 2.1 Generate a cluster registration key
+
+A cluster registration key is required to register your cluster.
+
+If you prefer GUI, visit https://app.llm.cloudnatix.com/app/admin and click "Add worker cluster".
+
+If you prefer CLI, run `llma auth login` and use the above for the endpoint URL. Then run:
+
+``` bash
+llma admin clusters register <cluster-name>
+```
+
+Then create a secret containing the registration key.
+
+``` bash
+REGISTRATION_KEY=clusterkey-...
+
+kubectl create secret generic \
+  -n llmariner \
+  cluster-registration-key \
+  --from-literal=regKey="${REGISTRATION_KEY}"
+```
+
+### Step 2.2 Create a k8s secret for Hugging Face API key (optional)
+
+If you want to download models from Hugging Face, create a k8s secret with the following command:
+
+```bash
+HUGGING_FACE_HUB_TOKEN=...
+
+kubectl create secret generic \
+  huggingface-key \
+  -n llmariner \
+  --from-literal=apiKey=${HUGGING_FACE_HUB_TOKEN}
+```
+
+### Step 2.3 Set up an S3-compatible object store
+
+You can use AWS S3, MinIO, or other S3-compatible object store.
+
+Please see [create an S3 bucket](./single_cluster_eks/#step-3-create-an-s3-bucket) for the example AWS S3 bucket configuration.
+
+
+### Step 2.4 Deploy LLMariner
+
+Run
+
+``` bash
+# Logout of helm registry to perform an unauthenticated pull against the public ECR
+helm registry logout public.ecr.aws
+
+helm upgrade --install \
+  --namespace llmariner \
+  --create-namespace \
+  llmariner oci://public.ecr.aws/cloudnatix/llmariner-charts/llmariner \
+  --values <values.yaml>
+```
+
 
 Here is an example `values.yaml`:
 
@@ -40,15 +97,20 @@ global:
       name: cluster-registration-key
       key: regKey
 
+  # Update this to your S3 object store.
   objectStore:
     s3:
       bucket: cloudnatix-installation-demo
       endpointUrl: ""
       region: us-west-2
 
+  # Update this to the k8s secret required to access the S3 object store.
   awsSecret:
+    # Name of the secret.
     name: aws
+    # Secret key for the access key ID.
     accessKeyIdKey: accessKeyId
+    # Secret key for the secret access key.
     secretAccessKeyKey: secretAccessKey
 
 inference-manager-engine:
@@ -63,29 +125,16 @@ inference-manager-engine:
     default:
       runtimeName: vllm
     overrides:
-      NikolayKozloff/DeepSeek-R1-Distill-Qwen-14B-Q4_K_M-GGUF:
-        preloaded: true
+      meta-llama/Llama-3.2-1B-Instruct:
+        preloaded: false
         runtimeName: vllm
         resources:
           limits:
             nvidia.com/gpu: 1
-        vllmExtraFlags:
-        - --tokenizer
-        - deepseek-ai/DeepSeek-R1-Distill-Qwen-14B
-      lmstudio-community/phi-4-GGUF/phi-4-Q4_K_M.gguf:
-        preloaded: true
-        runtimeName: vllm
-        resources:
-          limits:
-            nvidia.com/gpu: 1
-        vllmExtraFlags:
-        - --tokenizer
-        - microsoft/phi-4
 
 model-manager-loader:
   baseModels:
-  - lmstudio-community/phi-4-GGUF/phi-4-Q4_K_M.gguf
-  - NikolayKozloff/DeepSeek-R1-Distill-Qwen-14B-Q4_K_M-GGUF
+  - meta-llama/Llama-3.2-1B-Instruct
   downloader:
     kind: huggingFace
     huggingFace:
