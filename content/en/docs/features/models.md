@@ -101,11 +101,11 @@ Then deploy LLMariner with the following `values.yaml`.
 model-manager-loader:
   downloader:
     kind: huggingFace
+    huggingFace:
+      cacheDir: /tmp/.cache
   huggingFaceSecret:
     name: huggingface-key
     apiKeyKey: apiKey
-    huggingFace:
-      cacheDir: /tmp/.cache
 
   baseModels:
   - Qwen/Qwen2-7B
