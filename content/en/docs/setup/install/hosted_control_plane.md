@@ -118,8 +118,8 @@ inference-manager-engine:
   replicaCount: 2
   runtime:
     runtimeImages:
-      ollama: mirror.gcr.io/ollama/ollama:0.3.6
-      vllm: public.ecr.aws/cloudnatix/llm-operator/vllm-openai:v0.8.5.post1
+      ollama: mirror.gcr.io/ollama/ollama:0.6.3-rc0
+      vllm: mirror.gcr.io/vllm/vllm-openai:v0.8.5
       triton: nvcr.io/nvidia/tritonserver:24.09-trtllm-python-py3
   model:
     default:
