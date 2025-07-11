@@ -143,11 +143,45 @@ The output will have the `tool_calls` in its `message`.
 }
 ```
 
-## Audio-to-Text
+## Audio Transcription
 
-{{% alert title="Note" color="primary" %}}
-Work-in-progress.
-{{% /alert %}}
+LLMariner supports the `/v1/audio/transcriptions` API. You can use a model like OpenAI/Whispter for this API.
+
+CLI:
+
+``` bash
+llma audio transcriptions create --model openai-whisper-large-v3-turbo --file <audio file>
+```
+
+Python:
+
+``` python
+from openai import OpenAI
+
+client = OpenAI(
+  base_url="<Base URL (e.g., http://localhost:8080/v1)>",
+  api_key="<API key secret>"
+)
+
+response = client.audio.transcriptions.create(
+    model="openai-whisper-large-v3-turbo",
+    file=open("<audio file>", "rb")
+)
+print(response)
+```
+
+curl:
+
+``` bash
+curl \
+  --request POST \
+  --header "Authorization: Bearer ${LLMARINER_TOKEN}" \
+  --header "Content-Type: multipart/form-data" \
+  -F model=openai-whisper-large-v3-turbo \
+  -F file="@<audio file>" \
+  http://localhost:8080/v1/audio/transcriptions
+```
+
 
 ## Model Runtime Configuration
 
