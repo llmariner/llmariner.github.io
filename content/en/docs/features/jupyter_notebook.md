@@ -113,7 +113,7 @@ pip install "numpy<2"
 vllm serve TinyLlama/TinyLlama-1.1B-Chat-v1.0
 ```
 
-Then this will start a vLLM server at port 8000.
+This will start a vLLM server at port 8000.
 
 You can obtain the base URL of the vLLM server with the following command:
 
@@ -121,7 +121,7 @@ You can obtain the base URL of the vLLM server with the following command:
 llma workspace notebooks open my-notebook --port 8000 --no-open
 ```
 
-You need to set the LLMariner API key to the Authorization header of requests. Here is an example
+You need to set the Authorization header of requests to an LLMariner API key. Here is an example
 to list model and send a chat completion request.
 
 ```bash
