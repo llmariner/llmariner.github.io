@@ -84,3 +84,63 @@ print("\n")
 {{% alert title="Note" color="primary" %}}
 By default, pre-configured API key is a JWT and it can expire. You can also pass your API key to the `OpenAI` client.
 {{% /alert %}}
+
+## Running vLLM inside the Jupyter Notebook
+
+You can run a vLLM server inside a Jupyter Notebook and access it from your local desktop/laptop.
+
+First, create a Notebook with `--gpu` and `--port`. `--gpu` will allocate a GPU to the Notebook pod, and `--port` will expose a specified port externally. For example, the following command will create a Notebook with one GPU and expose port 8000.
+
+``` bash
+llma workspace notebooks create my-notebook --gpu 1 --port 8000
+```
+
+Once the Notebook starts running, access it.
+
+``` bash
+llma workspace notebooks open my-notebook
+```
+
+Then go to the terminal and run:
+
+```bash
+pip install vllm
+
+# To resolve the vLLM dependency issue.
+pip install "numpy<2"
+
+# You can choose other model. Set env var HUGGING_FACE_HUB_TOKEN if needed.
+vllm serve TinyLlama/TinyLlama-1.1B-Chat-v1.0
+```
+
+Then this will start a vLLM server at port 8000.
+
+You can obtain the base URL of the vLLM server with the following command:
+
+```bash
+llma workspace notebooks open my-notebook --port 8000 --no-open
+```
+
+You need to set the LLMariner API key to the Authorization header of requests. Here is an example
+to list model and send a chat completion request.
+
+```bash
+LLMARINER_BASE_URL=$(llma workspace notebooks open vllm-test --port 8000 --no-open | grep http)
+
+# Create a new API key and save its secret
+LLMARINER_TOKEN=$(llma auth api-keys create test-key | sed -n 's/.*Secret: \(.*\)/\1/p')
+
+# List models.
+curl \
+  --header "Authorization: Bearer ${LLMARINER_TOKEN}" \
+  --header "Content-Type: application/json" \
+  "${LLMARINER_BASE_URL}/v1/models" | jq .
+
+# Send a chat completion request.
+curl \
+  --request POST \
+  --header "Authorization: Bearer ${LLMARINER_TOKEN}" \
+  --header "Content-Type: application/json" \
+  --data '{"model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0", "messages": [{"role": "user", "content": "What is k8s?"}]}' \
+  "${LLMARINER_BASE_URL}/v1/chat/completions" | jq .
+```
