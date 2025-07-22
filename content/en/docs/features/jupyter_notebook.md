@@ -106,7 +106,7 @@ Then go to the terminal and run:
 ```bash
 pip install vllm
 
-# To resolve the  vLLM dependency issue.
+# To resolve the vLLM dependency issue.
 pip install "numpy<2"
 
 # You can choose other model. Set env var HUGGING_FACE_HUB_TOKEN if needed.
