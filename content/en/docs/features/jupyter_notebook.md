@@ -118,14 +118,7 @@ Then this will start a vLLM server at port 8000.
 You can obtain the base URL of the vLLM server with the following command:
 
 ```bash
-llma workspace notebooks open vllm-test --port 8000 --no-open
-```
-
-You need to set the LLMariner API key to the Authorization header of requests. Here is an example
-to list model and send a chat completion request.
-
-```bash
-LLMARINER_BASE_URL=$(llma workspace notebooks open vllm-test --port 8000 --no-open | grep http)
+llma workspace notebooks open my-notebook --port 8000 --no-open
 # Create a new API key and save its secret
 LLMARINER_TOKEN=$(llma auth api-keys create test-key | sed -n 's/.*Secret: \(.*\)/\1/p')
 
