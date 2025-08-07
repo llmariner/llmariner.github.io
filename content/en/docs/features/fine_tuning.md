@@ -142,3 +142,27 @@ metadata:
 spec:
   clusterQueue: team-a
 ```
+
+## Enabling Dynamic LoRA loading
+
+By default, an inference runtime pod is created for each fine-tuned model. If you want to load LoRA on a pod that serves a base model,
+enable dynamic LoRA loading.
+
+You need to set `inference-manager-engine.vllm.dynamicLoRALoading` to `true` and add `--enable-lora` to `vllmExtraFlags` of the base model.
+Here is an example configuration.
+
+
+```yaml
+inference-manager-engine:
+  vllm:
+    dynamicLoRALoading: true
+  model:
+    default:
+	   ...
+    overrides:
+      Qwen/Qwen3-1.7B:
+        vllmExtraFlags:
+        - --enable-lora
+        - --max-lora-rank
+        - "64"
+```
