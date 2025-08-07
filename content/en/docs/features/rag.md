@@ -6,7 +6,28 @@ description: >
 weight: 3
 ---
 
-## An Example Flow
+## Embedding API
+
+If you want to just generate embeddings, you can use the Embedding API, which is compatible with the OpenAI API.
+
+Here are examples:
+
+``` bash
+llma embeddings create --model intfloat-e5-mistral-7b-instruct --input "sample text"
+
+
+curl \
+  --request POST \
+  --header "Authorization: Bearer ${LLMARINER_TOKEN}" \
+  --header "Content-Type: application/json" \
+  --data '{
+   "model": "sentence-transformers-all-MiniLM-L6-v2-f16",
+   "input": "sample text"
+ }' \
+ http://localhost:8080/v1/embeddings
+```
+
+## Vector Store API
 
 The first step is to create a vector store and create files in the vector store. Here is an example script with the OpenAI Python library:
 
@@ -104,25 +125,4 @@ curl \
      }
  }]}' \
  http://localhost:8080/v1/chat/completions
-```
-
-## Embedding API
-
-If you want to just generate embeddings, you can use the Embedding API, which is compatible with the OpenAI API.
-
-Here are examples:
-
-``` bash
-llma embeddings create --model intfloat-e5-mistral-7b-instruct --input "sample text"
-
-
-curl \
-  --request POST \
-  --header "Authorization: Bearer ${LLMARINER_TOKEN}" \
-  --header "Content-Type: application/json" \
-  --data '{
-   "model": "sentence-transformers-all-MiniLM-L6-v2-f16",
-   "input": "sample text"
- }' \
- http://localhost:8080/v1/embeddings
 ```
