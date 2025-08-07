@@ -121,6 +121,9 @@ inference-manager-engine:
       ollama: mirror.gcr.io/ollama/ollama:0.6.3-rc0
       vllm: mirror.gcr.io/vllm/vllm-openai:v0.8.5
       triton: nvcr.io/nvidia/tritonserver:24.09-trtllm-python-py3
+  engineHeartbeat:
+    reconnectOnNoHeartbeat: true
+    heartbeatTimeout: 120s
   model:
     default:
       runtimeName: vllm
