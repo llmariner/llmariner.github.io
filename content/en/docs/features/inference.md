@@ -182,6 +182,40 @@ curl \
   http://localhost:8080/v1/audio/transcriptions
 ```
 
+## Model Response API
+
+LLMariner supports the `/v1/responses` API. You can, for example, use `openai/gpt-oss-120b` for this API.
+
+```bash
+curl \
+  --request POST \
+  --header "Authorization: Bearer ${LLMARINER_TOKEN}" \
+  --header 'Content-Type: application/json' \
+  --data '{
+   "model": "openai-gpt-oss-120b",
+   "input": "What is the capital of France?",
+   "tools": [{
+     "type": "function",
+     "name": "get_weather",
+     "description": "Get current temperature for a given location.",
+     "parameters": {
+       "type": "object",
+       "properties": {
+         "location": {
+           "type": "string",
+           "description": "City and country e.g. Bogotá, Colombia"
+         }
+       },
+       "required": [
+         "location"
+       ],
+       "additionalProperties": false
+     }
+   }],
+   "tool_choice": "auto"
+}' \
+  http://localhost:8080/v1/responses
+```
 
 ## Model Runtime Configuration
 
