@@ -96,7 +96,7 @@ curl \
     "type": "function",
     "function": {
       "name": "get_weather",
-      "description": "Get current temperature for a given location.",
+      "description": "Get current weather for a given location.",
         "parameters": {
           "type": "object",
           "properties": {
