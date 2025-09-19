@@ -28,11 +28,11 @@ model-manager-loader:
 
 You can always update `values.yaml` and upgrade the Helm chart to download additional models.
 
-You can also run `llma models create` to download additional models. For example, the following command
+You can also run `llma models (base|fine-tuned) create` to download additional models. For example, the following command
 will download `deepseek-r1:1.5b` from the Ollama repository.
 
 ```bash
-llma models create deepseek-r1:1.5b --source-repository ollama
+llma models create base deepseek-r1:1.5b --source-repository ollama
 ```
 
 You can check the status of the download with:
@@ -49,6 +49,51 @@ for inference once `inference-manager-engine` loads the model.
 To download models from Hugging Face, you need additional configuration to embed the Hugging Face API key
 to `model-manager-loader`. Please see the page below for details.
 {{% /alert %}}
+
+## Model Configuration
+
+There are two ways to configure model deployment: Helm chart and model API.
+
+In the Helm chart, you can put your own configuration under `inference-runtime-engine.model` and
+control GPU allocation, extra flags to runtime, number of replicas, etc. Here is an example:
+
+```yaml
+inference-manager-engine:
+  model:
+    default:
+      runtimeName: vllm
+      replicas: 1
+      resources:
+        limits:
+          nvidia.com/gpu: 1
+    overrides:
+      meta-llama/Llama-3.2-1B-Instruct:
+        vllmExtraFlags:
+        - --enable-lora
+        - --max-lora-rank
+        - "64"
+      openai/gpt-oss-120b:
+        image: vllm/vllm-openai:gptoss
+        replicas: 2
+```
+
+Please see https://artifacthub.io/packages/helm/inference-manager-engine/inference-manager-engine?modal=values for details.
+
+To use the model API to configure model deployment configuration, you first
+need to set `inference-manager-engine.model.enableOverrideWithModelConfig` to `true`.
+Then you can specify the deployment configuration when running `llma
+model (base|fine-tuned) create` or `llma model update`. For example,
+the following command will deploy four replicas of an inference
+runtime to serve `deepseek-r1:1.5b`. Two GPUs are allocated to each
+replica.
+
+```bash
+llma models create base deepseek-r1:1.5b \
+  --source-repository ollama \
+  --replicas 4 \
+  --gpu 2
+```
+
 
 ## Official Model Repository
 
