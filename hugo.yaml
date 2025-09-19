@@ -170,7 +170,7 @@ params:
         icon: fab fa-github
         desc: Development takes place here!
       - name: Slack
-        url: https://join.slack.com/t/llmariner/shared_invite/zt-2rbwooslc-LIrUCmK9kklfKsMEirUZbg
+        url: https://join.slack.com/t/llmariner/shared_invite/zt-2wef32o5h-6oXg2eH67tztH9tdPceZYw
         icon: fab fa-slack
         desc: Chat with other project developers
 
