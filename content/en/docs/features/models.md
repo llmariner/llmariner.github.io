@@ -82,7 +82,7 @@ Please see https://artifacthub.io/packages/helm/inference-manager-engine/inferen
 To use the model API to configure model deployment, you first
 need to set `inference-manager-engine.model.enableOverrideWithModelConfig` to `true`.
 Then you can specify the deployment configuration when running `llma
-model (base|fine-tuned) create` or `llma model update`. For example,
+models (base|fine-tuned) create` or `llma models update`. For example,
 the following command will deploy four replicas of an inference
 runtime to serve `deepseek-r1:1.5b`. Two GPUs are allocated to each
 replica.
