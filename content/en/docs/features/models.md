@@ -79,7 +79,7 @@ inference-manager-engine:
 
 Please see https://artifacthub.io/packages/helm/inference-manager-engine/inference-manager-engine?modal=values for details.
 
-To use the model API to configure model deployment configuration, you first
+To use the model API to configure model deployment, you first
 need to set `inference-manager-engine.model.enableOverrideWithModelConfig` to `true`.
 Then you can specify the deployment configuration when running `llma
 model (base|fine-tuned) create` or `llma model update`. For example,
