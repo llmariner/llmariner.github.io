@@ -54,7 +54,7 @@ to `model-manager-loader`. Please see the page below for details.
 
 There are two ways to configure model deployment: Helm chart and model API.
 
-In the Helm chart, you can put your own configuration under `inference-runtime-engine.model` and
+In the Helm chart, you can put your own configuration under `inference-manager-engine.model` and
 control GPU allocation, extra flags to runtime, number of replicas, etc. Here is an example:
 
 ```yaml
