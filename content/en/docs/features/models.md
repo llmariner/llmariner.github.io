@@ -94,7 +94,6 @@ llma models create base deepseek-r1:1.5b \
   --gpu 2
 ```
 
-
 ## Official Model Repository
 
 This is the default configuration.
